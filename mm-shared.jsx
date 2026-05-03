@@ -199,7 +199,7 @@ function FooterEl() {
         </div>
         <div style={{ paddingTop: 24, display: 'flex', justifyContent: 'space-between', fontSize: 12, color: 'rgba(255,251,242,0.55)' }}>
           <span>© 2026 Özel Mavi Mine Anaokulu</span>
-          <span className="mono">mavi · mine · İstanbul</span>
+          <span className="mono">mavi · mine · Bursa</span>
         </div>
       </div>
     </footer>
