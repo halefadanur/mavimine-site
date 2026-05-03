@@ -146,7 +146,7 @@ function ThreeQuestions() {
       <div className="yaz-three-inner">
         <div className="yaz-three-head">
           <div className="section-label center">Karar vermeden önce</div>
-          <h2>Yaz okulu seçerken sormanız gereken <em>üç soru</em>.</h2>
+          <h2>Yaz okulu seçerken sormanız gereken <em>üç soru.</em></h2>
           <p className="yaz-three-lede">
             Çocuğunuzun yazını bir yerlere emanet ediyorsunuz. Cevaplar
             <strong> sayfanın güzel olmasından</strong> çok daha önemli.
@@ -207,7 +207,7 @@ function YazNarrative() {
           <p className="yaz-narrative-coda">
             <strong>Ve daha pek çok şey</strong> — drama, müzik, hikâye saati,
             doğa keşifleri, hayvan ziyaretleri... Liste uzun, ama önemli olan
-            liste değil. Önemli olan <em>çocuğun ne yaşadığı</em>.
+            liste değil. Önemli olan <em>çocuğun ne yaşadığı.</em>
           </p>
         </div>
         <div className="yaz-narrative-visual">
@@ -225,7 +225,7 @@ function YazMain() {
       <div className="yaz-main-inner">
         <div className="yaz-main-head">
           <div className="section-label center">Bu yazın dört direği</div>
-          <h2>Etkinlik <em>kovalamayız</em>, yaşarız.</h2>
+          <h2>Etkinlik <em>kovalamayız,</em> yaşarız.</h2>
           <p className="yaz-main-lede">
             Ayda bir gidilen havuz değil — kendi havuzumuz. Yılda bir görülen at
             değil — haftada bir. Hafta boyunca dönen dört ana etkinlik.
@@ -261,7 +261,7 @@ function YazSide() {
       <div className="yaz-side-inner">
         <div className="yaz-side-head">
           <div className="section-label center">Günün içinde dağılmış</div>
-          <h2>Bunlar da var — <em>arada arada</em>.</h2>
+          <h2>Bunlar da var — <em>arada arada.</em></h2>
           <p className="yaz-side-lede">
             Sanat, müzik, doğa bilimi ve daha pek çok şey — programa zorla
             sıkıştırılmış değil, günün doğal akışına serpilmiş.
@@ -287,7 +287,7 @@ function YazDayFlow() {
       <div className="yaz-day-inner">
         <div className="yaz-day-text">
           <div className="section-label">Bir günün şekli</div>
-          <h2>Sabah 7:30'dan akşam 6:30'a — <em>çocuğun ritmiyle</em>.</h2>
+          <h2>Sabah 7:30'dan akşam 6:30'a — <em>çocuğun ritmiyle.</em></h2>
           <p>
             Tam gün ya da yarım gün — siz seçersiniz. Yarım gün öğle 12:30'a
             kadar, tam gün okul ritminde. Saatler katı değil, çocuğun
@@ -323,7 +323,7 @@ function YazCTA() {
         </svg>
 
         <div className="section-label center" style={{ color: 'var(--sun)' }}>Yer ayırtın</div>
-        <h2>Çocuğunuzun bu yazı <em>boşa geçmesin</em>.</h2>
+        <h2>Çocuğunuzun bu yazı <em>boşa geçmesin.</em></h2>
         <p>
           Tarihler, gruplar, kayıt detayları kişiye göre planlanır.
           Yarım gün mü tam gün mü, hangi haftalar — bir telefon yeter,
@@ -336,7 +336,7 @@ function YazCTA() {
         <div className="yaz-cta-note">
           <span className="handwritten" style={{ fontSize: 22 }}>Mavi Mine'li değil misiniz?</span><br/>
           Sorun değil — yaz okulu, ailelerin bizi tanıması için iyi bir başlangıç.
-          Belki yaz biter, çocuğunuz <em>kalmak ister</em>.
+          Belki yaz biter, çocuğunuz <em>kalmak ister.</em>
         </div>
       </div>
     </section>

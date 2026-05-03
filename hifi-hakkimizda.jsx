@@ -111,7 +111,7 @@ function MaviDeepSection() {
       <div className="deep-inner">
         <div className="deep-head">
           <div className="section-label center" style={{ color: 'var(--teal-deep)' }}>Mavi'de neyimiz var?</div>
-          <h2>Çocuğun <em style={{ color: 'var(--teal-deep)' }}>ufku</em>.</h2>
+          <h2>Çocuğun <em style={{ color: 'var(--teal-deep)' }}>ufku.</em></h2>
           <p className="deep-lede">
             Mavi; bir çocuğun zihninde açtığımız geniş alandır. Dört söz, dört kapı.
           </p>
@@ -136,7 +136,7 @@ function MineDeepSection() {
       <div className="deep-inner">
         <div className="deep-head">
           <div className="section-label center" style={{ color: 'var(--orange)' }}>Mine'de neyimiz var?</div>
-          <h2>Çocuğun <em style={{ color: 'var(--orange)' }}>özü</em>.</h2>
+          <h2>Çocuğun <em style={{ color: 'var(--orange)' }}>özü.</em></h2>
           <p className="deep-lede">
             Mine; bir çocuğun içindeki değerdir. Sabırla, sevgiyle, ince ince işlenir.
           </p>
@@ -168,7 +168,7 @@ function ProfileSection() {
       <div className="profile-inner">
         <div className="profile-head">
           <div className="section-label center">Peki bu çocuklar kimler?</div>
-          <h2>Mavi Mine'nin <em>çocukları</em>.</h2>
+          <h2>Mavi Mine'nin <em>çocukları.</em></h2>
           <p className="profile-lede">
             Mavi Mine bir kalıp değildir; bir <strong>ortamdır.</strong> Buraya gelen her çocuk farklıdır —
             kimi sessizdir, gözlemler; kimi koşar, keşfeder; kimi şarkı söyler, kimi kitabıyla bir köşeye çekilir.

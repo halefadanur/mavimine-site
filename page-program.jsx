@@ -172,7 +172,7 @@ function YearRhythm() {
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div className="section-label">Yıl Ritmi</div>
         <h2 style={{ fontSize: 'clamp(40px, 4.4vw, 60px)', marginBottom: 50 }}>
-          Bir <span className="handwritten" style={{ color: 'var(--orange)', fontSize: '1.1em' }}>eğitim yılı</span>.
+          Bir <span className="handwritten" style={{ color: 'var(--orange)', fontSize: '1.1em' }}>eğitim yılı.</span>
         </h2>
         <div className="prog-4-grid">
           {seasons.map((s, i) => (

@@ -116,7 +116,7 @@ function SupportHero() {
         <div className="section-label center">Çocuğa Özel Destek</div>
         <h1>
           <span className="handwritten" style={{ color: 'var(--orange)', fontSize: '0.55em', display: 'block', marginBottom: 12 }}>her çocuk biriciktir,</span>
-          desteği de <em>kendine özel</em>.
+          desteği de <em>kendine özel.</em>
         </h1>
         <p className="support-hero-lede">
           Her çocuğun gelişim ihtiyacı farklıdır. Mavi Mine'de, alanında uzman eğitmenlerimizle birlikte
@@ -163,7 +163,7 @@ function SupportGrid() {
       <div className="support-grid-inner">
         <div className="support-grid-head">
           <div className="section-label">Destek Alanlarımız</div>
-          <h2>Hangi alanda <em>yanınızdayız</em>?</h2>
+          <h2>Hangi alanda <em>yanınızdayız?</em></h2>
           <p className="support-grid-lede">
             Tıkladığınız her alanda, alanında uzman eğitmenlerimizle birlikte neler yaptığımızı görebilirsiniz.
           </p>
@@ -189,7 +189,7 @@ function ProcessSection() {
       <div className="process-inner">
         <div className="process-head">
           <div className="section-label center">Nasıl Çalışıyoruz</div>
-          <h2>Bir destek süreci <em>nasıl ilerler</em>?</h2>
+          <h2>Bir destek süreci <em>nasıl ilerler?</em></h2>
           <p className="process-lede">
             Her çocuğun mizacı, gelişim hızı ve duygusal hazırlığı farklıdır.
             Süreci katı bir şablonla değil, çocuğunuza göre <strong>uyarlayarak</strong> yürütürüz.
@@ -235,7 +235,7 @@ function SupportClosing() {
 
         <blockquote>
           Çocuğunuzun ihtiyacını birlikte<br/>
-          dinleyelim, birlikte <em>kuralım</em>.
+          dinleyelim, birlikte <em>kuralım.</em>
         </blockquote>
         <p className="closing-text">
           Hangi alandan başlayacağınızdan emin değilseniz dert etmeyin —

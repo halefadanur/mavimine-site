@@ -36,7 +36,7 @@ function IletisimHero() {
       <div className="iletisim-hero-inner">
         <div className="section-label center">İletişim</div>
         <h1>
-          Bize <em>ulaşın</em>,<br/>
+          Bize <em>ulaşın,</em><br/>
           gelin tanışalım.
         </h1>
         <p className="iletisim-hero-lede">
@@ -158,7 +158,7 @@ function MapSection() {
         <div className="map-head">
           <div className="map-head-text">
             <div className="section-label">Konumumuz</div>
-            <h2>Kestel'de, <em>tam ortasında</em>.</h2>
+            <h2>Kestel'de, <em>tam ortasında.</em></h2>
             <p>
               Anaokulu olarak inşa edilmiş binamız, 900 m²'lik bahçesiyle Kestel'in
               merkezi bir noktasında. Ulaşım kolay, çevre sakin.
@@ -194,7 +194,7 @@ function HoursSection() {
       <div className="hours-inner">
         <div className="hours-head">
           <div className="section-label center">Çalışma Saatleri</div>
-          <h2>Ne zaman <em>buradayız</em>?</h2>
+          <h2>Ne zaman <em>buradayız?</em></h2>
           <p>
             Eğitim saatlerimiz dışında, randevulu görüşmeler için bahçemiz ve
             kapımız sizlere açık.

@@ -67,7 +67,7 @@ function CrossroadHero() {
         <div className="section-label center">Başvuru</div>
         <h1>
           <span className="handwritten" style={{ color: 'var(--orange)', fontSize: '0.55em', display: 'block', marginBottom: 8 }}>iyi ki yazdınız —</span>
-          Önce <em>tanışalım</em>.
+          Önce <em>tanışalım.</em>
         </h1>
         <p className="cr-hero-lede">
           Aşağıdaki üç yoldan size en uygun olanı seçin.
@@ -116,7 +116,7 @@ function CrossroadHelp() {
       <div className="cr-help-inner">
         <div className="cr-help-text">
           <div className="section-label">Hangisini seçeceğinize emin değil misiniz?</div>
-          <h2>Bizi <em>arayın</em>, beraber bakalım.</h2>
+          <h2>Bizi <em>arayın,</em> beraber bakalım.</h2>
           <p>
             Çocuğunuza ve size en uygun başlangıç hangisi, bir telefon konuşmasında
             netleşir. Soru sormak, birinci adımdır.

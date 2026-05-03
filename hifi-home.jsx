@@ -47,8 +47,8 @@ function Hero() {
       <div className="home-hero-content">
         <div className="hero-eyebrow">2—6 yaş · Mavi Mine Anaokulu · İstanbul</div>
         <h1>
-          Çocuğun <em>mavisi</em>,<br/>
-          içindeki <span className="accent">mine</span>.
+          Çocuğun <em>mavisi,</em><br/>
+          içindeki <span className="accent">mine.</span>
         </h1>
         <p className="hero-sub">
           Mavi Mine; çocuğun sınırsız hayalini ve içindeki değeri merkeze alan,
@@ -105,7 +105,7 @@ function MaminoSection() {
             <span style={{ color: 'var(--orange)' }}>Mine</span>
           </h2>
           <p className="mamino-story">
-            Bir okulun adı, bir okulun ruhudur. <strong>"Mavi Mine"</strong> iki kelimeden çok, <em>iki vaat</em>:
+            Bir okulun adı, bir okulun ruhudur. <strong>"Mavi Mine"</strong> iki kelimeden çok, <em>iki vaat:</em>
             çocuğun sınırsız ufku ve içindeki biricik değer.
           </p>
         </div>
@@ -138,7 +138,7 @@ function MaminoSection() {
             <div className="handwritten mamino-side-label" style={{ color: 'var(--orange)' }}>mine</div>
             <p>
               <strong style={{ color: 'var(--orange)' }}>Mine</strong>; sabırla işlenen, ışıkla parlayan en değerli taşlardan biri.
-              Her çocuğun içinde böyle bir mine vardır — kendine özgü, biricik, <em>parlatılmayı bekleyen</em>.
+              Her çocuğun içinde böyle bir mine vardır — kendine özgü, biricik, <em>parlatılmayı bekleyen.</em>
             </p>
             <div className="mamino-mini-grid">
               {[
@@ -182,7 +182,7 @@ function ProfilePreview() {
       <div className="profile-preview-inner">
         <div className="profile-preview-head">
           <div className="section-label center">Mavi Mine'nin Çocukları</div>
-          <h2>Bu çocuklar <em>nasıl çocuklar</em>?</h2>
+          <h2>Bu çocuklar <em>nasıl çocuklar?</em></h2>
           <p className="profile-preview-lede">
             Mavi Mine bir kalıp değil, bir <strong>ortamdır.</strong> Her çocuk farklıdır —
             kimi sessizdir, kimi koşar; biz hiçbir çocuğu şablona sığdırmaya çalışmayız.
@@ -212,7 +212,7 @@ function HeritageSection() {
       <div className="heritage-inner">
         <div className="heritage-text">
           <div className="section-label">Aile Mirasımız</div>
-          <h2>Üç nesil, <em>altı öğretmen</em>.</h2>
+          <h2>Üç nesil, <em>altı öğretmen.</em></h2>
           <p>
             Mavi Mine, bir ailenin <strong>üç kuşaktır eğitimci</strong> olduğu bir mirastan doğdu.
             Bugün altı öğretmen aynı çatı altında, aynı sevgi dilini konuşuyor.
@@ -335,7 +335,7 @@ function GardenStrip() {
         <div className="ph teal" style={{ aspectRatio: '4/5' }}>[bahçede oyun]</div>
         <div className="garden-text">
           <div className="section-label">Bahçemiz</div>
-          <h2>Dokuz yüz metrekare <em>açık hava sınıfı</em>.</h2>
+          <h2>Dokuz yüz metrekare <em>açık hava sınıfı.</em></h2>
           <p>
             Anaokulu olarak inşa edilmiş binamızın etrafında 900 m²'lik bir bahçe var.
             Çocuklar her hava şartında dışarıda — koşar, tırmanır, toprağı eker, kelebek izler.

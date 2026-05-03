@@ -135,7 +135,7 @@ function ClassesHero() {
         <div className="section-label center">Sınıflarımız</div>
         <h1>
           <span className="handwritten" style={{ color: 'var(--orange)', fontSize: '0.55em', display: 'block', marginBottom: 8 }}>üç yaş, üç yuva —</span>
-          Her çocuğun <em>kendi sınıfı</em>.
+          Her çocuğun <em>kendi sınıfı.</em>
         </h1>
         <p className="cls-hero-lede">
           Mavi Mine'de üç yaş grubu, üç ayrı sınıf. Her sınıf,
@@ -306,7 +306,7 @@ function ClosingNote() {
 
         <blockquote>
           Sınıflarımız üç,<br/>
-          ama her çocuğun yeri <em>biriciktir</em>.
+          ama her çocuğun yeri <em>biriciktir.</em>
         </blockquote>
         <p>
           Çocuğunuzu sınıfa göre değil, sınıfı çocuğunuza göre düşünürüz.
