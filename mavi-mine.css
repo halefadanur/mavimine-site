@@ -2679,3 +2679,133 @@ a.cr-help-value:hover {
   .hakk-3-grid,
   .prog-4-grid     { grid-template-columns: 1fr; }
 }
+
+/* ============================================ */
+/* ====== FOOTER GRID ========================= */
+/* ============================================ */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,251,242,0.18);
+}
+@media (max-width: 760px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ============================================ */
+/* ====== PROGRAM SAYFASI GRID'LERİ =========== */
+/* ============================================ */
+.prog-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.prog-card-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.prog-card-row > * { min-width: 0; }
+.prog-meb-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+@media (max-width: 880px) {
+  .prog-cards-grid { grid-template-columns: 1fr; }
+  .prog-meb-grid   { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 600px) {
+  .prog-card-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    text-align: center;
+    justify-items: center;
+  }
+  .prog-card-row > .smile-circle { width: 56px !important; height: 56px !important; }
+}
+
+/* ============================================ */
+/* ====== SSS SAYFASI GRID'LERİ =============== */
+/* ============================================ */
+.sss-q-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 52px 1fr 40px;
+  align-items: center;
+  gap: 18px;
+}
+.sss-q-row > * { min-width: 0; }
+.sss-q-answer {
+  padding: 0 24px 22px 88px;
+}
+@media (max-width: 600px) {
+  .sss-q-row { grid-template-columns: 44px 1fr 32px; gap: 12px; }
+  .sss-q-answer { padding: 0 20px 20px 20px; }
+}
+
+/* ============================================ */
+/* ====== BİR GÜN TIMELINE ==================== */
+/* ============================================ */
+.birgun-tl-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+.birgun-tl-photo {
+  position: sticky;
+  top: 100px;
+}
+.birgun-tl-row {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 24px;
+  margin-bottom: 28px;
+  align-items: flex-start;
+  position: relative;
+}
+.birgun-tl-row > * { min-width: 0; }
+@media (max-width: 880px) {
+  .birgun-tl-grid { grid-template-columns: 1fr; gap: 40px; }
+  .birgun-tl-photo { position: relative; top: auto; }
+}
+@media (max-width: 600px) {
+  .birgun-tl-row { grid-template-columns: 44px 1fr; gap: 14px; }
+}
+
+/* ============================================ */
+/* ====== DESTEK SAYFASI MOBİL DÜZELTME ====== */
+/* ============================================ */
+@media (max-width: 880px) {
+  .support-grid { grid-template-columns: 1fr; }
+  .support-card.is-open { grid-column: span 1; }
+  .support-card-head { padding: 18px 16px; gap: 14px; }
+  .support-card-text { min-width: 0; }
+  .support-card-text h3 { font-size: 19px; }
+  .support-card-text p { font-size: 13.5px; }
+}
+
+/* ============================================ */
+/* ====== DEFANSİF MOBİL OVERFLOW ============= */
+/* ============================================ */
+@media (max-width: 760px) {
+  section,
+  [class*="-grid"],
+  [class*="-inner"] {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  section > *,
+  [class*="-inner"] > * {
+    min-width: 0;
+  }
+}

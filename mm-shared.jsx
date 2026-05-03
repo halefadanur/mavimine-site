@@ -110,7 +110,7 @@ function FooterEl() {
   return (
     <footer>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1fr', gap: 48, paddingBottom: 48, borderBottom: '1px solid rgba(255,251,242,0.18)' }}>
+        <div className="footer-grid">
           <div>
             <div style={{ background: 'white', borderRadius: 12, padding: 12, display: 'inline-block', marginBottom: 18 }}>
               <img src="images/logo.jpg" alt="Mavi Mine Anaokulu" style={{ height: 64, width: 'auto', display: 'block' }} />

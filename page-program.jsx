@@ -86,12 +86,11 @@ function ProgramGrid() {
   return (
     <section style={{ padding: '80px 48px 110px', background: 'var(--paper)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
+        <div className="prog-cards-grid">
           {PROGRAMS.map((p, i) => (
-            <article key={i} style={{
+            <article key={i} className="prog-card-row" style={{
               background: 'white', borderRadius: 24, padding: 36,
               border: `2px solid var(--${p.color}-soft)`,
-              display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 24, alignItems: 'start',
             }}>
               <div className={`smile-circle ${p.color}`} style={{ width: 72, height: 72 }}>
                 <ProgIcon name={p.title} />
@@ -139,7 +138,7 @@ function ProgIcon({ name }) {
 function MEBStrip() {
   return (
     <section style={{ padding: '100px 48px', background: 'var(--sand)' }}>
-      <div style={{ maxWidth: 1080, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
+      <div className="prog-meb-grid">
         <div>
           <div className="section-label">Eğitim Yaklaşımımız</div>
           <h2 style={{ fontSize: 'clamp(36px, 4vw, 52px)', lineHeight: 1.1, marginBottom: 18 }}>

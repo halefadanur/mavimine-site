@@ -37,8 +37,8 @@ function BirGunHero() {
 function Timeline() {
   return (
     <section style={{ padding: '80px 48px 100px', background: 'var(--paper)' }}>
-      <div style={{ maxWidth: 1080, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 60, alignItems: 'flex-start' }}>
-        <div className="ph teal" style={{ aspectRatio: '3/4', borderRadius: 24, position: 'sticky', top: 100 }}>
+      <div className="birgun-tl-grid">
+        <div className="ph teal birgun-tl-photo" style={{ aspectRatio: '3/4', borderRadius: 24 }}>
           [bir gün · video / fotoğraf koleksiyonu]
         </div>
         <div style={{ position: 'relative' }}>
@@ -48,11 +48,7 @@ function Timeline() {
             borderRadius: 2,
           }} />
           {BLOCKS.map((b, i) => (
-            <div key={b.t} style={{
-              display: 'grid', gridTemplateColumns: '50px 1fr',
-              gap: 24, marginBottom: 28, alignItems: 'flex-start',
-              position: 'relative',
-            }}>
+            <div key={b.t} className="birgun-tl-row">
               <div className={`smile-circle ${b.color}`} style={{
                 width: 50, height: 50, fontSize: 22, zIndex: 2,
                 boxShadow: '0 4px 12px rgba(0,0,0,0.1)',

@@ -32,8 +32,7 @@ function Item({ it, open, onClick }) {
       border: `2px solid var(--${it.color}-soft)`,
       transition: 'all .25s',
     }}>
-      <button onClick={onClick} style={{
-        width: '100%', display: 'grid', gridTemplateColumns: '52px 1fr 40px', alignItems: 'center', gap: 18,
+      <button onClick={onClick} className="sss-q-row" style={{
         background: 'transparent', border: 'none', font: 'inherit', cursor: 'pointer',
         padding: '20px 24px', textAlign: 'left',
       }}>
@@ -54,9 +53,8 @@ function Item({ it, open, onClick }) {
         }}>{open ? '−' : '+'}</span>
       </button>
       {open && (
-        <div style={{
-          padding: '0 24px 22px 88px', fontSize: 15,
-          lineHeight: 1.65, color: 'var(--ink-soft)', fontWeight: 500,
+        <div className="sss-q-answer" style={{
+          fontSize: 15, lineHeight: 1.65, color: 'var(--ink-soft)', fontWeight: 500,
         }}>
           {it.a}
         </div>
