@@ -289,3 +289,17 @@ Tüm sayfalar yeni adlandırma şemasına geçti:
 Sebep: GitHub Pages'te URL'lerde %20 (boşluk) görünmesin, temiz linkler olsun. Site yakında mavimine.com'a bağlanacak.
 
 mm-shared.jsx'teki NAV_PAGES ve footer linkleri de yeni isimlere güncellendi.
+
+### 2026-05-03 — Site canlıya çıktı
+
+- GitHub repo açıldı: github.com/halefadanur/mavimine-site (public)
+- GitHub Pages aktifleştirildi: halefadanur.github.io/mavimine-site
+- Custom domain bağlandı: mavimine.com (Cloudflare DNS, 4 A + 1 CNAME, proxy off)
+- Mobil hamburger menü eklendi (mm-shared.jsx + mavi-mine.css)
+- Mobil yatay scroll, kadro grid, panel sorunları düzeltildi
+- HTTPS bekleniyor (GitHub Let's Encrypt sertifikası hazırlıyor)
+
+Bekleyen işler:
+- HTTPS aktivasyonu (1-24 saat)
+- Mobil ek düzenlemeler (telefon ile detaylı tarama)
+- Kurum içi review yorumları

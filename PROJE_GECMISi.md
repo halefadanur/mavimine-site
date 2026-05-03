@@ -408,3 +408,17 @@ Aşağıdaki dosyalar lokalde duruyor, .gitignore ile repo'dan çıkarıldı. He
 - `mavi-mine-CSS-EKLEME-iletisim-kavsak.css` — Yukarıdaki bileşenin CSS'i
 
 Karar verildiğinde: ya patch uygulanır (ContactCrossroad → hifi-iletisim.jsx, CSS → mavi-mine.css), ya da iki dosya silinir.
+
+### 2026-05-03 — Site canlıya çıktı
+
+- GitHub repo açıldı: github.com/halefadanur/mavimine-site (public)
+- GitHub Pages aktifleştirildi: halefadanur.github.io/mavimine-site
+- Custom domain bağlandı: mavimine.com (Cloudflare DNS, 4 A + 1 CNAME, proxy off)
+- Mobil hamburger menü eklendi (mm-shared.jsx + mavi-mine.css)
+- Mobil yatay scroll, kadro grid, panel sorunları düzeltildi
+- HTTPS bekleniyor (GitHub Let's Encrypt sertifikası hazırlıyor)
+
+Bekleyen işler:
+- HTTPS aktivasyonu (1-24 saat)
+- Mobil ek düzenlemeler (telefon ile detaylı tarama)
+- Kurum içi review yorumları
