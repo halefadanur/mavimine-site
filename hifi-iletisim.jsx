@@ -225,7 +225,7 @@ function HoursSection() {
           <div className="hours-block">
             <div className="label">Görüşme & Ziyaret</div>
             <div className="time">Randevu ile</div>
-            <div className="desc">Tanışma görüşmesi için telefonla aramanız ya da aşağıdaki formlardan birini doldurmanız yeterli.</div>
+            <div className="desc">Önce tanışalım. Telefonla bizi arayın ya da <a href="randevu.html">randevu sayfamızdan</a> bir buluşma planlayın.</div>
           </div>
         </div>
       </div>
