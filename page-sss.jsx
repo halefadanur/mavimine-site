@@ -4,7 +4,7 @@ const { useState } = React;
 
 const ITEMS = [
   { color: 'orange', q: 'Yaş aralığınız nedir?',
-    a: '3-6 yaş arası çocukları kabul ediyoruz. Üç yaş grubumuz var: 3 yaş, 4 yaş ve 5—6 yaş. Her grup için ayrı sınıf ve özel program.' },
+    a: '2-6 yaş arası çocukları kabul ediyoruz. Üç yaş grubumuz var: 2 yaş (Minik Afacanlar), 3-4 yaş (Meraklı Minikler) ve 5-6 yaş (Gülen Yüzler). Her grup için ayrı sınıf ve özel program.' },
   { color: 'teal', q: 'Pedagojik yaklaşımınız nedir?',
     a: 'MEB Okul Öncesi Eğitim Programı temel alınır; Montessori yaklaşımı yaş düzeylerine göre kullanılır. Drama, STEAM & kodlama, tarım, yüzme ve "Sevgi Dersi" değerler eğitimiyle program zenginleşir. Çocuğun bireysel gelişim hızına saygılı bir yaklaşım benimsiyoruz.' },
   { color: 'rose', q: 'Beslenme nasıl?',
@@ -21,6 +21,8 @@ const ITEMS = [
     a: 'Kardeş kurumumuz Eğitimci Dil Konuşma Merkezi ile iş birliği protokolü çerçevesinde, profesyonel eşlik altında haftalık yüzme seansları yapılıyor. Güvenlik ve sıcaklık standartları takip edilir.' },
   { color: 'orange', q: 'Servis hizmeti var mı?',
     a: 'Yakın bölgeler için servis bulunuyor. Detaylar ve güzergâh için iletişime geçin.' },
+  { color: 'sun', q: 'Eğitim ücretiniz bölge okullarından yüksek mi?',
+    a: 'Tam tersine — sunduklarımıza bakıldığında bölgenin en uygun fiyatlı okullarından biri olduğumuzu rahatlıkla söyleyebiliriz.\n\nÇünkü Mavi Mine:\n• Anaokulu olarak özel inşa edilmiş bir bina — daire dönüşümü, bodrum kat, apartman zemini değil\n• 900 m² kendi bahçesi — çocukların her gün dışarıda nefes alabildiği gerçek bir alan\n• Üç nesil eğitimci ailesi ve alanında uzman kadro — pedagog, psikolog, dil-konuşma terapisti danışmanlığı\n\nBu standartları sunan okullarla karşılaştırıldığında, fiyatımızın değerli bir teklif olduğunu görebilirsiniz. Net rakam için bizi arayın, çocuğunuzun yaşına göre bilgi verelim.' },
   { color: 'teal', q: 'Ücretler ve indirimler?',
     a: 'Yıllık ücret bilgisi tanışma görüşmesinde paylaşılır. Kardeş ve erken kayıt indirimlerimiz vardır.' },
 ];

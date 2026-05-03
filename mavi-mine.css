@@ -2755,6 +2755,7 @@ a.cr-help-value:hover {
 .sss-q-row > * { min-width: 0; }
 .sss-q-answer {
   padding: 0 24px 22px 88px;
+  white-space: pre-line;
 }
 @media (max-width: 600px) {
   .sss-q-row { grid-template-columns: 44px 1fr 32px; gap: 12px; }
