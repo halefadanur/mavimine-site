@@ -1,0 +1,46 @@
+# Mac sistem dosyaları
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editör/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Yedek dosyalar (kök dizinde değil ama olur da yanlışlıkla buraya gelirse)
+*.bak
+*~
+*-eski.*
+*-yedek*
+
+# Geçici/log
+*.log
+.cache/
+
+# Yerel test (varsa)
+.env
+.env.local
+
+# Sistem
+Thumbs.db
+
+# Büyük binary arşivler
+*.zip
+Mavi Mine.zip
+
+# Lokal ayar/cache
+.claude/
+
+# Geliştirme süreci dosyaları (üretim sitesinde değil)
+screenshots/
+uploads/
+_bundles/
+
+# Bekleyen patch dosyaları (lokalde tutulan, henüz uygulanmamış)
+PATCH-*.jsx
+PATCH-*.html
+PATCH-*.css
+*-EKLEME-*.css
+*-EKLEME-*.jsx

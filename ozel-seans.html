@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<title>Özel Seans Formu — Mavi Mine Anaokulu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:#FFFBF2; --milk:#FFF7E8; --sand:#FBEEDC; --cream-deep:#F4E4C9;
+  --ink:#2A2422; --ink-soft:#4F4842; --ink-light:#8A7F75;
+  --teal:#1AAFA0; --teal-deep:#0E8478; --teal-soft:#C4ECE7;
+  --orange:#F39233; --orange-soft:#FCD9B4;
+  --sun:#F5C518; --sun-soft:#FCE99B;
+  --rose:#EC6E9A; --rose-soft:#F8C5D7;
+  --grape:#9C6BC2; --grape-soft:#DCC9EC;
+  --grass:#7BBF50; --grass-soft:#C9E4B0;
+  --sky:#5BB5E0; --sky-soft:#C2E2F0;
+  --coral:#E85A4F; --coral-soft:#F7C3BD;
+  --line:#EFE2C9; --line-deep:#E0CDA8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:'Quicksand',system-ui,sans-serif;font-weight:500;
+  background:var(--milk);color:var(--ink);min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;
+  padding:32px 16px 80px;line-height:1.55;
+}
+.blob{position:fixed;pointer-events:none;z-index:0;}
+
+/* brand */
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:8px;text-decoration:none;color:inherit;}
+.brand-mark{
+  width:54px;height:54px;border-radius:14px;
+  background:white;display:grid;place-items:center;
+  box-shadow:0 4px 14px rgba(14,132,120,0.12);
+  font-family:'Quicksand',sans-serif;font-weight:700;font-size:24px;
+  color:var(--teal-deep);letter-spacing:-1px;
+}
+.brand-mark span:nth-child(2){color:var(--orange);}
+.brand-motto{display:flex;flex-direction:column;font-family:'Caveat',cursive;font-weight:700;line-height:0.95;}
+.brand-motto .l1{font-size:18px;color:var(--teal-deep);}
+.brand-motto .l2{font-size:18px;color:var(--orange);margin-top:2px;}
+
+.header{text-align:center;max-width:600px;margin-bottom:24px;position:relative;z-index:2;}
+.eyebrow{
+  display:inline-block;background:var(--rose-soft);color:#b13a64;
+  font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  padding:6px 16px;border-radius:999px;margin:18px 0 14px;
+}
+h1{
+  font-family:'Quicksand',sans-serif;font-weight:700;
+  font-size:clamp(28px,5vw,40px);line-height:1.1;
+  color:var(--ink);margin:0 0 12px;letter-spacing:-0.01em;
+}
+h1 em{
+  font-style:normal;font-family:'Caveat',cursive;
+  color:var(--rose);font-size:1.15em;font-weight:700;
+}
+.lede{font-size:15.5px;color:var(--ink-soft);line-height:1.65;font-weight:500;}
+
+/* progress */
+.progress-wrap{width:100%;max-width:600px;margin-bottom:24px;position:relative;z-index:2;}
+.progress-steps{display:flex;align-items:center;margin-bottom:8px;}
+.step-dot{
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;flex-shrink:0;
+  transition:all 0.3s;font-family:'Quicksand',sans-serif;
+}
+.step-dot.done{background:var(--teal-deep);color:white;}
+.step-dot.active{background:var(--orange);color:white;}
+.step-dot.pending{background:var(--cream-deep);color:var(--ink-light);}
+.step-line{flex:1;height:3px;background:var(--cream-deep);transition:background 0.3s;}
+.step-line.done{background:var(--teal-deep);}
+.progress-label{
+  font-family:'Quicksand',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-light);text-align:right;
+}
+
+/* card */
+.card{
+  background:white;border-radius:24px;padding:36px 32px;
+  width:100%;max-width:600px;
+  box-shadow:0 8px 32px rgba(14,132,120,0.10);
+  border:2px solid var(--line);
+  position:relative;z-index:2;
+}
+.step{display:none;}
+.step.active{display:block;animation:fadeIn 0.35s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+.step-title{
+  font-family:'Quicksand',sans-serif;font-weight:700;
+  font-size:22px;color:var(--ink);margin-bottom:6px;letter-spacing:-0.01em;
+}
+.step-title em{font-style:normal;font-family:'Caveat',cursive;color:var(--teal-deep);font-size:1.15em;}
+.step-sub{font-size:14px;color:var(--ink-soft);margin-bottom:24px;line-height:1.65;}
+
+.field{margin-bottom:18px;}
+.field label{
+  display:block;font-size:13px;font-weight:700;
+  color:var(--ink);margin-bottom:8px;
+}
+.field label .opt{color:var(--ink-light);font-weight:500;text-transform:none;}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px 16px;
+  border:2px solid var(--line);border-radius:12px;
+  font-family:'Quicksand',sans-serif;font-size:14.5px;font-weight:500;
+  color:var(--ink);background:var(--paper);outline:none;
+  transition:border-color 0.2s,box-shadow 0.2s,background 0.2s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--teal);background:white;
+  box-shadow:0 0 0 3px rgba(26,175,160,0.15);
+}
+.field textarea{resize:vertical;min-height:80px;line-height:1.5;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+/* gözlem soru bloğu (sq-block benzeri) */
+.sq-block{
+  margin-bottom:18px;padding:18px 20px;
+  background:var(--milk);border-radius:14px;border:2px solid var(--line);
+}
+.sq-text{font-size:14px;color:var(--ink);margin-bottom:12px;line-height:1.55;font-weight:500;}
+.sq-options{display:flex;gap:8px;flex-wrap:wrap;}
+.sq-options input[type="radio"]{display:none;}
+.sq-options input[type="radio"]+label{
+  cursor:pointer;padding:8px 16px;border-radius:999px;
+  font-size:13px;font-weight:600;
+  border:2px solid var(--line);background:white;color:var(--ink-soft);
+  transition:all 0.2s;
+}
+.sq-options input[type="radio"]:checked+label{
+  border-color:var(--teal);background:var(--teal-soft);color:var(--teal-deep);
+}
+
+/* detay kutuları */
+.detay-grup{
+  margin-bottom:22px;padding:20px;border-radius:14px;
+  border-left:4px solid var(--orange);background:var(--milk);
+}
+.detay-grup-baslik{
+  font-family:'Caveat',cursive;font-weight:700;
+  font-size:22px;color:var(--teal-deep);margin-bottom:14px;
+}
+.detay-soru{margin-bottom:16px;}
+.detay-soru:last-child{margin-bottom:0;}
+.detay-soru p{
+  font-size:13.5px;color:var(--ink);margin-bottom:9px;
+  line-height:1.55;font-weight:500;
+}
+.detay-soru input[type="text"],.detay-soru textarea{
+  width:100%;padding:10px 14px;
+  border:2px solid var(--line);border-radius:10px;
+  font-family:'Quicksand',sans-serif;font-size:13.5px;font-weight:500;
+  background:white;color:var(--ink);outline:none;
+  transition:border-color 0.2s,box-shadow 0.2s;
+}
+.detay-soru input[type="text"]:focus,.detay-soru textarea:focus{
+  border-color:var(--teal);box-shadow:0 0 0 3px rgba(26,175,160,0.15);
+}
+.detay-soru textarea{resize:vertical;min-height:70px;line-height:1.5;}
+
+.secimler{display:flex;flex-direction:column;gap:6px;}
+.secimler input[type="radio"],.secimler input[type="checkbox"]{display:none;}
+.secimler input[type="radio"]+label,
+.secimler input[type="checkbox"]+label{
+  cursor:pointer;padding:11px 16px;border-radius:10px;
+  font-size:13.5px;font-weight:500;
+  border:2px solid var(--line);background:white;color:var(--ink);
+  transition:all 0.2s;display:flex;align-items:center;gap:10px;line-height:1.4;
+}
+.secimler input[type="radio"]+label::before{
+  content:'';width:16px;height:16px;border-radius:50%;
+  border:2px solid var(--line-deep);flex-shrink:0;background:white;
+}
+.secimler input[type="radio"]:checked+label{
+  border-color:var(--teal-deep);background:var(--teal-deep);color:white;
+}
+.secimler input[type="radio"]:checked+label::before{
+  background:white;border-color:white;
+  box-shadow:inset 0 0 0 4px var(--teal-deep);
+}
+.secimler input[type="checkbox"]+label::before{
+  content:'';width:16px;height:16px;border-radius:5px;
+  border:2px solid var(--line-deep);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;background:white;
+}
+.secimler input[type="checkbox"]:checked+label{
+  border-color:var(--teal);background:var(--teal-soft);color:var(--teal-deep);font-weight:600;
+}
+.secimler input[type="checkbox"]:checked+label::before{
+  background:var(--teal);border-color:var(--teal);
+  content:'✓';color:white;font-size:12px;font-weight:700;
+}
+.coklu-aciklama{font-size:12px;color:var(--ink-light);margin:-2px 0 8px;font-style:italic;}
+
+/* button */
+.btn-row{display:flex;gap:12px;justify-content:space-between;margin-top:28px;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 26px;font:inherit;font-size:14px;font-weight:700;
+  border-radius:999px;cursor:pointer;text-decoration:none;
+  transition:transform .2s,background .2s,box-shadow .2s,color .2s;
+  letter-spacing:0.02em;border:2px solid;
+}
+.btn-back{background:transparent;color:var(--ink-soft);border-color:var(--line-deep);}
+.btn-back:hover{background:var(--milk);color:var(--ink);border-color:var(--ink);}
+.btn-next{background:var(--teal-deep);color:white;border-color:var(--teal-deep);}
+.btn-next:hover{
+  transform:translateY(-2px);background:var(--teal);border-color:var(--teal);
+  box-shadow:0 6px 18px rgba(14,132,120,0.28);
+}
+.btn-submit{background:var(--orange);color:white;border-color:var(--orange);}
+.btn-submit:hover{
+  transform:translateY(-2px);background:#d97a20;border-color:#d97a20;
+  box-shadow:0 8px 22px rgba(243,146,51,0.32);
+}
+.btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
+
+/* rapor */
+.rapor-icon{
+  width:64px;height:64px;background:var(--teal-soft);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;font-size:30px;color:var(--teal-deep);font-weight:700;
+}
+.rapor-baslik{
+  text-align:center;padding-bottom:24px;
+  border-bottom:2px dashed var(--line-deep);margin-bottom:24px;
+}
+.rapor-baslik h2{
+  font-family:'Quicksand',sans-serif;font-weight:700;
+  font-size:24px;color:var(--ink);margin-bottom:6px;
+}
+.rapor-baslik h2 em{
+  font-style:normal;font-family:'Caveat',cursive;color:var(--teal-deep);font-size:1.15em;
+}
+.rapor-baslik p{font-size:14px;color:var(--ink-soft);}
+
+.sonuc-kutu{
+  border-radius:16px;padding:20px 22px;margin-bottom:20px;
+  border:2px solid var(--line);
+}
+.sonuc-kutu.normal{background:var(--grass-soft);border-color:var(--grass);}
+.sonuc-kutu.destek{background:var(--sun-soft);border-color:var(--sun);}
+.sonuc-kutu.ozel{background:var(--rose-soft);border-color:var(--rose);}
+.sonuc-etiket{
+  font-family:'Quicksand',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:0.18em;text-transform:uppercase;margin-bottom:8px;
+}
+.sonuc-kutu.normal .sonuc-etiket{color:#4d8a26;}
+.sonuc-kutu.destek .sonuc-etiket{color:#8a6b00;}
+.sonuc-kutu.ozel .sonuc-etiket{color:#b13a64;}
+.sonuc-metin{font-size:14px;color:var(--ink);line-height:1.7;font-weight:500;}
+
+.detay-satir{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 14px;border-radius:10px;
+  background:rgba(255,251,242,0.7);margin-bottom:8px;
+  font-size:13.5px;border:1px solid var(--line);
+}
+.detay-satir .alan-adi{flex:1;color:var(--ink);font-weight:500;}
+.alan-seviye{font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;}
+.s1{color:#8a6b00;}
+.s2{color:#b13a64;}
+
+.bilgi-kutu{
+  padding:16px 18px;border-radius:14px;
+  background:var(--teal-soft);border:2px dashed var(--teal);
+  font-size:14px;color:var(--teal-deep);line-height:1.7;
+  margin-bottom:18px;font-weight:500;
+}
+
+/* zaman/seans bölümü */
+.seans-bolum{
+  margin:24px 0;padding-top:24px;
+  border-top:2px dashed var(--line-deep);
+}
+.seans-baslik{
+  font-family:'Quicksand',sans-serif;font-weight:700;
+  font-size:16px;color:var(--ink);margin-bottom:6px;
+}
+.seans-aciklama{font-size:13px;color:var(--ink-soft);margin-bottom:14px;line-height:1.6;}
+
+.eh-secim{display:flex;gap:10px;margin-bottom:8px;flex-wrap:wrap;}
+.eh-secim input[type="radio"]{display:none;}
+.eh-secim input[type="radio"]+label{
+  flex:1;cursor:pointer;padding:11px 16px;border-radius:10px;
+  font-size:13.5px;font-weight:600;
+  border:2px solid var(--line);background:white;color:var(--ink-soft);
+  text-align:center;transition:all 0.2s;min-width:fit-content;
+}
+.eh-secim input[type="radio"]:checked+label{
+  border-color:var(--teal-deep);background:var(--teal-deep);color:white;
+}
+
+.ozel-detay{
+  display:none;margin-top:18px;padding:20px;
+  background:var(--milk);border-radius:14px;border-left:4px solid var(--teal);
+}
+.ozel-detay.show{display:block;animation:fadeIn 0.3s ease;}
+.ozel-detay h4{
+  font-size:13.5px;font-weight:700;color:var(--ink);
+  margin:14px 0 10px;
+}
+.ozel-detay h4:first-child{margin-top:0;}
+
+.checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.checkbox-item{
+  display:flex;align-items:flex-start;gap:9px;
+  padding:11px 14px;border:2px solid var(--line);border-radius:10px;
+  background:white;cursor:pointer;transition:all 0.2s;
+  font-size:13.5px;line-height:1.4;font-weight:500;
+}
+.checkbox-item:hover{border-color:var(--teal);}
+.checkbox-item input[type="checkbox"]{
+  margin-top:2px;flex-shrink:0;accent-color:var(--teal);
+}
+.checkbox-item.checked{
+  border-color:var(--teal);background:var(--teal-soft);
+  color:var(--teal-deep);font-weight:600;
+}
+
+/* error */
+.error-msg{
+  display:none;background:var(--rose-soft);border:2px solid var(--rose);
+  color:#b13a64;padding:14px 16px;border-radius:12px;
+  font-size:13.5px;font-weight:600;margin-top:16px;
+}
+.error-msg.show{display:block;}
+
+/* gönderiliyor */
+.sending-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(255,251,242,0.92);z-index:100;
+  align-items:center;justify-content:center;
+  flex-direction:column;gap:18px;
+}
+.sending-overlay.show{display:flex;}
+.spinner{
+  width:42px;height:42px;border:4px solid var(--teal-soft);
+  border-top-color:var(--teal-deep);border-radius:50%;
+  animation:spin 0.8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.sending-overlay p{
+  font-family:'Caveat',cursive;font-weight:700;font-size:22px;
+  color:var(--teal-deep);
+}
+
+@media(max-width:520px){
+  .card{padding:28px 22px;}
+  .field-row{grid-template-columns:1fr;}
+  .checkbox-grid{grid-template-columns:1fr;}
+  .eh-secim{flex-direction:column;}
+}
+
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' /><feColorMatrix values='0 0 0 0 0.18 0 0 0 0 0.14 0 0 0 0 0.10 0 0 0 0.03 0' /></filter><rect width='100%' height='100%' filter='url(%23n)' /></svg>");
+  opacity:0.5;z-index:1;mix-blend-mode:multiply;
+}
+</style>
+</head>
+<body>
+
+<svg class="blob" style="top:60px;left:5%;width:80px;height:80px;" viewBox="0 0 60 60">
+  <circle cx="30" cy="30" r="20" fill="var(--rose)" opacity="0.35"/>
+</svg>
+<svg class="blob" style="top:120px;right:8%;width:70px;height:70px;" viewBox="0 0 60 60">
+  <circle cx="30" cy="30" r="18" fill="var(--sun)" opacity="0.35"/>
+</svg>
+<svg class="blob" style="bottom:80px;left:10%;width:60px;height:60px;" viewBox="0 0 60 60">
+  <circle cx="30" cy="30" r="16" fill="var(--grape)" opacity="0.3"/>
+</svg>
+
+<div class="sending-overlay" id="sendingOverlay">
+  <div class="spinner"></div>
+  <p>Gönderiliyor...</p>
+</div>
+
+<a href="index.html" class="brand">
+  <div class="brand-mark"><span>M</span><span>m</span></div>
+  <div class="brand-motto">
+    <span class="l1">Eğitimci gelenek,</span>
+    <span class="l2">mutlu gelecek.</span>
+  </div>
+</a>
+
+<div class="header">
+  <div class="eyebrow">Özel Seans / Destek</div>
+  <h1>Çocuğunuzu <em>tanıyalım</em>.</h1>
+  <p class="lede">
+    Bu form, çocuğunuza en uygun desteği planlamamıza yardımcı olur.
+    Yaklaşık 5–8 dakika sürer. Yanıtlarınız yalnızca okul yönetimiyle paylaşılır.
+  </p>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-steps">
+    <div class="step-dot active" id="dot1">1</div>
+    <div class="step-line" id="line1"></div>
+    <div class="step-dot pending" id="dot2">2</div>
+    <div class="step-line" id="line2"></div>
+    <div class="step-dot pending" id="dot3">3</div>
+    <div class="step-line" id="line3"></div>
+    <div class="step-dot pending" id="dot4">4</div>
+  </div>
+  <div class="progress-label" id="progressLabel">Adım 1 / 4</div>
+</div>
+
+<div class="card">
+
+  <!-- ADIM 1 -->
+  <div class="step active" id="step1">
+    <div class="step-title">Önce <em>sizi tanıyalım</em></div>
+    <div class="step-sub">Temel bilgiler — çocuğunuz ve sizinle iletişim için.</div>
+    <div class="field-row">
+      <div class="field">
+        <label>Çocuğun adı soyadı</label>
+        <input type="text" id="cocukAd" placeholder="Ad Soyad" />
+      </div>
+      <div class="field">
+        <label>Doğum yılı</label>
+        <input type="number" id="cocukYas" placeholder="ör. 2020" min="2016" max="2025" />
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Veli adı</label>
+        <input type="text" id="veliAd" placeholder="Ad Soyad" />
+      </div>
+      <div class="field">
+        <label>Telefon</label>
+        <input type="tel" id="veliTel" placeholder="05XX XXX XX XX" />
+      </div>
+    </div>
+    <div class="field">
+      <label>Neden başvuruyorsunuz?</label>
+      <select id="basvuruNeden">
+        <option value="">Seçiniz...</option>
+        <option value="Akran ortamı, sosyal gelişim">Arkadaş ortamı, sosyal gelişim</option>
+        <option value="Okul öncesi hazırlık">Okul öncesi hazırlık</option>
+        <option value="Bazı konularda destek ihtiyacı">Çocuğumun bazı konularda desteğe ihtiyacı olduğunu düşünüyorum</option>
+        <option value="Genel gelişim takibi">Genel gelişim takibi</option>
+        <option value="Tavsiye üzerine">Tavsiye üzerine başvuruyorum</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Şu an başka bir kurum ya da uzmanla çalışıyor musunuz?</label>
+      <select id="mevcutDestek">
+        <option value="">Seçiniz...</option>
+        <option value="Hayır">Hayır</option>
+        <option value="Evet, devam ediyor">Evet, devam ediyor</option>
+        <option value="Evet, tamamladık">Evet, tamamladık</option>
+        <option value="Araştırma aşamasındayız">Şu an araştırma aşamasındayız</option>
+      </select>
+    </div>
+    <div class="btn-row" style="justify-content:flex-end;">
+      <button class="btn btn-next" onclick="step1Next()">Devam →</button>
+    </div>
+  </div>
+
+  <!-- ADIM 2 -->
+  <div class="step" id="step2">
+    <div class="step-title">Günlük <em>gözlemleriniz</em></div>
+    <div class="step-sub">
+      Çocuğunuzu evde ve sosyal ortamlarda izlediğinizde ne görüyorsunuz?
+      İçgüdüsel olarak yanıtlayın — doğru ya da yanlış cevap yok.
+    </div>
+
+    <div class="sq-block">
+      <div class="sq-text">Kendini ifade etmekte güçlük çekiyor; ne demek istediğini anlamak zaman zaman zor oluyor.</div>
+      <div class="sq-options">
+        <input type="radio" name="q1" id="q1h" value="hayir"><label for="q1h">Pek değil</label>
+        <input type="radio" name="q1" id="q1b" value="bazen"><label for="q1b">Zaman zaman</label>
+        <input type="radio" name="q1" id="q1e" value="evet"><label for="q1e">Sık sık</label>
+      </div>
+    </div>
+
+    <div class="sq-block">
+      <div class="sq-text">Diğer çocukların oyunlarına katılmakta isteksiz ya da zorlanıyor.</div>
+      <div class="sq-options">
+        <input type="radio" name="q2" id="q2h" value="hayir"><label for="q2h">Pek değil</label>
+        <input type="radio" name="q2" id="q2b" value="bazen"><label for="q2b">Zaman zaman</label>
+        <input type="radio" name="q2" id="q2e" value="evet"><label for="q2e">Sık sık</label>
+      </div>
+    </div>
+
+    <div class="sq-block">
+      <div class="sq-text">Bir oyunu ya da etkinliği birkaç dakikadan fazla sürdürmekte güçlük çekiyor.</div>
+      <div class="sq-options">
+        <input type="radio" name="q3" id="q3h" value="hayir"><label for="q3h">Pek değil</label>
+        <input type="radio" name="q3" id="q3b" value="bazen"><label for="q3b">Zaman zaman</label>
+        <input type="radio" name="q3" id="q3e" value="evet"><label for="q3e">Sık sık</label>
+      </div>
+    </div>
+
+    <div class="sq-block">
+      <div class="sq-text">Durması istendiğinde duramıyor; çok hareketli ve dürtüsel tepkiler veriyor.</div>
+      <div class="sq-options">
+        <input type="radio" name="q4" id="q4h" value="hayir"><label for="q4h">Pek değil</label>
+        <input type="radio" name="q4" id="q4b" value="bazen"><label for="q4b">Zaman zaman</label>
+        <input type="radio" name="q4" id="q4e" value="evet"><label for="q4e">Sık sık</label>
+      </div>
+    </div>
+
+    <div class="sq-block">
+      <div class="sq-text">İstediği olmadığında ya da bir geçiş yaşandığında çok yoğun tepkiler veriyor.</div>
+      <div class="sq-options">
+        <input type="radio" name="q5" id="q5h" value="hayir"><label for="q5h">Pek değil</label>
+        <input type="radio" name="q5" id="q5b" value="bazen"><label for="q5b">Zaman zaman</label>
+        <input type="radio" name="q5" id="q5e" value="evet"><label for="q5e">Sık sık</label>
+      </div>
+    </div>
+
+    <div class="sq-block">
+      <div class="sq-text">Belirli seslere, dokunuşlara ya da ortam değişikliklerine çok yoğun tepki veriyor.</div>
+      <div class="sq-options">
+        <input type="radio" name="q6" id="q6h" value="hayir"><label for="q6h">Pek değil</label>
+        <input type="radio" name="q6" id="q6b" value="bazen"><label for="q6b">Zaman zaman</label>
+        <input type="radio" name="q6" id="q6e" value="evet"><label for="q6e">Sık sık</label>
+      </div>
+    </div>
+
+    <div class="sq-block">
+      <div class="sq-text">Günlük rutinlere çok bağlı; küçük bir değişiklik bile büyük stres yaratıyor.</div>
+      <div class="sq-options">
+        <input type="radio" name="q7" id="q7h" value="hayir"><label for="q7h">Pek değil</label>
+        <input type="radio" name="q7" id="q7b" value="bazen"><label for="q7b">Zaman zaman</label>
+        <input type="radio" name="q7" id="q7e" value="evet"><label for="q7e">Sık sık</label>
+      </div>
+    </div>
+
+    <div class="sq-block">
+      <div class="sq-text">Renk, şekil, sayı gibi kavramları yaşıt arkadaşlarına kıyasla öğrenmesi daha uzun sürüyor.</div>
+      <div class="sq-options">
+        <input type="radio" name="q8" id="q8h" value="hayir"><label for="q8h">Pek değil</label>
+        <input type="radio" name="q8" id="q8b" value="bazen"><label for="q8b">Zaman zaman</label>
+        <input type="radio" name="q8" id="q8e" value="evet"><label for="q8e">Sık sık</label>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-back" onclick="goStep(1)">← Geri</button>
+      <button class="btn btn-next" onclick="step2Next()">Devam →</button>
+    </div>
+  </div>
+
+  <!-- ADIM 3 -->
+  <div class="step" id="step3">
+    <div class="step-title">Biraz <em>daha anlatalım</em></div>
+    <div class="step-sub" id="step3Sub">Yanıtlarınıza göre çocuğunuzu daha iyi anlayabilmek için birkaç soru daha sormak istedik.</div>
+    <div id="detayKapsam"></div>
+    <div class="field">
+      <label>Paylaşmak istediğiniz başka bir şey var mı? <span class="opt">(opsiyonel)</span></label>
+      <textarea id="notlar" placeholder="Gözlemlerinizi, sorularınızı ya da beklentilerinizi buraya yazabilirsiniz..."></textarea>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-back" onclick="goStep(2)">← Geri</button>
+      <button class="btn btn-next" onclick="step3Next()">Devam →</button>
+    </div>
+  </div>
+
+  <!-- ADIM 4 -->
+  <div class="step" id="step4">
+    <div class="rapor-baslik">
+      <div class="rapor-icon">✓</div>
+      <h2>Teşekkür <em>ederiz</em></h2>
+      <p>Yanıtlarınıza dayanarak bir ön değerlendirme hazırladık.</p>
+    </div>
+
+    <div id="sonucKutu"></div>
+    <div id="alanlariDiv"></div>
+    <div class="bilgi-kutu" id="bilgiKutu"></div>
+
+    <!-- destek alanları seçimi -->
+    <div class="seans-bolum">
+      <div class="seans-baslik">Hangi alanlarda destek arıyorsunuz?</div>
+      <div class="seans-aciklama">
+        Birden fazla alan seçebilirsiniz. Hiçbiri uymuyorsa "Henüz emin değilim"i seçin —
+        görüşmede birlikte konuşuruz.
+      </div>
+      <div class="checkbox-grid">
+        <label class="checkbox-item"><input type="checkbox" name="alan" value="Oyun grubu" onchange="toggleCheckbox(this)"><span>Oyun grubu</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="alan" value="Dil ve Konuşma desteği" onchange="toggleCheckbox(this)"><span>Dil ve Konuşma desteği</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="alan" value="Dikkat ve Kavram gelişimi" onchange="toggleCheckbox(this)"><span>Dikkat ve Kavram gelişimi</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="alan" value="Davranış desteği" onchange="toggleCheckbox(this)"><span>Davranış desteği</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="alan" value="Oyun terapisi" onchange="toggleCheckbox(this)"><span>Oyun terapisi</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="alan" value="Psikolojik danışmanlık" onchange="toggleCheckbox(this)"><span>Psikolojik danışmanlık</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="alan" value="Aile danışmanlığı" onchange="toggleCheckbox(this)"><span>Aile danışmanlığı</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="alan" value="Eğitim koçluğu" onchange="toggleCheckbox(this)"><span>Eğitim koçluğu</span></label>
+        <label class="checkbox-item" style="grid-column:1/-1;"><input type="checkbox" name="alan" value="Henüz emin değilim — birlikte konuşalım" onchange="toggleCheckbox(this)"><span>Henüz emin değilim — birlikte konuşalım</span></label>
+      </div>
+    </div>
+
+    <!-- zaman tercihi -->
+    <div class="seans-bolum">
+      <div class="seans-baslik">Tercih ettiğiniz zaman dilimi</div>
+      <div class="seans-aciklama">
+        Birden fazla seçebilirsiniz.
+      </div>
+      <div class="checkbox-grid">
+        <label class="checkbox-item"><input type="checkbox" name="zamanTercih" value="Hafta içi sabah" onchange="toggleCheckbox(this)"><span>Hafta içi sabah</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="zamanTercih" value="Hafta içi öğleden sonra" onchange="toggleCheckbox(this)"><span>Hafta içi öğleden sonra</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="zamanTercih" value="Cumartesi" onchange="toggleCheckbox(this)"><span>Cumartesi</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="zamanTercih" value="Esnek / fark etmez" onchange="toggleCheckbox(this)"><span>Esnek / fark etmez</span></label>
+      </div>
+    </div>
+
+    <div class="error-msg" id="errorMsg">Gönderim sırasında bir sorun oluştu. Lütfen tekrar deneyin ya da bizi arayın.</div>
+
+    <div class="btn-row">
+      <button class="btn btn-back" onclick="goStep(3)">← Geri</button>
+      <button class="btn btn-submit" id="submitBtn" onclick="submitForm()">Gönder ✉</button>
+    </div>
+  </div>
+
+  <!-- ADIM 5 (başarı) -->
+  <div class="step" id="step5">
+    <div style="text-align:center;padding:24px 0;">
+      <div style="font-size:50px;margin-bottom:16px;">🌿</div>
+      <div class="step-title" style="margin-bottom:10px;">Formunuz <em>bize ulaştı!</em></div>
+      <p style="font-size:14.5px;color:var(--ink-soft);line-height:1.75;max-width:420px;margin:0 auto 24px;font-weight:500;">
+        En kısa sürede sizi arayarak bir tanışma görüşmesi ayarlayacağız.
+        Bizi tercih ettiğiniz için teşekkür ederiz.
+      </p>
+      <div class="bilgi-kutu" style="text-align:left;max-width:380px;margin:0 auto;">
+        <strong>Mavi Mine Özel Anaokulu</strong><br>
+        <span style="color:var(--ink-light);font-size:12.5px;font-weight:500;">
+          Yanıtlarınız ve değerlendirmemiz okul yönetimine iletildi.
+        </span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const FORMSPREE_ID = 'FORMSPREE_ID_BURAYA';
+const ALICI_EMAIL  = 'halefadanur@gmail.com';
+
+let fd = {};
+let tet = {};
+
+function goStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step'+n).classList.add('active');
+  for (let i=1;i<=4;i++) {
+    const d = document.getElementById('dot'+i);
+    if (i<n) { d.className='step-dot done'; d.textContent='✓'; }
+    else if (i===n) { d.className='step-dot active'; d.textContent=i; }
+    else { d.className='step-dot pending'; d.textContent=i; }
+    if (i<4) document.getElementById('line'+i).className='step-line'+(i<n?' done':'');
+  }
+  document.getElementById('progressLabel').textContent = n<=4 ? `Adım ${n} / 4` : 'Tamamlandı';
+  if (n===5) document.querySelector('.progress-wrap').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function step1Next() {
+  const z = [
+    {id:'cocukAd',ad:'Çocuk adı'},
+    {id:'cocukYas',ad:'Doğum yılı'},
+    {id:'veliAd',ad:'Veli adı'},
+    {id:'veliTel',ad:'Telefon'},
+    {id:'basvuruNeden',ad:'Başvuru nedeni'},
+    {id:'mevcutDestek',ad:'Mevcut destek durumu'},
+  ];
+  for (const f of z) {
+    if (!document.getElementById(f.id).value.trim()) {
+      alert(`Lütfen "${f.ad}" alanını doldurun.`);
+      document.getElementById(f.id).focus();
+      return;
+    }
+  }
+  z.forEach(f => fd[f.id] = document.getElementById(f.id).value.trim());
+  goStep(2);
+}
+
+function getDeg(name) {
+  const el = document.querySelector(`input[name="${name}"]:checked`);
+  return el ? el.value : null;
+}
+function puan(name) {
+  const v = getDeg(name);
+  return v === 'evet' ? 2 : v === 'bazen' ? 1 : 0;
+}
+
+function step2Next() {
+  for (let i=1;i<=8;i++) {
+    if (!getDeg('q'+i)) { alert('Lütfen tüm soruları yanıtlayın.'); return; }
+  }
+  fd.sq = {};
+  for (let i=1;i<=8;i++) fd.sq['q'+i] = getDeg('q'+i);
+  tet = {
+    iletisim: puan('q1') + puan('q2'),
+    dikkat:   puan('q3') + puan('q4'),
+    duygu:    puan('q5'),
+    rutin:    puan('q6') + puan('q7'),
+    ogrenme:  puan('q8'),
+  };
+  buildDetay();
+  goStep(3);
+}
+
+const GRUPLARI = {
+  iletisim: {
+    baslik: 'Konuşma ve sosyal etkileşim',
+    sorular: [
+      {id:'d_il1', tip:'secim', metin:'Çocuğunuz başkalarıyla konuşmayı seviyor mu?', sec:['Evet, çok sosyal','Seçici — tanıdıklarıyla konuşuyor','Genellikle sessiz kalıyor']},
+      {id:'d_il2', tip:'secim', metin:'Bir şey anlatmak istediğinde ne yapar?', sec:['Konuşarak, kelimelerle ifade eder','Jest, mimik, işaret kullanır','Zorlanır, sinirlenebilir']},
+      {id:'d_il3', tip:'metin', metin:'Oyun oynarken diğer çocuklarla ilgili ne gözlemlediniz? (Birkaç cümle yeterli)'},
+    ]
+  },
+  dikkat: {
+    baslik: 'Enerji ve odaklanma',
+    sorular: [
+      {id:'d_di1', tip:'secim', metin:'Sevdiği bir oyunu ne kadar süre oynuyor?', sec:['10 dakikadan az','10–20 dakika','20 dakikadan fazla']},
+      {id:'d_di_dikkat', tip:'coklu', metin:'Aşağıdakilerden hangileri sıkça gözleniyor? <span class="coklu-aciklama">(dikkat / odaklanma)</span>',
+        aciklama:'Birden fazla seçebilirsiniz, hiçbiri uymuyorsa boş bırakabilirsiniz.',
+        sec:['Verilen yönergeleri takip etmiyor','Başlanan görevleri tamamlamıyor','Eşyalarını sık sık kaybediyor','Dış uyaranlarla dikkati kolayca dağılıyor','Söylenenleri / istenenleri unutuyor','Detayları gözden kaçırıyor']
+      },
+      {id:'d_di_hiper', tip:'coklu', metin:'Aşağıdakilerden hangileri sıkça gözleniyor? <span class="coklu-aciklama">(hareketlilik / dürtüsellik)</span>',
+        aciklama:'Birden fazla seçebilirsiniz, hiçbiri uymuyorsa boş bırakabilirsiniz.',
+        sec:['Oturduğu yerde sürekli kıpırdanıyor','Sürekli koşturuyor / hareket halinde','Sırasını beklemekte güçlük çekiyor','Soru tamamlanmadan cevap veriyor','Başkalarının sözünü kesiyor','Sakin oturması gereken yerlerde duramıyor']
+      },
+      {id:'d_di_zorluk', tip:'metin', metin:'Bu durumlardan en çok hangisi günlük hayatınızı zorluyor? Bir örnek paylaşır mısınız?'},
+    ]
+  },
+  duygu: {
+    baslik: 'Duygusal ifade ve sakinleşme',
+    sorular: [
+      {id:'d_du1', tip:'secim', metin:'Sinirlendiğinde ya da üzüldüğünde genellikle ne olur?', sec:['Söyler ya da ağlar, kısa sürede geçer','Uzun süre sakinleşemiyor','Kendine ya da çevresine zarar verebiliyor']},
+      {id:'d_du2', tip:'secim', metin:'Sakinleştirmeye çalıştığınızda tepkisi nasıl?', sec:['Kucaklaşma, konuşma işe yarıyor','Bazen işe yarıyor, bazen yaramıyor','Sakinleşmesini sağlamak çok güç']},
+      {id:'d_du3', tip:'metin', metin:'Son zamanlarda en çok düşündüren bir durum var mı?'},
+    ]
+  },
+  rutin: {
+    baslik: 'Yeni durumlar ve değişiklikler',
+    sorular: [
+      {id:'d_ru1', tip:'secim', metin:'Yeni bir ortama uyum sağlaması nasıl?', sec:['Hızlı uyum sağlıyor','Biraz zaman alıyor, sonra açılıyor','Çok zorlanıyor, bazen hiç uyamıyor']},
+      {id:'d_ru2', tip:'secim', metin:'Günlük düzende küçük bir değişiklik nasıl karşılanıyor?', sec:['Sorunsuz','Fark ediyor ama geçiyor','Ciddi stres yaratıyor']},
+      {id:'d_ru3', tip:'metin', metin:'Özellikle zorlandığı bir konu ya da durum var mı?'},
+    ]
+  },
+  ogrenme: {
+    baslik: 'Öğrenme ve kavrama',
+    sorular: [
+      {id:'d_og1', tip:'secim', metin:'Yeni bir şey öğrenmesi yaşıt arkadaşlarıyla karşılaştırıldığında nasıl?', sec:['Hızlı, meraklı','Yaşına uygun','Bazı konularda yavaş kalıyor']},
+      {id:'d_og2', tip:'metin', metin:'Sayı, harf, renk, şekil gibi kavramlardan hangilerini biliyor / hangilerinde zorlanıyor?'},
+    ]
+  }
+};
+
+function buildDetay() {
+  const kapsam = document.getElementById('detayKapsam');
+  kapsam.innerHTML = '';
+
+  const gruplar = Object.keys(tet).filter(k => tet[k] >= 1);
+  if (gruplar.length === 0) {
+    document.getElementById('step3Sub').textContent = 'Yanıtlarınız çok yardımcı oldu. Eklemek istediğiniz bir şey varsa aşağıya yazabilirsiniz.';
+    return;
+  }
+
+  document.getElementById('step3Sub').textContent =
+    'Yanıtlarınıza göre çocuğunuzu daha iyi anlayabilmek için birkaç soru daha sormak istedik.';
+
+  gruplar.forEach(k => {
+    const g = GRUPLARI[k];
+    const div = document.createElement('div');
+    div.className = 'detay-grup';
+    let html = `<div class="detay-grup-baslik">${g.baslik}</div>`;
+    g.sorular.forEach(s => {
+      html += `<div class="detay-soru"><p>${s.metin}</p>`;
+      if (s.tip === 'secim') {
+        html += `<div class="secimler">`;
+        s.sec.forEach((c, i) => {
+          html += `<input type="radio" name="${s.id}" id="${s.id}_${i}" value="${c}">`;
+          html += `<label for="${s.id}_${i}">${c}</label>`;
+        });
+        html += `</div>`;
+      } else if (s.tip === 'coklu') {
+        if (s.aciklama) html += `<div class="coklu-aciklama">${s.aciklama}</div>`;
+        html += `<div class="secimler">`;
+        s.sec.forEach((c, i) => {
+          html += `<input type="checkbox" name="${s.id}" id="${s.id}_${i}" value="${c}">`;
+          html += `<label for="${s.id}_${i}">${c}</label>`;
+        });
+        html += `</div>`;
+      } else if (s.tip === 'metin') {
+        html += `<textarea id="${s.id}" placeholder="Birkaç cümle..."></textarea>`;
+      }
+      html += `</div>`;
+    });
+    div.innerHTML = html;
+    kapsam.appendChild(div);
+  });
+}
+
+function step3Next() {
+  fd.detaylar = {};
+  const gruplar = Object.keys(tet).filter(k => tet[k] >= 1);
+  gruplar.forEach(k => {
+    fd.detaylar[k] = {};
+    GRUPLARI[k].sorular.forEach(s => {
+      if (s.tip === 'secim') {
+        const el = document.querySelector(`input[name="${s.id}"]:checked`);
+        fd.detaylar[k][s.id] = el ? el.value : '';
+      } else if (s.tip === 'coklu') {
+        const els = document.querySelectorAll(`input[name="${s.id}"]:checked`);
+        fd.detaylar[k][s.id] = Array.from(els).map(el => el.value);
+      } else if (s.tip === 'metin') {
+        const el = document.getElementById(s.id);
+        fd.detaylar[k][s.id] = el ? el.value.trim() : '';
+      }
+    });
+  });
+  fd.notlar = document.getElementById('notlar').value.trim();
+
+  buildSonuc();
+  goStep(4);
+}
+
+function buildSonuc() {
+  const toplam = Object.values(tet).reduce((a, b) => a + b, 0);
+  let sonucKey, sonucMetin, sonucClass, sonucEtiket;
+
+  if (toplam <= 2) {
+    sonucKey = 'normal';
+    sonucClass = 'normal';
+    sonucEtiket = 'Genel Görünüm';
+    sonucMetin = 'Yanıtlarınıza göre çocuğunuz yaşına uygun bir gelişim sergiliyor görünüyor. Yine de görüşmemizde detayları birlikte konuşmak isteriz.';
+  } else if (toplam <= 6) {
+    sonucKey = 'destek';
+    sonucClass = 'destek';
+    sonucEtiket = 'Destek Önerilebilir';
+    sonucMetin = 'Bazı alanlarda hafif bir destek yaşam kalitesini artırabilir. Tanışma görüşmemizde bu alanları daha yakından konuşalım.';
+  } else {
+    sonucKey = 'ozel';
+    sonucClass = 'ozel';
+    sonucEtiket = 'Detaylı Görüşme Öneriyoruz';
+    sonucMetin = 'Birkaç alanda dikkatli bir bakışın faydalı olabileceği görünüyor. Tanışma görüşmesinde, hangi destek yaklaşımının uygun olduğunu birlikte değerlendirelim.';
+  }
+
+  fd.sonucKey = sonucKey;
+  fd.sonucEtiket = sonucEtiket;
+
+  document.getElementById('sonucKutu').innerHTML =
+    `<div class="sonuc-kutu ${sonucClass}">
+      <div class="sonuc-etiket">${sonucEtiket}</div>
+      <div class="sonuc-metin">${sonucMetin}</div>
+    </div>`;
+
+  // alan detayları
+  const ALAN_AD = {
+    iletisim: 'İletişim ve sosyal etkileşim',
+    dikkat: 'Dikkat ve enerji',
+    duygu: 'Duygusal ifade',
+    rutin: 'Yeni durumlara uyum',
+    ogrenme: 'Öğrenme ve kavrama',
+  };
+
+  let alanlarHtml = '';
+  Object.keys(tet).forEach(k => {
+    if (tet[k] >= 1) {
+      const seviye = tet[k] >= 3 ? 2 : 1;
+      const seviyeMetin = seviye === 2 ? 'Detaylı bakılmalı' : 'Hafif gözlem';
+      alanlarHtml += `<div class="detay-satir">
+        <span class="alan-adi">${ALAN_AD[k]}</span>
+        <span class="alan-seviye s${seviye}">${seviyeMetin}</span>
+      </div>`;
+    }
+  });
+  document.getElementById('alanlariDiv').innerHTML = alanlarHtml;
+
+  document.getElementById('bilgiKutu').innerHTML =
+    'Bu bir <strong>ön değerlendirmedir</strong>, tıbbi tanı değildir. ' +
+    'Yüz yüze görüşmemizde çocuğunuzu yakından tanıyacağız.';
+}
+
+function toggleCheckbox(cb) {
+  const item = cb.closest('.checkbox-item');
+  if (cb.checked) item.classList.add('checked');
+  else item.classList.remove('checked');
+}
+
+async function submitForm() {
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  document.getElementById('errorMsg').classList.remove('show');
+  document.getElementById('sendingOverlay').classList.add('show');
+
+  const alanlar = Array.from(document.querySelectorAll('input[name="alan"]:checked')).map(el => el.value);
+  const zamanTercih = Array.from(document.querySelectorAll('input[name="zamanTercih"]:checked')).map(el => el.value);
+
+  const SQ_ET = [
+    'Kendini ifade güçlüğü',
+    'Sosyal etkileşimde isteksizlik',
+    'Odaklanma süresi',
+    'Hareketlilik / dürtüsellik',
+    'Yoğun duygusal tepki',
+    'Duyusal hassasiyet',
+    'Rutine bağlılık',
+    'Kavram öğrenme hızı',
+  ];
+  const SQ_D = { evet: 'Sık sık', bazen: 'Zaman zaman', hayir: 'Pek değil' };
+  const GRPN = {
+    iletisim: 'İletişim',
+    dikkat: 'Dikkat / enerji',
+    duygu: 'Duygu',
+    rutin: 'Rutin',
+    ogrenme: 'Öğrenme',
+  };
+
+  let r = '';
+  r += '╔══════════════════════════════════════════════════╗\n';
+  r += '║   📌  MAVİ MİNE — ÖZEL SEANS / DESTEK FORMU     ║\n';
+  r += '╚══════════════════════════════════════════════════╝\n\n';
+  r += '🕐 ' + new Date().toLocaleString('tr-TR') + '\n\n';
+
+  r += '👶 ÇOCUK    : ' + fd.cocukAd + '\n';
+  r += '   Doğum   : ' + fd.cocukYas + '\n\n';
+  r += '📞 VELİ     : ' + fd.veliAd + '\n';
+  r += '   Telefon : ' + fd.veliTel + '\n\n';
+  r += '📋 BAŞVURU  : ' + fd.basvuruNeden + '\n';
+  r += '   Destek  : ' + fd.mevcutDestek + '\n\n';
+
+  r += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
+  r += '🎯 ÖN DEĞERLENDİRME: ' + fd.sonucEtiket + '\n';
+  r += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n';
+
+  r += 'TARAMA SORULARI\n';
+  r += '────────────────\n';
+  for (let i = 1; i <= 8; i++) {
+    r += '  • ' + SQ_ET[i - 1] + ': ' + (SQ_D[fd.sq['q' + i]] || '—') + '\n';
+  }
+
+  r += '\nALAN SKORLARI\n';
+  r += '──────────────\n';
+  Object.keys(GRPN).forEach(k => r += '  • ' + GRPN[k] + ': ' + (tet[k] || 0) + '\n');
+
+  if (Object.keys(fd.detaylar || {}).length > 0) {
+    r += '\nDETAY YANITLARI\n';
+    r += '────────────────\n';
+    Object.keys(fd.detaylar).forEach(key => {
+      r += '\n[' + GRPN[key] + ']\n';
+      GRUPLARI[key].sorular.forEach(s => {
+        const v = fd.detaylar[key][s.id];
+        const soruTemiz = s.metin.replace(/<[^>]*>/g, '').trim();
+        if (Array.isArray(v)) {
+          if (v.length === 0) r += '  ' + soruTemiz + '\n    → (Hiçbiri işaretlenmedi)\n';
+          else {
+            r += '  ' + soruTemiz + '\n';
+            v.forEach(item => r += '    ✓ ' + item + '\n');
+          }
+        } else {
+          r += '  ' + soruTemiz + '\n    → ' + (v || '—') + '\n';
+        }
+      });
+    });
+  }
+
+  if (fd.notlar) {
+    r += '\nVELİ NOTU\n';
+    r += '──────────\n';
+    r += fd.notlar + '\n';
+  }
+
+  r += '\n╔══════════════════════════════════════════════════╗\n';
+  r += '║       📌  TALEP EDİLEN DESTEK ALANLARI         ║\n';
+  r += '╚══════════════════════════════════════════════════╝\n\n';
+  r += 'İLGİLENİLEN ALANLAR\n';
+  r += '────────────────────\n';
+  if (alanlar.length) alanlar.forEach(a => r += '  ✓ ' + a + '\n');
+  else r += '  (Belirtilmedi)\n';
+
+  r += '\nZAMAN TERCİHİ\n';
+  r += '──────────────\n';
+  if (zamanTercih.length) zamanTercih.forEach(z => r += '  ✓ ' + z + '\n');
+  else r += '  (Belirtilmedi)\n';
+
+  const subject = '📌 Özel Seans Talebi — ' + fd.cocukAd + ' (' + fd.sonucEtiket + ')';
+
+  try {
+    const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: subject,
+        _replyto: ALICI_EMAIL,
+        message: r,
+      })
+    });
+    if (res.ok) {
+      document.getElementById('sendingOverlay').classList.remove('show');
+      goStep(5);
+    } else {
+      throw new Error();
+    }
+  } catch {
+    document.getElementById('sendingOverlay').classList.remove('show');
+    document.getElementById('errorMsg').classList.add('show');
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>

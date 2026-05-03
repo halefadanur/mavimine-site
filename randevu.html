@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<title>Randevu Al — Mavi Mine Anaokulu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:#FFFBF2; --milk:#FFF7E8; --sand:#FBEEDC; --cream-deep:#F4E4C9;
+  --ink:#2A2422; --ink-soft:#4F4842; --ink-light:#8A7F75;
+  --teal:#1AAFA0; --teal-deep:#0E8478; --teal-soft:#C4ECE7;
+  --orange:#F39233; --orange-soft:#FCD9B4;
+  --sun:#F5C518; --sun-soft:#FCE99B;
+  --rose:#EC6E9A; --rose-soft:#F8C5D7;
+  --grape:#9C6BC2;
+  --grass:#7BBF50; --grass-soft:#C9E4B0;
+  --line:#EFE2C9; --line-deep:#E0CDA8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:'Quicksand',system-ui,sans-serif;font-weight:500;
+  background:var(--milk);color:var(--ink);min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;
+  padding:32px 16px 80px;line-height:1.55;
+}
+
+/* dekoratif lekeler */
+.blob{position:fixed;pointer-events:none;z-index:0;}
+
+/* header */
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:8px;text-decoration:none;color:inherit;}
+.brand-mark{
+  width:54px;height:54px;border-radius:14px;
+  background:white;display:grid;place-items:center;
+  box-shadow:0 4px 14px rgba(14,132,120,0.12);
+  font-family:'Quicksand',sans-serif;font-weight:700;font-size:24px;
+  color:var(--teal-deep);letter-spacing:-1px;
+}
+.brand-mark span:nth-child(2){color:var(--orange);}
+.brand-motto{display:flex;flex-direction:column;font-family:'Caveat',cursive;font-weight:700;line-height:0.95;}
+.brand-motto .l1{font-size:18px;color:var(--teal-deep);}
+.brand-motto .l2{font-size:18px;color:var(--orange);margin-top:2px;}
+
+.header{text-align:center;max-width:580px;margin-bottom:32px;position:relative;z-index:2;}
+.eyebrow{
+  display:inline-block;background:var(--teal-soft);color:var(--teal-deep);
+  font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  padding:6px 16px;border-radius:999px;margin:18px 0 14px;
+}
+h1{
+  font-family:'Quicksand',sans-serif;font-weight:700;
+  font-size:clamp(28px,5vw,40px);line-height:1.1;
+  color:var(--ink);margin:0 0 12px;letter-spacing:-0.01em;
+}
+h1 em{
+  font-style:normal;font-family:'Caveat',cursive;
+  color:var(--orange);font-size:1.15em;font-weight:700;
+}
+.lede{font-size:15.5px;color:var(--ink-soft);line-height:1.65;font-weight:500;}
+
+/* kart */
+.card{
+  background:white;border-radius:24px;padding:36px 32px;
+  width:100%;max-width:580px;
+  box-shadow:0 8px 32px rgba(14,132,120,0.10);
+  border:2px solid var(--line);
+  position:relative;z-index:2;
+}
+
+.field{margin-bottom:20px;}
+.field label{
+  display:block;font-size:13px;font-weight:700;
+  color:var(--ink);margin-bottom:8px;letter-spacing:0.01em;
+}
+.field label .opt{color:var(--ink-light);font-weight:500;text-transform:none;letter-spacing:0;}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px 16px;
+  border:2px solid var(--line);border-radius:12px;
+  font-family:'Quicksand',sans-serif;font-size:14.5px;font-weight:500;
+  color:var(--ink);background:var(--paper);outline:none;
+  transition:border-color 0.2s,box-shadow 0.2s,background 0.2s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--teal);background:white;
+  box-shadow:0 0 0 3px rgba(26,175,160,0.15);
+}
+.field textarea{resize:vertical;min-height:90px;line-height:1.5;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+/* zaman tercihi pill'leri */
+.zaman-secim{display:flex;gap:8px;flex-wrap:wrap;}
+.zaman-secim input[type="radio"]{display:none;}
+.zaman-secim input[type="radio"]+label{
+  cursor:pointer;padding:10px 18px;border-radius:999px;
+  font-size:13px;font-weight:600;
+  border:2px solid var(--line);background:white;color:var(--ink-soft);
+  transition:all 0.2s;
+}
+.zaman-secim input[type="radio"]+label:hover{
+  border-color:var(--teal);color:var(--teal-deep);
+}
+.zaman-secim input[type="radio"]:checked+label{
+  border-color:var(--teal-deep);background:var(--teal-deep);color:white;
+}
+
+/* button */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 28px;font:inherit;font-size:15px;font-weight:700;
+  background:var(--orange);color:white;
+  border:2px solid var(--orange);border-radius:999px;
+  cursor:pointer;text-decoration:none;
+  transition:transform .2s,background .2s,box-shadow .2s;
+  letter-spacing:0.02em;width:100%;
+}
+.btn:hover{
+  transform:translateY(-2px);background:#d97a20;border-color:#d97a20;
+  box-shadow:0 8px 22px rgba(243,146,51,0.32);
+}
+.btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
+
+/* not + alternatif iletişim */
+.alt-contact{
+  margin-top:24px;padding-top:22px;
+  border-top:2px dashed var(--line-deep);
+  text-align:center;
+}
+.alt-contact .mono{
+  font-family:'Quicksand',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-light);
+  margin-bottom:10px;
+}
+.alt-contact a{
+  color:var(--teal-deep);text-decoration:none;font-weight:700;font-size:14px;
+}
+.alt-contact a:hover{text-decoration:underline;}
+
+/* error */
+.error-msg{
+  display:none;background:var(--rose-soft);border:2px solid var(--rose);
+  color:#b13a64;padding:14px 16px;border-radius:12px;
+  font-size:13.5px;font-weight:600;margin-top:16px;
+}
+.error-msg.show{display:block;}
+
+/* gönderiliyor */
+.sending-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(255,251,242,0.92);z-index:100;
+  align-items:center;justify-content:center;
+  flex-direction:column;gap:18px;
+}
+.sending-overlay.show{display:flex;}
+.spinner{
+  width:42px;height:42px;border:4px solid var(--teal-soft);
+  border-top-color:var(--teal-deep);border-radius:50%;
+  animation:spin 0.8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.sending-overlay p{
+  font-family:'Caveat',cursive;font-weight:700;font-size:22px;
+  color:var(--teal-deep);
+}
+
+/* başarı */
+.success{display:none;text-align:center;padding:20px 0;}
+.success.show{display:block;}
+.success-icon{
+  width:80px;height:80px;border-radius:50%;
+  background:var(--grass-soft);color:#4d8a26;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;font-size:38px;font-weight:700;
+}
+.success h2{
+  font-family:'Quicksand',sans-serif;font-weight:700;
+  font-size:26px;color:var(--ink);margin-bottom:10px;
+}
+.success h2 em{
+  font-style:normal;font-family:'Caveat',cursive;
+  color:var(--teal-deep);font-size:1.15em;
+}
+.success p{
+  font-size:15px;color:var(--ink-soft);line-height:1.7;
+  max-width:440px;margin:0 auto 24px;font-weight:500;
+}
+.success .info-box{
+  background:var(--milk);border:2px dashed var(--line-deep);
+  border-radius:14px;padding:16px 20px;max-width:380px;margin:0 auto;
+  text-align:left;font-size:13.5px;color:var(--ink);line-height:1.7;
+}
+.success .info-box strong{color:var(--teal-deep);}
+
+@media(max-width:520px){
+  .card{padding:28px 22px;}
+  .field-row{grid-template-columns:1fr;}
+  .zaman-secim{flex-direction:column;}
+  .zaman-secim input[type="radio"]+label{text-align:center;}
+}
+
+/* paper texture */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' /><feColorMatrix values='0 0 0 0 0.18 0 0 0 0 0.14 0 0 0 0 0.10 0 0 0 0.03 0' /></filter><rect width='100%' height='100%' filter='url(%23n)' /></svg>");
+  opacity:0.5;z-index:1;mix-blend-mode:multiply;
+}
+</style>
+</head>
+<body>
+
+<!-- dekoratif blob'lar -->
+<svg class="blob" style="top:60px;left:5%;width:80px;height:80px;" viewBox="0 0 60 60">
+  <circle cx="30" cy="30" r="20" fill="var(--sun)" opacity="0.35"/>
+</svg>
+<svg class="blob" style="top:120px;right:8%;width:70px;height:70px;" viewBox="0 0 60 60">
+  <circle cx="30" cy="30" r="18" fill="var(--rose)" opacity="0.35"/>
+</svg>
+<svg class="blob" style="bottom:80px;left:10%;width:60px;height:60px;" viewBox="0 0 60 60">
+  <circle cx="30" cy="30" r="16" fill="var(--grape)" opacity="0.3"/>
+</svg>
+
+<div class="sending-overlay" id="sendingOverlay">
+  <div class="spinner"></div>
+  <p>Gönderiliyor...</p>
+</div>
+
+<a href="index.html" class="brand">
+  <div class="brand-mark"><span>M</span><span>m</span></div>
+  <div class="brand-motto">
+    <span class="l1">Eğitimci gelenek,</span>
+    <span class="l2">mutlu gelecek.</span>
+  </div>
+</a>
+
+<div class="header">
+  <div class="eyebrow">Randevu Al</div>
+  <h1>Gelin, <em>tanışalım</em>.</h1>
+  <p class="lede">
+    Okulumuzu görmek için bir gün ayarlayalım. Bahçeyi, sınıfları gezin;
+    öğretmenlerimizle tanışın. Çocuğunuzla birlikte gelmeniz bizi mutlu eder.
+  </p>
+</div>
+
+<div class="card">
+
+  <!-- form bölümü -->
+  <div id="formSection">
+
+    <div class="field-row">
+      <div class="field">
+        <label>Çocuğun adı</label>
+        <input type="text" id="cocukAd" placeholder="Adı" />
+      </div>
+      <div class="field">
+        <label>Doğum yılı</label>
+        <input type="number" id="cocukYas" placeholder="ör. 2021" min="2018" max="2025" />
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Anne / baba adı</label>
+        <input type="text" id="veliAd" placeholder="Ad Soyad" />
+      </div>
+      <div class="field">
+        <label>Telefon</label>
+        <input type="tel" id="veliTel" placeholder="05XX XXX XX XX" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Tercih ettiğiniz zaman</label>
+      <div class="zaman-secim">
+        <input type="radio" name="zaman" id="zHafta" value="Hafta içi sabah">
+        <label for="zHafta">Hafta içi sabah</label>
+        <input type="radio" name="zaman" id="zOgleden" value="Hafta içi öğleden sonra">
+        <label for="zOgleden">Hafta içi öğleden sonra</label>
+        <input type="radio" name="zaman" id="zCmt" value="Cumartesi">
+        <label for="zCmt">Cumartesi</label>
+        <input type="radio" name="zaman" id="zEsnek" value="Sizin için uygun olan">
+        <label for="zEsnek">Sizin için uygun olan</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Kısa not <span class="opt">(opsiyonel)</span></label>
+      <textarea id="not" placeholder="Eklemek istediğiniz bir şey varsa..."></textarea>
+    </div>
+
+    <button class="btn" id="submitBtn" onclick="submitForm()">
+      Randevu talebimi gönder →
+    </button>
+
+    <div class="error-msg" id="errorMsg">
+      Gönderim sırasında bir sorun oluştu. Lütfen tekrar deneyin ya da bizi arayın.
+    </div>
+
+    <div class="alt-contact">
+      <div class="mono">ya da bizi doğrudan arayın</div>
+      <a href="tel:+900000000000">+90 ___ ___ __ __</a>
+    </div>
+
+  </div>
+
+  <!-- başarı bölümü -->
+  <div class="success" id="successSection">
+    <div class="success-icon">✓</div>
+    <h2>Randevu talebiniz <em>bize ulaştı!</em></h2>
+    <p>
+      En kısa sürede sizi arayıp uygun bir gün ve saat ayarlayacağız.
+      Görüşmek üzere — sizi bekliyoruz 🌿
+    </p>
+    <div class="info-box">
+      <strong>Mavi Mine Özel Anaokulu</strong><br>
+      <span style="color:var(--ink-light);font-size:12.5px">İletişim talebiniz okul yönetimine iletildi.</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const FORMSPREE_ID = 'FORMSPREE_ID_BURAYA';
+const ALICI_EMAIL  = 'halefadanur@gmail.com';
+
+async function submitForm() {
+  const cocukAd = document.getElementById('cocukAd').value.trim();
+  const cocukYas = document.getElementById('cocukYas').value.trim();
+  const veliAd = document.getElementById('veliAd').value.trim();
+  const veliTel = document.getElementById('veliTel').value.trim();
+  const zamanEl = document.querySelector('input[name="zaman"]:checked');
+  const zaman = zamanEl ? zamanEl.value : '';
+  const notMetin = document.getElementById('not').value.trim();
+
+  // doğrulama
+  const eksikler = [];
+  if (!cocukAd) eksikler.push('Çocuğun adı');
+  if (!cocukYas) eksikler.push('Doğum yılı');
+  if (!veliAd) eksikler.push('Anne/baba adı');
+  if (!veliTel) eksikler.push('Telefon');
+  if (!zaman) eksikler.push('Zaman tercihi');
+
+  if (eksikler.length) {
+    alert('Lütfen şu alanları doldurun:\n• ' + eksikler.join('\n• '));
+    return;
+  }
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  document.getElementById('errorMsg').classList.remove('show');
+  document.getElementById('sendingOverlay').classList.add('show');
+
+  let mesaj = '';
+  mesaj += '╔══════════════════════════════════════════════════╗\n';
+  mesaj += '║   📅  MAVİ MİNE — RANDEVU TALEBİ                ║\n';
+  mesaj += '╚══════════════════════════════════════════════════╝\n\n';
+  mesaj += '🕐 ' + new Date().toLocaleString('tr-TR') + '\n\n';
+  mesaj += '👤 ÇOCUK\n';
+  mesaj += '   Adı       : ' + cocukAd + '\n';
+  mesaj += '   Doğum yılı: ' + cocukYas + '\n\n';
+  mesaj += '📞 VELİ\n';
+  mesaj += '   Adı     : ' + veliAd + '\n';
+  mesaj += '   Telefon : ' + veliTel + '\n\n';
+  mesaj += '🗓️  ZAMAN TERCİHİ: ' + zaman + '\n';
+  if (notMetin) {
+    mesaj += '\n📝 NOT\n';
+    mesaj += notMetin + '\n';
+  }
+
+  const subject = '📅 Randevu Talebi — ' + cocukAd + ' (' + veliAd + ')';
+
+  try {
+    const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: subject,
+        _replyto: ALICI_EMAIL,
+        message: mesaj,
+      })
+    });
+    if (res.ok) {
+      document.getElementById('sendingOverlay').classList.remove('show');
+      document.getElementById('formSection').style.display = 'none';
+      document.getElementById('successSection').classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      throw new Error();
+    }
+  } catch {
+    document.getElementById('sendingOverlay').classList.remove('show');
+    document.getElementById('errorMsg').classList.add('show');
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>

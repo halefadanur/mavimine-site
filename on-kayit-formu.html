@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<title>Ön Kayıt Formu — Mavi Mine Anaokulu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:#FFFBF2; --milk:#FFF7E8; --sand:#FBEEDC; --cream-deep:#F4E4C9;
+  --ink:#2A2422; --ink-soft:#4F4842; --ink-light:#8A7F75;
+  --teal:#1AAFA0; --teal-deep:#0E8478; --teal-soft:#C4ECE7;
+  --orange:#F39233; --orange-soft:#FCD9B4;
+  --sun:#F5C518; --sun-soft:#FCE99B;
+  --rose:#EC6E9A; --rose-soft:#F8C5D7;
+  --grape:#9C6BC2; --grape-soft:#DCC9EC;
+  --grass:#7BBF50; --grass-soft:#C9E4B0;
+  --sky:#5BB5E0; --sky-soft:#C2E2F0;
+  --line:#EFE2C9; --line-deep:#E0CDA8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:'Quicksand',system-ui,sans-serif;font-weight:500;
+  background:var(--milk);color:var(--ink);min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;
+  padding:32px 16px 80px;line-height:1.55;
+}
+
+.blob{position:fixed;pointer-events:none;z-index:0;}
+
+/* brand */
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:8px;text-decoration:none;color:inherit;}
+.brand-mark{
+  width:54px;height:54px;border-radius:14px;
+  background:white;display:grid;place-items:center;
+  box-shadow:0 4px 14px rgba(14,132,120,0.12);
+  font-family:'Quicksand',sans-serif;font-weight:700;font-size:24px;
+  color:var(--teal-deep);letter-spacing:-1px;
+}
+.brand-mark span:nth-child(2){color:var(--orange);}
+.brand-motto{display:flex;flex-direction:column;font-family:'Caveat',cursive;font-weight:700;line-height:0.95;}
+.brand-motto .l1{font-size:18px;color:var(--teal-deep);}
+.brand-motto .l2{font-size:18px;color:var(--orange);margin-top:2px;}
+
+.header{text-align:center;max-width:600px;margin-bottom:24px;position:relative;z-index:2;}
+.eyebrow{
+  display:inline-block;background:var(--orange-soft);color:#b15d12;
+  font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  padding:6px 16px;border-radius:999px;margin:18px 0 14px;
+}
+h1{
+  font-family:'Quicksand',sans-serif;font-weight:700;
+  font-size:clamp(28px,5vw,40px);line-height:1.1;
+  color:var(--ink);margin:0 0 12px;letter-spacing:-0.01em;
+}
+h1 em{
+  font-style:normal;font-family:'Caveat',cursive;
+  color:var(--teal-deep);font-size:1.15em;font-weight:700;
+}
+.lede{font-size:15.5px;color:var(--ink-soft);line-height:1.65;font-weight:500;}
+
+/* progress */
+.progress-wrap{width:100%;max-width:600px;margin-bottom:24px;position:relative;z-index:2;}
+.progress-steps{display:flex;align-items:center;margin-bottom:8px;}
+.step-dot{
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;flex-shrink:0;
+  transition:all 0.3s;font-family:'Quicksand',sans-serif;
+}
+.step-dot.done{background:var(--teal-deep);color:white;}
+.step-dot.active{background:var(--orange);color:white;}
+.step-dot.pending{background:var(--cream-deep);color:var(--ink-light);}
+.step-line{flex:1;height:3px;background:var(--cream-deep);transition:background 0.3s;}
+.step-line.done{background:var(--teal-deep);}
+.progress-label{
+  font-family:'Quicksand',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-light);text-align:right;
+}
+
+/* card */
+.card{
+  background:white;border-radius:24px;padding:36px 32px;
+  width:100%;max-width:600px;
+  box-shadow:0 8px 32px rgba(14,132,120,0.10);
+  border:2px solid var(--line);
+  position:relative;z-index:2;
+}
+.step{display:none;}
+.step.active{display:block;animation:fadeIn 0.35s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+.step-title{
+  font-family:'Quicksand',sans-serif;font-weight:700;
+  font-size:22px;color:var(--ink);margin-bottom:6px;letter-spacing:-0.01em;
+}
+.step-title em{font-style:normal;font-family:'Caveat',cursive;color:var(--teal-deep);font-size:1.15em;}
+.step-sub{font-size:14px;color:var(--ink-soft);margin-bottom:24px;line-height:1.65;}
+
+.field{margin-bottom:20px;}
+.field label{
+  display:block;font-size:13px;font-weight:700;
+  color:var(--ink);margin-bottom:8px;
+}
+.field label .opt{color:var(--ink-light);font-weight:500;text-transform:none;}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px 16px;
+  border:2px solid var(--line);border-radius:12px;
+  font-family:'Quicksand',sans-serif;font-size:14.5px;font-weight:500;
+  color:var(--ink);background:var(--paper);outline:none;
+  transition:border-color 0.2s,box-shadow 0.2s,background 0.2s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--teal);background:white;
+  box-shadow:0 0 0 3px rgba(26,175,160,0.15);
+}
+.field textarea{resize:vertical;min-height:80px;line-height:1.5;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.field-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+
+/* pill seçim (radio buttons) */
+.pill-secim{display:flex;gap:8px;flex-wrap:wrap;}
+.pill-secim input[type="radio"]{display:none;}
+.pill-secim input[type="radio"]+label{
+  cursor:pointer;padding:10px 18px;border-radius:999px;
+  font-size:13px;font-weight:600;
+  border:2px solid var(--line);background:white;color:var(--ink-soft);
+  transition:all 0.2s;
+}
+.pill-secim input[type="radio"]+label:hover{
+  border-color:var(--teal);color:var(--teal-deep);
+}
+.pill-secim input[type="radio"]:checked+label{
+  border-color:var(--teal-deep);background:var(--teal-deep);color:white;
+}
+
+/* gözlem soruları */
+.gozlem-block{
+  margin-bottom:18px;padding:18px 20px;
+  background:var(--milk);border-radius:14px;border:2px solid var(--line);
+}
+.gozlem-text{font-size:14px;color:var(--ink);margin-bottom:12px;line-height:1.55;font-weight:500;}
+.gozlem-options{display:flex;gap:8px;flex-wrap:wrap;}
+.gozlem-options input[type="radio"]{display:none;}
+.gozlem-options input[type="radio"]+label{
+  cursor:pointer;padding:8px 16px;border-radius:999px;
+  font-size:13px;font-weight:600;
+  border:2px solid var(--line);background:white;color:var(--ink-soft);
+  transition:all 0.2s;
+}
+.gozlem-options input[type="radio"]:checked+label{
+  border-color:var(--teal);background:var(--teal-soft);color:var(--teal-deep);
+}
+
+/* button */
+.btn-row{display:flex;gap:12px;justify-content:space-between;margin-top:28px;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 26px;font:inherit;font-size:14px;font-weight:700;
+  border-radius:999px;cursor:pointer;text-decoration:none;
+  transition:transform .2s,background .2s,box-shadow .2s,color .2s;
+  letter-spacing:0.02em;border:2px solid;
+}
+.btn-back{
+  background:transparent;color:var(--ink-soft);border-color:var(--line-deep);
+}
+.btn-back:hover{background:var(--milk);color:var(--ink);border-color:var(--ink);}
+.btn-next{
+  background:var(--teal-deep);color:white;border-color:var(--teal-deep);
+}
+.btn-next:hover{
+  transform:translateY(-2px);background:var(--teal);border-color:var(--teal);
+  box-shadow:0 6px 18px rgba(14,132,120,0.28);
+}
+.btn-submit{
+  background:var(--orange);color:white;border-color:var(--orange);
+}
+.btn-submit:hover{
+  transform:translateY(-2px);background:#d97a20;border-color:#d97a20;
+  box-shadow:0 8px 22px rgba(243,146,51,0.32);
+}
+.btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
+
+/* error */
+.error-msg{
+  display:none;background:var(--rose-soft);border:2px solid var(--rose);
+  color:#b13a64;padding:14px 16px;border-radius:12px;
+  font-size:13.5px;font-weight:600;margin-top:16px;
+}
+.error-msg.show{display:block;}
+
+/* gönderiliyor */
+.sending-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(255,251,242,0.92);z-index:100;
+  align-items:center;justify-content:center;
+  flex-direction:column;gap:18px;
+}
+.sending-overlay.show{display:flex;}
+.spinner{
+  width:42px;height:42px;border:4px solid var(--teal-soft);
+  border-top-color:var(--teal-deep);border-radius:50%;
+  animation:spin 0.8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.sending-overlay p{
+  font-family:'Caveat',cursive;font-weight:700;font-size:22px;
+  color:var(--teal-deep);
+}
+
+/* başarı */
+.success-icon{
+  width:80px;height:80px;border-radius:50%;
+  background:var(--grass-soft);color:#4d8a26;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;font-size:38px;font-weight:700;
+}
+.success-baslik{
+  text-align:center;padding-bottom:24px;
+  border-bottom:2px dashed var(--line-deep);margin-bottom:24px;
+}
+.success-baslik h2{
+  font-family:'Quicksand',sans-serif;font-weight:700;
+  font-size:26px;color:var(--ink);margin-bottom:8px;
+}
+.success-baslik h2 em{
+  font-style:normal;font-family:'Caveat',cursive;
+  color:var(--teal-deep);font-size:1.15em;
+}
+.success-baslik p{font-size:14px;color:var(--ink-soft);}
+.info-box{
+  background:var(--milk);border:2px dashed var(--line-deep);
+  border-radius:14px;padding:16px 20px;
+  font-size:13.5px;color:var(--ink);line-height:1.7;
+}
+.info-box strong{color:var(--teal-deep);}
+
+@media(max-width:520px){
+  .card{padding:28px 22px;}
+  .field-row,.field-row-3{grid-template-columns:1fr;}
+  .pill-secim{flex-direction:column;}
+  .pill-secim input[type="radio"]+label{text-align:center;}
+}
+
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' /><feColorMatrix values='0 0 0 0 0.18 0 0 0 0 0.14 0 0 0 0 0.10 0 0 0 0.03 0' /></filter><rect width='100%' height='100%' filter='url(%23n)' /></svg>");
+  opacity:0.5;z-index:1;mix-blend-mode:multiply;
+}
+</style>
+</head>
+<body>
+
+<svg class="blob" style="top:60px;left:5%;width:80px;height:80px;" viewBox="0 0 60 60">
+  <circle cx="30" cy="30" r="20" fill="var(--sun)" opacity="0.35"/>
+</svg>
+<svg class="blob" style="top:120px;right:8%;width:70px;height:70px;" viewBox="0 0 60 60">
+  <circle cx="30" cy="30" r="18" fill="var(--rose)" opacity="0.35"/>
+</svg>
+<svg class="blob" style="bottom:80px;left:10%;width:60px;height:60px;" viewBox="0 0 60 60">
+  <circle cx="30" cy="30" r="16" fill="var(--grape)" opacity="0.3"/>
+</svg>
+
+<div class="sending-overlay" id="sendingOverlay">
+  <div class="spinner"></div>
+  <p>Gönderiliyor...</p>
+</div>
+
+<a href="index.html" class="brand">
+  <div class="brand-mark"><span>M</span><span>m</span></div>
+  <div class="brand-motto">
+    <span class="l1">Eğitimci gelenek,</span>
+    <span class="l2">mutlu gelecek.</span>
+  </div>
+</a>
+
+<div class="header">
+  <div class="eyebrow">Ön Kayıt Formu</div>
+  <h1>Çocuğunuzu <em>tanıyalım</em>.</h1>
+  <p class="lede">
+    Bu form, çocuğunuza en uygun ortamı hazırlamamıza yardımcı olur.
+    Yaklaşık 3 dakika sürer. Bilgileriniz yalnızca okul yönetimiyle paylaşılır.
+  </p>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-steps">
+    <div class="step-dot active" id="dot1">1</div>
+    <div class="step-line" id="line1"></div>
+    <div class="step-dot pending" id="dot2">2</div>
+    <div class="step-line" id="line2"></div>
+    <div class="step-dot pending" id="dot3">3</div>
+  </div>
+  <div class="progress-label" id="progressLabel">Adım 1 / 3</div>
+</div>
+
+<div class="card">
+
+  <!-- ADIM 1: Çocuk + Veli bilgileri -->
+  <div class="step active" id="step1">
+    <div class="step-title">Önce <em>sizi tanıyalım</em></div>
+    <div class="step-sub">Temel bilgiler — çocuğunuz ve sizinle iletişim için.</div>
+
+    <div class="field">
+      <label>Çocuğun adı soyadı</label>
+      <input type="text" id="cocukAd" placeholder="Ad Soyad" />
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Doğum tarihi</label>
+        <input type="date" id="cocukDogum" />
+      </div>
+      <div class="field">
+        <label>Cinsiyet</label>
+        <select id="cocukCins">
+          <option value="">Seçiniz...</option>
+          <option value="Kız">Kız</option>
+          <option value="Erkek">Erkek</option>
+          <option value="Belirtmek istemiyorum">Belirtmek istemiyorum</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Daha önce kreş veya anaokuluna gitti mi?</label>
+      <select id="oncekiOkul">
+        <option value="">Seçiniz...</option>
+        <option value="Hayır, ilk kez">Hayır, ilk kez okula gelecek</option>
+        <option value="Evet, devam ediyor">Evet, şu an devam ediyor</option>
+        <option value="Evet, bıraktı">Evet, gitti ama şu an gitmiyor</option>
+      </select>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Anne adı</label>
+        <input type="text" id="anneAd" placeholder="Ad Soyad" />
+      </div>
+      <div class="field">
+        <label>Baba adı</label>
+        <input type="text" id="babaAd" placeholder="Ad Soyad" />
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Telefon</label>
+        <input type="tel" id="veliTel" placeholder="05XX XXX XX XX" />
+      </div>
+      <div class="field">
+        <label>E-posta</label>
+        <input type="email" id="veliMail" placeholder="ornek@mail.com" />
+      </div>
+    </div>
+
+    <div class="btn-row" style="justify-content:flex-end;">
+      <button class="btn btn-next" onclick="step1Next()">Devam →</button>
+    </div>
+  </div>
+
+  <!-- ADIM 2: Kayıt tercihleri + hafif gözlem -->
+  <div class="step" id="step2">
+    <div class="step-title">Birkaç <em>tercih</em></div>
+    <div class="step-sub">Hangi yaş grubuna uygun, gün tipi tercihi nedir, çocuğunuzu evde nasıl gözlemliyorsunuz?</div>
+
+    <div class="field">
+      <label>Hangi sınıfa kaydı düşünüyorsunuz?</label>
+      <div class="pill-secim">
+        <input type="radio" name="sinif" id="sMinik" value="Minik Afacanlar (2 yaş)">
+        <label for="sMinik">Minik Afacanlar · 2 yaş</label>
+        <input type="radio" name="sinif" id="sMerakli" value="Meraklı Minikler (3-4 yaş)">
+        <label for="sMerakli">Meraklı Minikler · 3-4 yaş</label>
+        <input type="radio" name="sinif" id="sGulen" value="Gülen Yüzler (5-6 yaş)">
+        <label for="sGulen">Gülen Yüzler · 5-6 yaş</label>
+        <input type="radio" name="sinif" id="sBilmiyor" value="Emin değilim, siz yönlendirin">
+        <label for="sBilmiyor">Emin değilim</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Gün tipi tercihi</label>
+      <div class="pill-secim">
+        <input type="radio" name="gunTipi" id="gTam" value="Tam gün">
+        <label for="gTam">Tam gün</label>
+        <input type="radio" name="gunTipi" id="gYarim" value="Yarım gün">
+        <label for="gYarim">Yarım gün</label>
+        <input type="radio" name="gunTipi" id="gKararsiz" value="Henüz karar vermedim">
+        <label for="gKararsiz">Henüz kararsızım</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Ne zaman başlamayı düşünüyorsunuz?</label>
+      <select id="baslangic">
+        <option value="">Seçiniz...</option>
+        <option value="Hemen">En kısa sürede</option>
+        <option value="1-3 ay içinde">1-3 ay içinde</option>
+        <option value="Önümüzdeki dönem">Önümüzdeki dönem</option>
+        <option value="Önümüzdeki yıl">Önümüzdeki yıl başında</option>
+      </select>
+    </div>
+
+    <div style="margin-top:28px;padding-top:22px;border-top:2px dashed var(--line-deep);">
+      <div style="font-family:'Caveat',cursive;font-size:24px;font-weight:700;color:var(--teal-deep);margin-bottom:6px;">
+        Çocuğunuzu evde nasıl gözlemliyorsunuz?
+      </div>
+      <p style="font-size:13.5px;color:var(--ink-soft);margin-bottom:18px;line-height:1.6;">
+        Bu küçük gözlemler çocuğunuzu daha iyi tanımamıza yardımcı olur.
+        İçgüdüsel olarak yanıtlayın — doğru ya da yanlış cevap yok.
+      </p>
+
+      <div class="gozlem-block">
+        <div class="gozlem-text">Yeni bir ortama uyum sağlaması nasıl?</div>
+        <div class="gozlem-options">
+          <input type="radio" name="g1" id="g1a" value="Hızlı uyum sağlar"><label for="g1a">Hızlı uyum sağlar</label>
+          <input type="radio" name="g1" id="g1b" value="Biraz zaman alır"><label for="g1b">Biraz zaman alır</label>
+          <input type="radio" name="g1" id="g1c" value="Çok zorlanır"><label for="g1c">Çok zorlanır</label>
+        </div>
+      </div>
+
+      <div class="gozlem-block">
+        <div class="gozlem-text">Diğer çocuklarla oynamayı seviyor mu?</div>
+        <div class="gozlem-options">
+          <input type="radio" name="g2" id="g2a" value="Çok seviyor, sosyal"><label for="g2a">Çok seviyor</label>
+          <input type="radio" name="g2" id="g2b" value="Seçici, tanıdığıyla rahat"><label for="g2b">Seçici</label>
+          <input type="radio" name="g2" id="g2c" value="Genelde tek başına oynamayı tercih"><label for="g2c">Tek başına tercih ediyor</label>
+        </div>
+      </div>
+
+      <div class="gozlem-block">
+        <div class="gozlem-text">Kendini ifade etmesi (konuşma, anlatma) nasıl?</div>
+        <div class="gozlem-options">
+          <input type="radio" name="g3" id="g3a" value="Rahatça anlatır"><label for="g3a">Rahatça anlatır</label>
+          <input type="radio" name="g3" id="g3b" value="Yaşına göre normal"><label for="g3b">Yaşına göre normal</label>
+          <input type="radio" name="g3" id="g3c" value="Zorlanıyor"><label for="g3c">Zorlanıyor</label>
+        </div>
+      </div>
+
+      <div class="gozlem-block">
+        <div class="gozlem-text">Tuvalet eğitimi tamamlandı mı?</div>
+        <div class="gozlem-options">
+          <input type="radio" name="g4" id="g4a" value="Evet, tamamlandı"><label for="g4a">Evet</label>
+          <input type="radio" name="g4" id="g4b" value="Süreç devam ediyor"><label for="g4b">Devam ediyor</label>
+          <input type="radio" name="g4" id="g4c" value="Henüz başlamadık"><label for="g4c">Henüz başlamadık</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-back" onclick="goStep(1)">← Geri</button>
+      <button class="btn btn-next" onclick="step2Next()">Devam →</button>
+    </div>
+  </div>
+
+  <!-- ADIM 3: Sağlık + ek notlar -->
+  <div class="step" id="step3">
+    <div class="step-title">Son <em>birkaç şey</em></div>
+    <div class="step-sub">Sağlık ve özel ihtiyaçlarla ilgili — eklemek istediklerinizi yazabilirsiniz.</div>
+
+    <div class="field">
+      <label>Bilinen alerjisi var mı? <span class="opt">(varsa)</span></label>
+      <input type="text" id="alerji" placeholder="ör. fıstık, süt, polen — yoksa boş bırakın" />
+    </div>
+
+    <div class="field">
+      <label>Düzenli kullandığı ilaç ya da takip edilen sağlık durumu? <span class="opt">(varsa)</span></label>
+      <input type="text" id="saglik" placeholder="Yoksa boş bırakabilirsiniz" />
+    </div>
+
+    <div class="field">
+      <label>Daha önce uzman desteği aldı mı? <span class="opt">(dil-konuşma, psikolog vb.)</span></label>
+      <select id="uzmanDestek">
+        <option value="">Seçiniz...</option>
+        <option value="Hayır">Hayır</option>
+        <option value="Evet, devam ediyor">Evet, şu an devam ediyor</option>
+        <option value="Evet, geçmişte aldı">Evet, geçmişte aldı</option>
+        <option value="Düşünüyoruz">Düşünüyoruz, henüz başlamadık</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Bizi nereden duydunuz?</label>
+      <select id="kaynak">
+        <option value="">Seçiniz...</option>
+        <option value="Tavsiye / yakın çevre">Tavsiye / yakın çevre</option>
+        <option value="İnternet araması">İnternet araması</option>
+        <option value="Sosyal medya">Sosyal medya</option>
+        <option value="Civarda gördüm">Civarda gördüm</option>
+        <option value="Diğer">Diğer</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Eklemek istediğiniz başka bir şey? <span class="opt">(opsiyonel)</span></label>
+      <textarea id="not" placeholder="Çocuğunuzla ilgili paylaşmak istediğiniz, sormak istediğiniz, ya da bilmemizi istediğiniz herhangi bir şey..."></textarea>
+    </div>
+
+    <div class="error-msg" id="errorMsg">
+      Gönderim sırasında bir sorun oluştu. Lütfen tekrar deneyin ya da bizi arayın.
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-back" onclick="goStep(2)">← Geri</button>
+      <button class="btn btn-submit" id="submitBtn" onclick="submitForm()">Gönder ✉</button>
+    </div>
+  </div>
+
+  <!-- ADIM 4: Başarı -->
+  <div class="step" id="step4">
+    <div class="success-icon">✓</div>
+    <div class="success-baslik">
+      <h2>Ön kaydınız <em>bize ulaştı!</em></h2>
+      <p>En kısa sürede sizinle iletişime geçeceğiz.</p>
+    </div>
+    <p style="font-size:14.5px;color:var(--ink-soft);line-height:1.75;text-align:center;max-width:440px;margin:0 auto 24px;font-weight:500;">
+      Ön kayıt sürecini tamamlamak için sizi telefonla arayıp tanışma görüşmesi için bir gün ayarlayacağız.
+      Görüşmede çocuğunuzla birlikte okulumuzu gezebilir, tüm sorularınızı sorabilirsiniz.
+    </p>
+    <div class="info-box" style="text-align:left;">
+      <strong>Mavi Mine Özel Anaokulu</strong><br>
+      <span style="color:var(--ink-light);font-size:12.5px">
+        Yanıtlarınız okul yönetimine iletildi. Sizi yakında arayacağız 🌿
+      </span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const FORMSPREE_ID = 'FORMSPREE_ID_BURAYA';
+const ALICI_EMAIL  = 'halefadanur@gmail.com';
+
+let fd = {};
+
+function goStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step'+n).classList.add('active');
+  for (let i=1;i<=3;i++) {
+    const d = document.getElementById('dot'+i);
+    if (i<n) { d.className='step-dot done'; d.textContent='✓'; }
+    else if (i===n) { d.className='step-dot active'; d.textContent=i; }
+    else { d.className='step-dot pending'; d.textContent=i; }
+    if (i<3) document.getElementById('line'+i).className='step-line'+(i<n?' done':'');
+  }
+  const lbl = document.getElementById('progressLabel');
+  if (lbl) lbl.textContent = n<=3 ? `Adım ${n} / 3` : 'Tamamlandı';
+  if (n===4) document.querySelector('.progress-wrap').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function getRadio(name) {
+  const el = document.querySelector(`input[name="${name}"]:checked`);
+  return el ? el.value : '';
+}
+
+function step1Next() {
+  const z = [
+    {id:'cocukAd', ad:'Çocuğun adı'},
+    {id:'cocukDogum', ad:'Doğum tarihi'},
+    {id:'cocukCins', ad:'Cinsiyet'},
+    {id:'oncekiOkul', ad:'Önceki okul durumu'},
+    {id:'anneAd', ad:'Anne adı'},
+    {id:'babaAd', ad:'Baba adı'},
+    {id:'veliTel', ad:'Telefon'},
+    {id:'veliMail', ad:'E-posta'},
+  ];
+  for (const f of z) {
+    if (!document.getElementById(f.id).value.trim()) {
+      alert(`Lütfen "${f.ad}" alanını doldurun.`);
+      document.getElementById(f.id).focus();
+      return;
+    }
+  }
+  z.forEach(f => fd[f.id] = document.getElementById(f.id).value.trim());
+  goStep(2);
+}
+
+function step2Next() {
+  const sinif = getRadio('sinif');
+  const gun = getRadio('gunTipi');
+  const baslangic = document.getElementById('baslangic').value.trim();
+
+  if (!sinif) { alert('Lütfen sınıf tercihinizi seçin.'); return; }
+  if (!gun) { alert('Lütfen gün tipi tercihinizi seçin.'); return; }
+  if (!baslangic) { alert('Lütfen başlangıç zamanı seçin.'); return; }
+
+  fd.sinif = sinif;
+  fd.gunTipi = gun;
+  fd.baslangic = baslangic;
+  fd.gozlem = {
+    g1: getRadio('g1'),
+    g2: getRadio('g2'),
+    g3: getRadio('g3'),
+    g4: getRadio('g4'),
+  };
+
+  // gözlem alanları opsiyonel — hepsi boş bile olabilir, ama uyaralım
+  const dolanGozlem = Object.values(fd.gozlem).filter(v=>v).length;
+  if (dolanGozlem < 4) {
+    if (!confirm('Gözlem sorularını yanıtlamadınız. Boş geçmek istediğinizden emin misiniz?')) return;
+  }
+
+  goStep(3);
+}
+
+async function submitForm() {
+  fd.alerji = document.getElementById('alerji').value.trim();
+  fd.saglik = document.getElementById('saglik').value.trim();
+  fd.uzmanDestek = document.getElementById('uzmanDestek').value.trim();
+  fd.kaynak = document.getElementById('kaynak').value.trim();
+  fd.notMetin = document.getElementById('not').value.trim();
+
+  if (!fd.uzmanDestek) { alert('Lütfen "uzman desteği" sorusunu yanıtlayın.'); return; }
+  if (!fd.kaynak) { alert('Lütfen "Bizi nereden duydunuz?" sorusunu yanıtlayın.'); return; }
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  document.getElementById('errorMsg').classList.remove('show');
+  document.getElementById('sendingOverlay').classList.add('show');
+
+  let r = '';
+  r += '╔══════════════════════════════════════════════════╗\n';
+  r += '║   📝  MAVİ MİNE — ÖN KAYIT FORMU                ║\n';
+  r += '╚══════════════════════════════════════════════════╝\n\n';
+  r += '🕐 ' + new Date().toLocaleString('tr-TR') + '\n\n';
+
+  r += '👶 ÇOCUK BİLGİLERİ\n';
+  r += '──────────────────\n';
+  r += '   Ad Soyad    : ' + fd.cocukAd + '\n';
+  r += '   Doğum tarihi: ' + fd.cocukDogum + '\n';
+  r += '   Cinsiyet    : ' + fd.cocukCins + '\n';
+  r += '   Önceki okul : ' + fd.oncekiOkul + '\n\n';
+
+  r += '👨‍👩‍👧 VELİ BİLGİLERİ\n';
+  r += '──────────────────\n';
+  r += '   Anne     : ' + fd.anneAd + '\n';
+  r += '   Baba     : ' + fd.babaAd + '\n';
+  r += '   Telefon  : ' + fd.veliTel + '\n';
+  r += '   E-posta  : ' + fd.veliMail + '\n\n';
+
+  r += '🏫 KAYIT TERCİHLERİ\n';
+  r += '────────────────────\n';
+  r += '   Sınıf      : ' + fd.sinif + '\n';
+  r += '   Gün tipi   : ' + fd.gunTipi + '\n';
+  r += '   Başlangıç  : ' + fd.baslangic + '\n\n';
+
+  r += '👀 GÖZLEM YANITLARI\n';
+  r += '────────────────────\n';
+  r += '   Yeni ortama uyum    : ' + (fd.gozlem.g1 || '—') + '\n';
+  r += '   Sosyal etkileşim    : ' + (fd.gozlem.g2 || '—') + '\n';
+  r += '   Kendini ifade       : ' + (fd.gozlem.g3 || '—') + '\n';
+  r += '   Tuvalet eğitimi     : ' + (fd.gozlem.g4 || '—') + '\n\n';
+
+  r += '🩺 SAĞLIK / DESTEK\n';
+  r += '──────────────────\n';
+  r += '   Alerji         : ' + (fd.alerji || '(belirtilmedi)') + '\n';
+  r += '   Sağlık durumu  : ' + (fd.saglik || '(belirtilmedi)') + '\n';
+  r += '   Uzman desteği  : ' + fd.uzmanDestek + '\n';
+  r += '   Bizi duyduğu   : ' + fd.kaynak + '\n';
+
+  if (fd.notMetin) {
+    r += '\n📝 VELİ NOTU\n';
+    r += '─────────────\n';
+    r += fd.notMetin + '\n';
+  }
+
+  const subject = '📝 Ön Kayıt — ' + fd.cocukAd + ' (' + fd.sinif.split(' (')[0] + ')';
+
+  try {
+    const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: subject,
+        _replyto: ALICI_EMAIL,
+        message: r,
+      })
+    });
+    if (res.ok) {
+      document.getElementById('sendingOverlay').classList.remove('show');
+      goStep(4);
+    } else {
+      throw new Error();
+    }
+  } catch {
+    document.getElementById('sendingOverlay').classList.remove('show');
+    document.getElementById('errorMsg').classList.add('show');
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<title>Mavi Mine — Wireframes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FAF7F2;
+    --paper-warm: #F2EDE4;
+    --ink: #1A1A1A;
+    --ink-soft: #3a3a3a;
+    --ink-light: #6b6b6b;
+    --ochre: #C89B5C;
+    --ochre-soft: #e8d4b3;
+    --line: #1a1a1a;
+    --grid: rgba(26,26,26,0.08);
+  }
+  body { margin: 0; font-family: 'Kalam', cursive; background: var(--paper-warm); color: var(--ink); }
+
+  /* Wireframe primitives */
+  .wf { background: var(--paper); color: var(--ink); width: 100%; height: 100%; overflow: hidden; position: relative; font-family: 'Kalam', cursive; }
+  .wf-mobile { width: 100%; height: 100%; }
+
+  /* Sketchy borders */
+  .sk { border: 1.5px solid var(--ink); border-radius: 6px 8px 7px 9px / 7px 6px 9px 8px; }
+  .sk-thin { border: 1px solid var(--ink); border-radius: 5px 7px 6px 8px / 6px 5px 8px 7px; }
+  .sk-d { border: 1.5px dashed var(--ink); border-radius: 6px 8px 7px 9px / 7px 6px 9px 8px; }
+  .sk-r { border-radius: 6px 8px 7px 9px / 7px 6px 9px 8px; }
+
+  /* Image / video placeholder — diagonal stripes */
+  .ph {
+    background:
+      repeating-linear-gradient(135deg,
+        rgba(26,26,26,0.06) 0 8px,
+        rgba(26,26,26,0) 8px 18px),
+      var(--paper-warm);
+    border: 1.5px solid var(--ink);
+    border-radius: 6px 8px 7px 9px / 7px 6px 9px 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--ink-soft);
+    text-align: center; padding: 8px; line-height: 1.4;
+    position: relative;
+  }
+  .ph.tall { aspect-ratio: 9/16; }
+  .ph.wide { aspect-ratio: 16/9; }
+  .ph.sq { aspect-ratio: 1/1; }
+  .ph.ochre { background:
+      repeating-linear-gradient(135deg,
+        rgba(200,155,92,0.18) 0 8px,
+        rgba(200,155,92,0) 8px 18px),
+      #f7eedf; }
+
+  /* Handwritten labels */
+  .hand { font-family: 'Caveat', cursive; }
+  .mono { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.02em; color: var(--ink-light); text-transform: uppercase; }
+
+  /* Underline accent */
+  .u-wave { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 6'><path d='M0 3 Q 10 0 20 3 T 40 3 T 60 3 T 80 3' stroke='%23C89B5C' stroke-width='1.5' fill='none'/></svg>"); background-repeat: repeat-x; background-position: 0 100%; padding-bottom: 4px; }
+
+  /* Logo lockup placeholder */
+  .logo { font-family: 'Caveat', cursive; font-weight: 700; font-size: 22px; letter-spacing: 0.02em; }
+
+  /* Buttons in wireframe */
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border: 1.5px solid var(--ink); background: var(--paper); font-family: 'Kalam', cursive; font-size: 13px; border-radius: 6px 9px 7px 8px / 7px 6px 8px 9px; cursor: pointer; }
+  .btn.solid { background: var(--ink); color: var(--paper); }
+  .btn.ochre { background: var(--ochre); color: var(--paper); border-color: var(--ink); }
+
+  /* Nav row (top) */
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; border-bottom: 1.5px solid var(--ink); }
+  .nav-links { display: flex; gap: 18px; font-size: 13px; }
+  .nav-links span { cursor: pointer; }
+
+  /* Tag/chip */
+  .chip { display: inline-flex; align-items: center; padding: 3px 10px; border: 1px solid var(--ink); border-radius: 999px; font-size: 11px; font-family: 'JetBrains Mono', monospace; }
+
+  /* Scribble divider */
+  .scribble { height: 14px; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14'><path d='M0 7 Q 25 1 50 7 T 100 7 T 150 7 T 200 7' stroke='%231a1a1a' stroke-width='1.2' fill='none'/></svg>"); background-repeat: repeat-x; }
+
+  /* Annotations (yellow sticky-ish) */
+  .anno { position: absolute; font-family: 'Caveat', cursive; font-size: 16px; color: #8a6a2a; }
+  .anno::before { content: '↳ '; }
+
+  /* Hide scrollbars inside wireframes */
+  .wf *::-webkit-scrollbar { display: none; }
+  .wf * { scrollbar-width: none; }
+
+  /* Annotation arrow */
+  .arrow {
+    font-family: 'Caveat', cursive;
+    color: #8a6a2a;
+    font-size: 15px;
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="wf-shared.jsx"></script>
+<script type="text/babel" src="wf-home-variants.jsx"></script>
+<script type="text/babel" src="wf-subpages.jsx"></script>
+<script type="text/babel" src="wf-app.jsx"></script>
+</body>
+</html>
