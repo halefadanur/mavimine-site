@@ -1,5 +1,7 @@
 // Shared nav + footer + logo for Mavi Mine pages
 
+const { useState, useEffect } = React;
+
 function LogoMark({ size = 56 }) {
   // Gerçek Mavi Mine logosu — anne+çocuk ile renk yelpazesi
   return (
@@ -21,6 +23,22 @@ const NAV_PAGES = [
 const NAV_COLORS = ['teal', 'orange', 'rose', 'grape', 'sky', 'grass', 'sun', 'coral'];
 
 function Nav({ active }) {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
+  const close = () => setOpen(false);
+
   return (
     <nav className="nav">
       <a href="index.html" className="logo-block">
@@ -30,16 +48,31 @@ function Nav({ active }) {
           <span className="motto-line-2">mutlu gelecek.</span>
         </span>
       </a>
-      <div className="nav-links">
+      <div
+        className={`nav-links ${open ? 'open' : ''}`}
+        role={open ? 'dialog' : undefined}
+        aria-modal={open ? 'true' : undefined}
+        aria-label="Ana menü"
+      >
+        <button className="nav-close" aria-label="Menüyü kapat" onClick={close}>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        </button>
         {NAV_PAGES.map(([label, href], i) => (
           <a
             key={label}
             href={href}
+            onClick={close}
             className={`nav-link nav-${NAV_COLORS[i % NAV_COLORS.length]} ${active === label ? 'active' : ''}`}
           >
             {label}
           </a>
         ))}
+        <a href="basvuru.html" className="nav-mobile-cta" onClick={close}>
+          Başvur
+          <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 10 L10 2 M5 2 H10 V7" stroke="currentColor" strokeWidth="1.6" /></svg>
+        </a>
       </div>
       <div className="nav-cta">
         <a href="basvuru.html" className="btn orange" style={{ padding: '10px 20px', fontSize: 13 }}>
@@ -47,6 +80,16 @@ function Nav({ active }) {
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10 L10 2 M5 2 H10 V7" stroke="currentColor" strokeWidth="1.6" /></svg>
         </a>
       </div>
+      <button
+        className={`nav-burger ${open ? 'open' : ''}`}
+        aria-label={open ? 'Menüyü kapat' : 'Menüyü aç'}
+        aria-expanded={open}
+        onClick={() => setOpen(!open)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
   );
 }

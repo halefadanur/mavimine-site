@@ -2511,3 +2511,130 @@ a.cr-help-value:hover {
   .yaz-day-time { font-size: 12px; }
   .yaz-day-what { font-size: 15px; }
 }
+
+/* ============================================ */
+/* ====== MOBİL NAV — HAMBURGER + PANEL ======= */
+/* ============================================ */
+/* Default (masaüstü): hamburger + panel-only öğeler gizli */
+.nav-burger { display: none; }
+.nav-close { display: none; }
+.nav-mobile-cta { display: none; }
+
+@media (max-width: 960px) {
+  /* Masaüstü Başvur butonunu gizle (mobil panel içinde olacak) */
+  .nav-cta { display: none; }
+
+  /* Logo motto mobilde de gizli kalsın */
+  .logo-motto { display: none; }
+
+  /* Nav yüksekliği masaüstüyle uyumlu
+     ÖNEMLİ: backdrop-filter ve sticky kaldırılır, çünkü containing block yaratıyor
+     ve içindeki position: fixed paneli viewport yerine .nav'a göre konumlandırıyor. */
+  .nav {
+    padding: 14px 24px;
+    gap: 16px;
+    position: relative;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* Hamburger button — 3 çizgi, X'e dönüşür */
+  .nav-burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+  .nav-burger span {
+    display: block;
+    width: 26px;
+    height: 2.5px;
+    background: var(--teal-deep);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+    transform-origin: center;
+  }
+  .nav-burger.open span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+  .nav-burger.open span:nth-child(2) { opacity: 0; }
+  .nav-burger.open span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+
+  /* Panel — tam ekran, tepeden açılır */
+  .nav-links {
+    display: flex !important;
+    position: fixed;
+    inset: 0;
+    background: var(--paper);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 96px 24px 40px;
+    gap: 12px;
+    transform: translateY(-100%);
+    transition: transform 0.28s ease-out;
+    z-index: 150;
+    overflow-y: auto;
+    flex-wrap: nowrap;
+  }
+  .nav-links.open { transform: translateY(0); }
+
+  /* Panel içi büyük X (sağ üst) */
+  .nav-close {
+    display: flex;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 52px;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--teal-deep);
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.15s;
+  }
+  .nav-close:hover { background: rgba(14,132,120,0.08); }
+
+  /* Panel link'leri — büyük, dokunulabilir */
+  .nav-links .nav-link {
+    font-size: 18px !important;
+    padding: 16px 22px !important;
+    border-radius: 14px;
+    text-align: center;
+    border: 1.5px solid transparent;
+  }
+
+  /* Panel altındaki büyük Başvur kartı */
+  .nav-mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+    padding: 18px 28px;
+    background: var(--orange);
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    border-radius: 16px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(243,146,51,0.28);
+    transition: transform 0.15s, box-shadow 0.15s;
+    letter-spacing: 0.02em;
+  }
+  .nav-mobile-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(243,146,51,0.4);
+  }
+}
