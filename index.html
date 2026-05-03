@@ -291,13 +291,28 @@
 .garden-grid {
   max-width: 1280px; margin: 0 auto;
   display: grid; grid-template-columns: 1fr 1.3fr 0.8fr 0.8fr;
-  gap: 18px; align-items: stretch;
+  gap: 28px; align-items: stretch;
 }
 .garden-text {
-  padding: 20px 12px;
+  padding: 20px 18px 20px 24px;
 }
-.garden-text h2 { font-size: clamp(32px, 3.4vw, 48px); line-height: 1.08; margin-bottom: 16px; }
-.garden-text h2 em { color: var(--grass); font-style: normal; font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.1em; }
+.garden-text h2 {
+  font-size: clamp(32px, 3.4vw, 48px);
+  line-height: 1.2;
+  margin-bottom: 16px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.garden-text h2 em {
+  color: var(--grass);
+  font-style: normal;
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 1.1em;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: baseline;
+}
 .garden-text p { font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0 0 18px; font-weight: 500; }
 
 /* QUOTE */
