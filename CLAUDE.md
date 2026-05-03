@@ -112,7 +112,7 @@ Bunlara ek: Anasayfa (index.html), Kayıt (Mavi Mine Kayit.html), Ön Kayıt, Ra
 Şu 3 dosyada "Mavi Mine Kayit.html" → "basvuru.html" güncellendi:
 - hifi-home.jsx:403 (anasayfa CTA "Başvuru formu" butonu)
 - page-hakkimizda.jsx:197 (hakkımızda CTA "Başvuru" butonu)
-- page-iletisim.jsx:82 ("Randevu al" butonu, dosya yarı-canlı)
+- page-iletisim.jsx:82 ("Randevu al" butonu, dosya yarı-canlı — 2026-05-03'te ölü dosya olarak silindi)
 
 ### İletişim Saatleri Tutarlılığı (tamamlandı)
 hifi-iletisim.jsx'te eğitim saatleri 07.30 — 18.30 olarak güncellendi (telefon kartı altyazısı + HoursSection).
@@ -303,3 +303,10 @@ Bekleyen işler:
 - HTTPS aktivasyonu (1-24 saat)
 - Mobil ek düzenlemeler (telefon ile detaylı tarama)
 - Kurum içi review yorumları
+
+### 2026-05-03 — Footer ve iletişim güncellendi, ölü dosya silindi
+
+- Footer BAĞLAN sütununa İletişim linki eklendi
+- Footer İLETİŞİM sütunu gerçek bilgilerle dolduruldu (adres, telefon, mail x2, Instagram, TikTok)
+- hifi-iletisim.jsx ana email: gmail → merhaba@mavimine.com (Seçenek C: sayfa tek email, footer iki)
+- page-iletisim.jsx silindi — iletisim.html artık hifi-iletisim.jsx çağırıyor, eski dosya kullanılmıyordu (git history'de saklı)

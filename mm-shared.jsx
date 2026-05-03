@@ -124,8 +124,15 @@ function FooterEl() {
           </div>
           {[
             ['KEŞFET', [['Hakkımızda', 'hakkimizda.html'], ['Program', 'program.html'], ['Destek', 'destek.html'], ['Bir Gün', 'bir-gun.html'], ['Kadromuz', 'kadro.html']]],
-            ['BAĞLAN', [['Başvuru', 'basvuru.html'], ['Galeri', 'galeri.html'], ['SSS', 'sss.html']]],
-            ['İLETİŞİM', [['[adres satırı]', '#'], ['[+90 ___ ___ __ __]', '#'], ['merhaba@mavimine.com', '#'], ['@mavimine', '#']]],
+            ['BAĞLAN', [['Başvuru', 'basvuru.html'], ['Galeri', 'galeri.html'], ['SSS', 'sss.html'], ['İletişim', 'iletisim.html']]],
+            ['İLETİŞİM', [
+              ['Vanimehmet Mah. Şht. Mustafa Kurt Cd. No:48, Kestel/Bursa', '#'],
+              ['0505 323 41 35', 'tel:+905053234135'],
+              ['merhaba@mavimine.com', 'mailto:merhaba@mavimine.com'],
+              ['bilgi@mavimine.com', 'mailto:bilgi@mavimine.com'],
+              ['@mavi_mine__anaokulu', 'https://www.instagram.com/mavi_mine__anaokulu/'],
+              ['@mavimineanaokulu (TikTok)', 'https://www.tiktok.com/@mavimineanaokulu'],
+            ]],
           ].map(([head, items]) => (
             <div key={head}>
               <div className="mono" style={{ color: 'rgba(255,251,242,0.55)', marginBottom: 16 }}>{head}</div>

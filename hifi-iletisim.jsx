@@ -8,7 +8,7 @@ const ILETISIM = {
   haritaUrl: 'https://maps.app.goo.gl/BP62o4FzdKpMaXd88',
   telefon: '0505 323 41 35',
   telefonHref: 'tel:+905053234135',
-  email: 'mavimineanaokulu@gmail.com',
+  email: 'merhaba@mavimine.com',
   instagram: {
     handle: '@mavi_mine__anaokulu',
     url: 'https://www.instagram.com/mavi_mine__anaokulu/',
