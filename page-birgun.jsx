@@ -14,11 +14,11 @@ const BLOCKS = [
 
 function BirGunHero() {
   return (
-    <section className="birgun-hero" style={{ padding: '80px 48px 60px', background: 'var(--milk)', position: 'relative', overflow: 'hidden' }}>
+    <section className="birgun-hero">
       <svg className="birgun-hero-blob" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="32" fill="var(--sun)"/>
       </svg>
-      <div style={{ maxWidth: 1280, margin: '0 auto', position: 'relative', zIndex: 2 }}>
+      <div className="birgun-hero-inner">
         <div className="mono" style={{ marginBottom: 18, color: 'var(--teal-deep)' }}>04 · bir gün</div>
         <h1 className="birgun-hero-title">
           <span style={{ color: 'var(--orange)' }}>07:30</span>'dan
