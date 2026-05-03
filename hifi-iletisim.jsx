@@ -224,8 +224,8 @@ function HoursSection() {
           </div>
           <div className="hours-block">
             <div className="label">Görüşme & Ziyaret</div>
-            <div className="time">Randevu ile</div>
-            <div className="desc">Önce tanışalım. Telefonla bizi arayın ya da <a href="randevu.html">randevu sayfamızdan</a> bir buluşma planlayın.</div>
+            <div className="time">Buluşalım</div>
+            <div className="desc">Önce tanışalım. Telefonla bizi arayın ya da <a href="basvuru.html">başvuru sayfamızdan</a> size uygun adımı seçin.</div>
           </div>
         </div>
       </div>
