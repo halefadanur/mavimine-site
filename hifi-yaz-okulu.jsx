@@ -311,7 +311,7 @@ function YazCTA() {
 function App() {
   return (
     <div data-screen-label="Yaz Okulu">
-      <Nav active="" />
+      <Nav active="Eğitim" />
       <YazHero />
       <ThreeQuestions />
       <YazNarrative />

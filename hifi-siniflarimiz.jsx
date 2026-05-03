@@ -321,7 +321,7 @@ function ClosingNote() {
 function App() {
   return (
     <div data-screen-label="Sınıflarımız">
-      <Nav active="Sınıflarımız" />
+      <Nav active="Eğitim" />
       <ClassesHero />
       <ClassesSection />
       <GuideSection />

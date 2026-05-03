@@ -194,7 +194,7 @@ function YearRhythm() {
 function App() {
   return (
     <div data-screen-label="Program">
-      <Nav active="Program" />
+      <Nav active="Eğitim" />
       <ProgramHero />
       <MEBStrip />
       <ProgramGrid />

@@ -10,18 +10,19 @@ function LogoMark({ size = 56 }) {
 }
 
 const NAV_PAGES = [
-  ['Hakkımızda', 'hakkimizda.html'],
-  ['Program', 'program.html'],
-  ['Destek', 'destek.html'],
-  ['Kadro', 'kadro.html'],
-  ['Bir Gün', 'bir-gun.html'],
-  ['Galeri', 'galeri.html'],
-  ['SSS', 'sss.html'],
-  ['Yaz Okulu', 'yaz-okulu.html'],
-  ['İletişim', 'iletisim.html'],
+  { label: 'Hakkımızda', href: 'hakkimizda.html', color: 'teal' },
+  { label: 'Eğitim', color: 'orange', children: [
+    { label: 'Genel Program', href: 'program.html' },
+    { label: 'Sınıflarımız',  href: 'siniflarimiz.html' },
+    { label: 'Yaz Okulu',     href: 'yaz-okulu.html' },
+  ]},
+  { label: 'Destek',   href: 'destek.html',   color: 'rose'  },
+  { label: 'Kadro',    href: 'kadro.html',    color: 'grape' },
+  { label: 'Bir Gün',  href: 'bir-gun.html',  color: 'sky'   },
+  { label: 'Galeri',   href: 'galeri.html',   color: 'grass' },
+  { label: 'SSS',      href: 'sss.html',      color: 'sun'   },
+  { label: 'İletişim', href: 'iletisim.html', color: 'coral' },
 ];
-
-const NAV_COLORS = ['teal', 'orange', 'rose', 'grape', 'sky', 'grass', 'sun', 'coral'];
 
 function Nav({ active }) {
   const [open, setOpen] = useState(false);
@@ -39,6 +40,13 @@ function Nav({ active }) {
   }, [open]);
 
   const close = () => setOpen(false);
+
+  // Item active mı? (kendi label'ı veya children'dan birinin label'ı eşleşirse)
+  const isItemActive = (item) => {
+    if (item.label === active) return true;
+    if (item.children && item.children.some(c => c.label === active)) return true;
+    return false;
+  };
 
   return (
     <nav className="nav">
@@ -60,16 +68,43 @@ function Nav({ active }) {
             <path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </button>
-        {NAV_PAGES.map(([label, href], i) => (
-          <a
-            key={label}
-            href={href}
-            onClick={close}
-            className={`nav-link nav-${NAV_COLORS[i % NAV_COLORS.length]} ${active === label ? 'active' : ''}`}
-          >
-            {label}
-          </a>
-        ))}
+        {NAV_PAGES.map((item) => {
+          const activeCls = isItemActive(item) ? 'active' : '';
+          if (item.children) {
+            return (
+              <div key={item.label} className={`nav-dropdown ${activeCls ? 'is-active' : ''}`}>
+                <span className={`nav-link nav-${item.color} nav-dropdown-trigger ${activeCls}`} tabIndex={0} aria-haspopup="true">
+                  {item.label}
+                  <svg className="nav-dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                    <path d="M1 1 L5 5 L9 1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                <div className="nav-dropdown-menu">
+                  {item.children.map((c) => (
+                    <a
+                      key={c.label}
+                      href={c.href}
+                      onClick={close}
+                      className={`nav-dropdown-item ${active === c.label ? 'active' : ''}`}
+                    >
+                      {c.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            );
+          }
+          return (
+            <a
+              key={item.label}
+              href={item.href}
+              onClick={close}
+              className={`nav-link nav-${item.color} ${activeCls}`}
+            >
+              {item.label}
+            </a>
+          );
+        })}
         <a href="basvuru.html" className="nav-mobile-cta" onClick={close}>
           Başvur
           <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 10 L10 2 M5 2 H10 V7" stroke="currentColor" strokeWidth="1.6" /></svg>
@@ -124,7 +159,7 @@ function FooterEl() {
             </p>
           </div>
           {[
-            ['KEŞFET', [['Hakkımızda', 'hakkimizda.html'], ['Program', 'program.html'], ['Destek', 'destek.html'], ['Bir Gün', 'bir-gun.html'], ['Yaz Okulu', 'yaz-okulu.html'], ['Kadromuz', 'kadro.html']]],
+            ['KEŞFET', [['Hakkımızda', 'hakkimizda.html'], ['Sınıflarımız', 'siniflarimiz.html'], ['Program', 'program.html'], ['Yaz Okulu', 'yaz-okulu.html'], ['Destek', 'destek.html'], ['Bir Gün', 'bir-gun.html'], ['Kadromuz', 'kadro.html']]],
             ['BAĞLAN', [['Başvuru', 'basvuru.html'], ['Galeri', 'galeri.html'], ['SSS', 'sss.html'], ['İletişim', 'iletisim.html']]],
             ['İLETİŞİM', [
               ['Vanimehmet Mah. Şht. Mustafa Kurt Cd. No:48, Kestel/Bursa', '#'],
