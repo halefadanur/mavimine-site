@@ -44,7 +44,7 @@ function TeacherGrid() {
         <h2 style={{ fontSize: 'clamp(36px, 4vw, 52px)', marginBottom: 40 }}>
           Aynı çatı altında <span className="handwritten" style={{ color: 'var(--rose)', fontSize: '1.1em' }}>aynı dili</span> konuşanlar.
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 28 }}>
+        <div className="kadro-team-grid">
           {TEACHERS.map((t, i) => (
             <div key={i}>
               {t.img ? (
@@ -91,7 +91,7 @@ function Consultants() {
             Çocuklarımız sadece öğretmenlerine değil, alanında uzman bir danışman ekibine de emanet.
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
+        <div className="kadro-consult-grid">
           {CONSULTANTS.map((c, i) => (
             <div key={i} style={{
               background: 'white', borderRadius: 24, padding: 40,

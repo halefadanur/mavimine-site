@@ -88,7 +88,7 @@ function Schedules() {
         <h2 style={{ fontSize: 'clamp(36px, 4vw, 52px)', marginBottom: 40 }}>
           Üç farklı <span className="handwritten" style={{ color: 'var(--orange)', fontSize: '1.1em' }}>tempo.</span>
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+        <div className="birgun-3-grid">
           {items.map((it, i) => (
             <div key={it.t} style={{
               background: 'white', borderRadius: 20, padding: 32,

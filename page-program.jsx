@@ -175,7 +175,7 @@ function YearRhythm() {
         <h2 style={{ fontSize: 'clamp(40px, 4.4vw, 60px)', marginBottom: 50 }}>
           Bir <span className="handwritten" style={{ color: 'var(--orange)', fontSize: '1.1em' }}>eğitim yılı</span>.
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }}>
+        <div className="prog-4-grid">
           {seasons.map((s, i) => (
             <div key={s.m} style={{
               background: `var(--${s.color}-soft)`, borderRadius: 20, padding: 28,

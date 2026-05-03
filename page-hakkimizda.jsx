@@ -86,7 +86,7 @@ function MissionValues() {
             Altı kelime, <span className="handwritten" style={{ color: 'var(--rose)', fontSize: '1.1em' }}>bir pusula.</span>
           </h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18 }}>
+        <div className="hakk-3-grid">
           {items.map((it, i) => (
             <div key={i} style={{ background: 'white', borderRadius: 20, padding: 28, border: `2px solid var(--${it.color}-soft)`, transform: `rotate(${i % 2 === 0 ? -0.5 : 0.5}deg)` }}>
               <div className={`smile-circle ${it.color}`} style={{ width: 48, height: 48, marginBottom: 18 }}>

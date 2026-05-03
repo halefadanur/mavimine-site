@@ -55,7 +55,7 @@ function Grid() {
             }}>{f}</button>
           ))}
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gridAutoRows: '220px', gap: 14 }}>
+        <div className="galeri-12-grid">
           {visible.map((t, i) => (
             <div key={i} className={`ph ${t.c}`} style={{
               gridColumn: t.size, gridRow: t.row,
