@@ -134,14 +134,14 @@ function CrossroadHelp() {
             <div className="smile-circle orange" style={{ width: 48, height: 48, fontSize: 20 }}>✉</div>
             <div>
               <div className="cr-help-label">E-posta</div>
-              <a href="mailto:mavimineanaokulu@gmail.com" className="cr-help-value">mavimineanaokulu@gmail.com</a>
+              <a href="mailto:merhaba@mavimine.com" className="cr-help-value">merhaba@mavimine.com</a>
             </div>
           </div>
           <div className="cr-help-row">
             <div className="smile-circle sun" style={{ width: 48, height: 48, fontSize: 20 }}>⏱</div>
             <div>
               <div className="cr-help-label">Görüşme saatleri</div>
-              <div className="cr-help-value">Pzt–Cuma · 09.00–17.00</div>
+              <div className="cr-help-value">Pzt–Cuma · 07.30–18.30</div>
             </div>
           </div>
         </div>
