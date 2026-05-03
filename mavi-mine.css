@@ -1006,6 +1006,14 @@ body::before {
   .process-num { width: 60px; height: 60px; font-size: 32px; }
   .process-step:not(:last-child)::before { left: 29px; top: 64px; }
 }
+@media (max-width: 760px) {
+  .process-step { grid-template-columns: 50px 1fr; gap: 14px; padding-bottom: 32px; }
+  .process-num { width: 50px; height: 50px; font-size: 26px; }
+  .process-step:not(:last-child)::before { left: 24px; top: 54px; }
+  .process-body { min-width: 0; padding: 18px 16px; overflow: hidden; }
+  .process-body h3 { font-size: 18px; }
+  .process-body p { font-size: 15px; }
+}
 
 
 /* ============================================ */
@@ -2792,6 +2800,32 @@ a.cr-help-value:hover {
   .support-card-text { min-width: 0; }
   .support-card-text h3 { font-size: 19px; }
   .support-card-text p { font-size: 13.5px; }
+}
+
+/* ============================================ */
+/* ====== BİR GÜN HERO (mobil overflow fix) === */
+/* ============================================ */
+.birgun-hero-title {
+  font-size: clamp(48px, 7vw, 92px);
+  line-height: 1.0;
+  max-width: 1100px;
+}
+.birgun-hero-akshama {
+  font-size: 0.9em;
+  margin: 0 12px;
+}
+.birgun-hero-blob {
+  position: absolute;
+  top: 60px;
+  right: 8%;
+  width: 90px;
+  height: 90px;
+  opacity: 0.5;
+}
+@media (max-width: 600px) {
+  .birgun-hero-title { font-size: clamp(34px, 9vw, 44px); line-height: 1.05; }
+  .birgun-hero-akshama { font-size: 0.85em; margin: 0 6px; }
+  .birgun-hero-blob { right: 0; width: 60px; height: 60px; opacity: 0.35; }
 }
 
 /* ============================================ */

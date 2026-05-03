@@ -14,15 +14,15 @@ const BLOCKS = [
 
 function BirGunHero() {
   return (
-    <section style={{ padding: '80px 48px 60px', background: 'var(--milk)', position: 'relative' }}>
-      <svg style={{ position: 'absolute', top: 60, right: '8%', width: 90, height: 90, opacity: 0.5 }} viewBox="0 0 100 100">
+    <section className="birgun-hero" style={{ padding: '80px 48px 60px', background: 'var(--milk)', position: 'relative', overflow: 'hidden' }}>
+      <svg className="birgun-hero-blob" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="32" fill="var(--sun)"/>
       </svg>
       <div style={{ maxWidth: 1280, margin: '0 auto', position: 'relative', zIndex: 2 }}>
         <div className="mono" style={{ marginBottom: 18, color: 'var(--teal-deep)' }}>04 · bir gün</div>
-        <h1 style={{ fontSize: 'clamp(48px, 7vw, 92px)', lineHeight: 1.0, maxWidth: 1100 }}>
+        <h1 className="birgun-hero-title">
           <span style={{ color: 'var(--orange)' }}>07:30</span>'dan
-          <span className="handwritten" style={{ color: 'var(--teal-deep)', fontSize: '0.9em', margin: '0 12px' }}>akşama</span>
+          <span className="handwritten birgun-hero-akshama" style={{ color: 'var(--teal-deep)' }}>akşama</span>
           kadar.
         </h1>
         <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.6, color: 'var(--ink-soft)', maxWidth: 700, fontWeight: 500 }}>
