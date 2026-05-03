@@ -79,14 +79,6 @@ function Hero() {
           </div>
         </div>
         <div className="hero-img-accent ph teal">[bahçede oyun]</div>
-        {/* Renk yelpazesi vurgusu */}
-        <svg className="hero-palette" style={{ position: 'absolute', top: -20, right: -20, width: 90, height: 90, zIndex: 5 }} viewBox="0 0 100 100">
-          <g transform="translate(50,50)">
-            {['#F39233','#F5C518','#7BBF50','#1AAFA0','#5BB5E0','#9C6BC2','#EC6E9A'].map((c, i) => (
-              <path key={i} d="M 0 0 L 35 -8 A 36 36 0 0 1 35 8 Z" fill={c} transform={`rotate(${i*22 - 70})`} opacity="0.85"/>
-            ))}
-          </g>
-        </svg>
       </div>
     </section>
   );
