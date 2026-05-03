@@ -27,6 +27,23 @@ const NAV_PAGES = [
 function Nav({ active }) {
   const [open, setOpen] = useState(false);
 
+  // Item active mı? (kendi label'ı veya children'dan birinin label'ı eşleşirse)
+  const isItemActive = (item) => {
+    if (item.label === active) return true;
+    if (item.children && item.children.some(c => c.label === active)) return true;
+    return false;
+  };
+
+  // Mobilde her parent için ayrı open state — aktif parent default açık
+  const [openParents, setOpenParents] = useState(() => {
+    const initial = {};
+    NAV_PAGES.forEach(item => {
+      if (item.children && isItemActive(item)) initial[item.label] = true;
+    });
+    return initial;
+  });
+  const toggleParent = (label) => setOpenParents(prev => ({ ...prev, [label]: !prev[label] }));
+
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -40,13 +57,6 @@ function Nav({ active }) {
   }, [open]);
 
   const close = () => setOpen(false);
-
-  // Item active mı? (kendi label'ı veya children'dan birinin label'ı eşleşirse)
-  const isItemActive = (item) => {
-    if (item.label === active) return true;
-    if (item.children && item.children.some(c => c.label === active)) return true;
-    return false;
-  };
 
   return (
     <nav className="nav">
@@ -71,15 +81,24 @@ function Nav({ active }) {
         {NAV_PAGES.map((item) => {
           const activeCls = isItemActive(item) ? 'active' : '';
           if (item.children) {
+            const isMobileOpen = !!openParents[item.label];
             return (
-              <div key={item.label} className={`nav-dropdown ${activeCls ? 'is-active' : ''}`}>
-                <span className={`nav-link nav-${item.color} nav-dropdown-trigger ${activeCls}`} tabIndex={0} aria-haspopup="true">
+              <div key={item.label} className={`nav-dropdown ${activeCls ? 'is-active' : ''} ${isMobileOpen ? 'is-mobile-open' : ''}`}>
+                <span
+                  className={`nav-link nav-${item.color} nav-dropdown-trigger ${activeCls}`}
+                  tabIndex={0}
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded={isMobileOpen}
+                  onClick={() => toggleParent(item.label)}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleParent(item.label); } }}
+                >
                   {item.label}
                   <svg className="nav-dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
                     <path d="M1 1 L5 5 L9 1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
-                <div className="nav-dropdown-menu">
+                <div className={`nav-dropdown-menu ${isMobileOpen ? 'is-open' : ''}`}>
                   {item.children.map((c) => (
                     <a
                       key={c.label}

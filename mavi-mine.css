@@ -1151,7 +1151,7 @@ body::before {
   color: #b15d12;
 }
 
-/* Mobil: dropdown panel inline gösterilir, indent ile */
+/* Mobil: dropdown collapse (toggle) — varsayılan kapalı, parent'a tıklayınca açılır */
 @media (max-width: 960px) {
   .nav-dropdown {
     width: 100%;
@@ -1160,22 +1160,36 @@ body::before {
   .nav-dropdown-trigger {
     justify-content: center;
     width: 100%;
+    cursor: pointer;
   }
-  .nav-dropdown-arrow { display: none; }
+  .nav-dropdown-arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+  .nav-dropdown.is-mobile-open .nav-dropdown-arrow {
+    transform: rotate(180deg);
+  }
   .nav-dropdown-menu {
     position: static;
     transform: none !important;
     background: transparent;
     border: none;
     box-shadow: none;
-    padding: 6px 0 4px;
     margin: 0;
     opacity: 1 !important;
     visibility: visible !important;
-    transition: none;
     align-items: stretch;
     gap: 4px;
     min-width: 0;
+    /* Collapsed default */
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: max-height 0.3s ease, padding 0.2s ease;
+  }
+  .nav-dropdown-menu.is-open {
+    max-height: 500px;
+    padding: 6px 0 8px;
   }
   .nav-dropdown-item {
     padding: 12px 18px 12px 36px !important;
