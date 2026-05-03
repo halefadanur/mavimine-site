@@ -482,3 +482,33 @@ Bekleyen işler:
 - Karekod (QR) — site URL'i için broşür/kartvizit kullanımı
 - Sınıflarımız sayfası (NAV_PAGES'e ekli, içerik henüz yapılmadı)
 - Bekleyen lokal patch'ler (ContactCrossroad bileşeni — değerlendirilecek)
+
+### 2026-05-03 (gece 3) — SEO + Google Business Profile tamamlandı
+
+**SEO TAMAMLANANLAR:**
+- Tüm 15 sayfaya meta tag'ler (title, description, keywords, robots, canonical)
+- Open Graph + Twitter Card her sayfada
+- robots.txt + sitemap.xml (14 URL)
+- Google Search Console kayıt + sahiplik doğrulandı (mavimine.com)
+- Sitemap Search Console'a gönderildi (14 sayfa keşfedildi)
+- Structured Data (Schema.org Preschool LocalBusiness) anasayfada
+- Anahtar kelimeler: Bursa/Kestel/Cumalıkızık/Gürsu anaokulu, Montessori, oyun grubu, oyun terapisi, aile danışmanlığı, eğitim koçluğu
+
+**GOOGLE BUSINESS PROFILE:**
+- Profil zaten kayıtlıydı (5.0 yıldız, 18 yorum)
+- Kategori "Eğitim Kurumu" → "Anaokulu" güncellendi
+- Ek kategoriler: Kreş, Eğitim Kurumu
+- Açıklama metni güncellendi (Mavi Mine, Kestel/Bursa, 2-6 yaş, Montessori, ...)
+- 11 özel hizmet eklendi (Anaokulu, Yaz okulu, Oyun grubu, Oyun terapisi, Aile danışmanlığı, Eğitim koçluğu, vb.)
+- Web sitesi: mavimine.com
+
+**DİĞER:**
+- Instagram QR kodu iletişim sayfasında
+- Vurgu kelime + noktalama renk tutarlılığı (Caveat font + color inherit)
+- Bir Gün hero başlığı mobil düzeltildi (umarım kesin)
+
+**Yapılacaklar (yeni sohbete):**
+- Foto placeholder'ları → gerçek fotolar (birkaç güne)
+- Google Business Profile'a yeni fotolar (foto geldiğinde)
+- Aylık GBP yayını (sezonluk, opsiyonel)
+- Search Console verileri 1-2 hafta sonra gelecek, anahtar kelime stratejisi rafine edilebilir
