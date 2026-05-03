@@ -429,3 +429,27 @@ Bekleyen işler:
 - Footer İLETİŞİM sütunu gerçek bilgilerle dolduruldu (adres, telefon, mail x2, Instagram, TikTok)
 - hifi-iletisim.jsx ana email: gmail → merhaba@mavimine.com (Seçenek C: sayfa tek email, footer iki)
 - page-iletisim.jsx silindi — iletisim.html artık hifi-iletisim.jsx çağırıyor, eski dosya kullanılmıyordu (git history'de saklı)
+
+### 2026-05-03 (akşam) — 🚀 MILESTONE: Site canlıya çıktı + tüm gün özetidir
+
+**Bugünün toplam çıktısı:**
+
+- **mavimine.com canlıya çıktı** — Cloudflare DNS (4 A kayıt + 1 CNAME, proxy off), GitHub Pages deploy
+- **E-posta routing aktif** — Cloudflare Email Routing ile `merhaba@mavimine.com` ve `bilgi@mavimine.com` gerçek adreslere yönlendiriliyor
+- **Mobil hamburger menü** kuruldu (mm-shared.jsx Nav component + tam ekran panel + Esc/scroll lock + erişilebilirlik)
+- **Tüm sayfa mobil düzeltmeleri:**
+  - Yatay scroll engellendi (defansif `overflow-x: hidden` + box-sizing kontrolü)
+  - Kadro / Galeri / Bir Gün / Program / Hakkımızda inline grid'ler class'a taşındı, mobile responsive
+  - Footer 4 sütun → mobilde 1 sütun
+  - Program/SSS kartları: ikon yan yana → ikon üstte, yazı altta
+  - Bir Gün hero başlığı + arka SVG mobilde küçültüldü
+  - Destek timeline kartları min-width:0 ile responsive
+- **Footer İletişim güncellemesi** — placeholder'lar gerçek bilgilerle (adres, tel, 2 mail, Instagram, TikTok), BAĞLAN sütununa İletişim linki eklendi
+- **Hamburger panel kompaktlaştırma** — gap 10→4, link padding 14→10, font 17→16 → 8 link tek ekrana sığacak şekilde
+- **page-iletisim.jsx silindi** (ölü dosya, git history'de saklı)
+
+**Bekleyen işler (yarın/sonraki turlar):**
+- HTTPS aktivasyonu (Let's Encrypt sertifikasının GitHub tarafından hazırlanması — 1-24 saat)
+- Karekod (QR) — site URL'i için broşür/kartvizit kullanımı
+- Sınıflarımız sayfası (NAV_PAGES'e ekli, içerik henüz yapılmadı)
+- Bekleyen lokal patch'ler (ContactCrossroad bileşeni — değerlendirilecek)
