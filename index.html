@@ -96,14 +96,23 @@
 .hero-badge {
   position: absolute; top: 16px; right: -12px; z-index: 10;
   background: var(--orange); color: white;
-  padding: 12px 18px; border-radius: 999px;
-  font-family: 'Quicksand', sans-serif; font-weight: 700; font-size: 13px;
+  padding: 14px 22px; border-radius: 999px;
   box-shadow: 0 8px 20px rgba(243,146,51,0.28);
-  display: inline-flex; align-items: center; gap: 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
   transform: rotate(-3deg);
   white-space: nowrap;
 }
-.hero-badge .dot { width: 8px; height: 8px; background: white; border-radius: 50%; }
+.hero-badge-eyebrow {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  opacity: 0.9;
+}
+.hero-badge-call {
+  font-family: 'Caveat', cursive;
+  font-size: 22px; font-weight: 700;
+  line-height: 1;
+}
 
 .blob { position: absolute; pointer-events: none; z-index: 0; }
 
@@ -377,7 +386,9 @@
   .heritage-stats { grid-template-columns: 1fr 1fr; }
   .garden-grid { grid-template-columns: 1fr; }
   .hero-palette { display: none; }
-  .hero-badge { right: 6px; top: 10px; padding: 8px 12px; font-size: 11px; transform: rotate(-2deg) scale(0.85); }
+  .hero-badge { right: 6px; top: 10px; padding: 10px 16px; transform: rotate(-2deg) scale(0.9); }
+  .hero-badge-eyebrow { font-size: 9px; }
+  .hero-badge-call { font-size: 18px; }
 }
 
 /* MAMINO CARDS (Mavi · Mine ikili kart) */

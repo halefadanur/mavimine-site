@@ -68,8 +68,8 @@ function Hero() {
 
       <div className="home-hero-visual">
         <div className="hero-badge">
-          <span className="dot" />
-          2026–27 kayıtları açık
+          <div className="hero-badge-eyebrow">Kayıtlarımız Sürüyor</div>
+          <div className="hero-badge-call">Mavi Mine'miz Olun</div>
         </div>
         <div className="hero-img-main">
           <img src="images/team/team-04.jpeg" alt="Hatice Adanur Şahin" onError={(e) => { e.target.style.display='none'; }}/>
