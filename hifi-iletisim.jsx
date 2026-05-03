@@ -143,6 +143,22 @@ function SocialSection() {
           </a>
 
         </div>
+
+        <div className="qr-block">
+          <div className="qr-text">
+            <div className="section-label">QR ile hızlı takip</div>
+            <h3>Instagram'da bizi <em>takip edin</em></h3>
+            <p className="qr-handle">{ILETISIM.instagram.handle}</p>
+            <p className="qr-hint">Telefonunuzun kamerasıyla okutun veya direkt @ ile tıklayın.</p>
+            <a href={ILETISIM.instagram.url} target="_blank" rel="noopener noreferrer" className="btn ghost">
+              {ILETISIM.instagram.handle} →
+            </a>
+          </div>
+          <a href={ILETISIM.instagram.url} target="_blank" rel="noopener noreferrer" className="qr-frame" aria-label="Mavi Mine Instagram QR kodu">
+            <img src="images/instagram-qr.png" alt="Mavi Mine Instagram QR kodu" />
+          </a>
+        </div>
+
       </div>
     </section>
   );
