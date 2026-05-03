@@ -311,6 +311,35 @@ Bekleyen işler:
 - hifi-iletisim.jsx ana email: gmail → merhaba@mavimine.com (Seçenek C: sayfa tek email, footer iki)
 - page-iletisim.jsx silindi — iletisim.html artık hifi-iletisim.jsx çağırıyor, eski dosya kullanılmıyordu (git history'de saklı)
 
+### 2026-05-03 (gece) — 🌙 Akşam milestone: HTTPS + dropdown + içerik
+
+**HTTPS & domain:**
+- HTTPS aktivasyonu tamamlandı (Let's Encrypt sertifikası)
+- mavimine.com güvenli (https://, kilit ikonu)
+
+**Nav & dropdown:**
+- Sınıflarımız sayfası nav'a eklendi (Eğitim dropdown grubu içinde)
+- Yaz Okulu sayfası nav'a eklendi (Eğitim dropdown grubu içinde)
+- "Eğitim" dropdown menüsü eklendi: Genel Program + Sınıflarımız + Yaz Okulu
+- Mobil hamburger: Eğitim collapse toggle (alt linkler tıklayınca açılıyor, default kapalı, aktif sayfa Eğitim grubundaysa açık başlar)
+- Active state tüm sayfalarda doğru beslendi (program/siniflarimiz/yaz-okulu → active="Eğitim")
+
+**İçerik düzeltmeleri:**
+- Yaz Okulu içerik güncellendi: PROOF_BADGES kaldırıldı, "Yazın beş rengi" eklendi (Havuz/Kamp/Atölye/Festival/Geziler)
+- ThreeQuestions korundu (yaz okulu değer önerisi)
+- basvuru.html güncellendi (Gmail → merhaba@mavimine.com, görüşme saatleri 09.00-17.00 → 07.30-18.30)
+- SSS sayfasına 'Eğitim ücretiniz bölge okullarından yüksek mi?' sorusu eklendi
+- SSS yaş cevabı sınıf yapısıyla güncellendi (Minik Afacanlar / Meraklı Minikler / Gülen Yüzler)
+- Site geneli yaş 3-6 → 2-6 (Minik Afacanlar 2 yaş sınıfı dahil edilince)
+- Site geneli İstanbul → Bursa (gerçek konum)
+- Vurgu kelimeleri yanındaki noktalama renk tutarlılığı tamamlandı (11 dosyada 33 düzeltme)
+- basvuru.html "Yardım Şeridi" e-posta mobilde sığmama sorunu çözüldü
+
+**Bekleyen işler:**
+- Karekod (QR site URL'i için broşür/kartvizit)
+- Foto placeholder'ları (gerçek fotolar Hatice Hanım'dan gelince)
+- Kurum içi review yorumları
+
 ### 2026-05-03 (akşam) — 🚀 MILESTONE: Site canlıya çıktı + tüm gün özetidir
 
 **Bugünün toplam çıktısı:**
