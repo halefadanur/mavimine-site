@@ -393,3 +393,18 @@ Bekleyen işler:
 - Google Business Profile'a yeni fotolar (foto geldiğinde)
 - Aylık GBP yayını (sezonluk, opsiyonel)
 - Search Console verileri 1-2 hafta sonra gelecek, anahtar kelime stratejisi rafine edilebilir
+
+### ⚠️ Fotoğraf Optimizasyonu (öncelik YÜKSEK)
+
+**Sorun:** `images/okul_*.jpg` dosyaları 8-10 MB civarı; tek anasayfa açılışında 30+ MB yüklenebilir → mobilde yavaş, GitHub Pages bandwidth aşılabilir, Lighthouse düşer.
+
+**Hedef:** 1920×1080 (yatay) / 1200×1600 (dikey) max, JPG quality 80-85, **200-500 KB** her dosya.
+
+**Kural:** Yeni gelen tüm fotolar (yaz okulu, etkinlikler, sınıflar, kadro) optimize edilmeden repo'ya eklenmez.
+
+**Öncelik sırası:**
+- ⭐⭐⭐ Mevcut 4 `okul_*.jpg` yarın optimize edilmeli
+- ⭐⭐ Yaz okulu fotoları geldiğinde optimize edilmiş yerleştirme
+- ⭐ Sonraki rafine: WebP formatı, `<img loading="lazy">`, `<img srcset>` (responsive images)
+
+**Araçlar:** ImageOptim (macOS, drag-drop ücretsiz), squoosh.app (Google online aracı).
