@@ -3058,3 +3058,23 @@ a.cr-help-value:hover {
     min-width: 0;
   }
 }
+
+/* Vurgu kelimelerinin içindeki noktalama da Caveat ile aynı renk olsun */
+.handwritten,
+.scribble,
+em,
+h1 em, h2 em, h3 em, h4 em,
+blockquote em {
+  /* font-family inheritance garantisi */
+  font-family: 'Caveat', cursive;
+  /* renk inheritance - emin olmak için */
+  color: inherit;
+}
+
+/* Eğer parent'tan renk alıyorsa, o renk em içine de uygulansın */
+em > *,
+.handwritten > *,
+.scribble > * {
+  color: inherit;
+  font-family: inherit;
+}
