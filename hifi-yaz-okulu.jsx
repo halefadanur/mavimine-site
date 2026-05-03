@@ -1,12 +1,4 @@
-// Mavi Mine — Yaz Okulu 2026 (v2: kanıtlı, sert vuruşlu)
-// Felsefe: Şiir + kanıt. Çıplak ayakla koşma + 900 m² + üç nesil + bodrum yok.
-
-const PROOF_BADGES = [
-  { color: 'grass',  emoji: '🌳', main: '900 m²',       sub: 'gerçek bahçe' },
-  { color: 'orange', emoji: '🍞', main: 'Kendi mutfak', sub: 'kendi ekmeğimiz' },
-  { color: 'rose',   emoji: '👨‍👩‍👧', main: 'Üç nesil',  sub: 'eğitimci aile' },
-  { color: 'teal',   emoji: '🎓', main: 'Pedagog',      sub: 'kurucu, Montessori' },
-];
+// Mavi Mine — Yaz Okulu 2026
 
 const THREE_QUESTIONS = [
   {
@@ -35,42 +27,30 @@ const THREE_QUESTIONS = [
   },
 ];
 
-const MAIN_ACTIVITIES = [
-  {
-    color: 'grass',
-    emoji: '🌿',
-    title: 'Bahçemizden sofraya',
-    handwritten: 'topraktan ele',
-    body: 'Çocuklar kendi domateslerini eker, sular, olgunlaştığında toplar. Bir salatalığın nasıl büyüdüğünü gören çocuk, tabağındaki yemeği bir daha aynı gözle görmez.',
-    tag: 'Haftada 3 gün',
-    proof: '900 m² kendi tarım alanımızda',
-  },
+const SPECIALS = [
   {
     color: 'sky',
-    emoji: '💦',
-    title: 'Su, kahkaha, sıcak güneş',
-    handwritten: 'ıslak ayaklar',
-    body: 'Sıcak günlerde okul bahçesinde havuz, fıskiyeli oyun alanı, su balonları. Yetişkinin "üşürsün" demediği, çocuğun gönlünce ıslandığı yaz günleri.',
-    tag: 'Sıcak günlerde her gün',
-    proof: 'Okul bahçesinde, gözetim altında',
+    title: 'Her hafta havuza',
+    body: 'Mavi Mine yaz okulunda her hafta kardeş kurumumuzun havuzunda yüzme etkinliği var. Çocuklar suyla tanışır, güvenle yüzmeyi keşfeder, yaz sıcağında en güzel anlarını yaşar.',
+    photoLabel: '[havuz · yüzme]',
+  },
+  {
+    color: 'grass',
+    title: 'Bahçede kamp',
+    body: 'Çadır kuruyoruz, hikâye anlatıyoruz, sabaha karşı kuş seslerini dinliyoruz... ama hepsi gündüz! Çocuklar evlerinin sıcaklığını bırakmadan, kamp deneyiminin tüm heyecanını yaşıyor.',
+    photoLabel: '[bahçede kamp · çadır]',
   },
   {
     color: 'orange',
-    emoji: '🐴',
-    title: 'At üstünde bir sabah',
-    handwritten: 'cesaret büyür',
-    body: 'Yakındaki sertifikalı çiftlikte, eğitimli atlarla tanışma. Önce yanından geçmek, sonra dokunmak, sonra bir tur binmek. "Yaparım" dediğin ilk anlardan biri.',
-    tag: 'Haftalık küçük gruplarla',
-    proof: 'Eğitimli atlar, sertifikalı çiftlik',
+    title: 'Yaratıcı atölyeler',
+    body: 'Doğa boyaması, sanat etkinlikleri, küçük el işleri... Yaz boyunca her hafta farklı bir atölye ile çocukların hayal gücü ve yaratıcılığı besleniyor.',
+    photoLabel: '[atölye · sanat]',
   },
   {
     color: 'sun',
-    emoji: '🍞',
-    title: 'Mutfakta küçük eller',
-    handwritten: 'ekmek koktu',
-    body: 'Hamur yoğurmak, marmelat kaynatmak, meyve şurubu hazırlamak. Çocuklar mutfağı oyun alanı gibi kullanır — tartmak, ölçmek, beklemek burada hem matematik hem sabırdır.',
-    tag: 'Haftada 2 gün',
-    proof: 'Kendi mutfağımız, kendi ekmeğimiz',
+    title: 'Bahar-Yaz Festivali',
+    body: 'Yaz okulunun finalinde tüm aileleri ağırladığımız bahar-yaz festivali var. Çocukların hazırladıkları gösteriler, sanat eserleri, oyunlarla dolu sıcak bir buluşma.',
+    photoLabel: '[festival · aileler]',
   },
 ];
 
@@ -118,18 +98,6 @@ function YazHero() {
           <strong> 900 m² gerçek bahçede</strong>.
           Apartman bodrumunda değil, plastik çimde değil — toprakta.
         </p>
-
-        <div className="yaz-hero-proofs">
-          {PROOF_BADGES.map((b, i) => (
-            <div key={i} className={`yaz-proof yaz-proof-${b.color}`}>
-              <div className="yaz-proof-emoji">{b.emoji}</div>
-              <div className="yaz-proof-text">
-                <div className="yaz-proof-main">{b.main}</div>
-                <div className="yaz-proof-sub">{b.sub}</div>
-              </div>
-            </div>
-          ))}
-        </div>
 
         <div className="yaz-hero-meta">
           <div className="yaz-meta-pill"><span className="yaz-meta-key">Süre</span><span className="yaz-meta-val">Yarım gün / tam gün</span></div>
@@ -219,33 +187,24 @@ function YazNarrative() {
   );
 }
 
-function YazMain() {
+function YazSpecials() {
   return (
-    <section className="yaz-main">
-      <div className="yaz-main-inner">
-        <div className="yaz-main-head">
-          <div className="section-label center">Bu yazın dört direği</div>
-          <h2>Etkinlik <em>kovalamayız,</em> yaşarız.</h2>
-          <p className="yaz-main-lede">
-            Ayda bir gidilen havuz değil — kendi havuzumuz. Yılda bir görülen at
-            değil — haftada bir. Hafta boyunca dönen dört ana etkinlik.
+    <section className="yaz-specials">
+      <div className="yaz-specials-inner">
+        <div className="yaz-specials-head">
+          <div className="section-label center">Bu yazın imzası</div>
+          <h2>Yazın <em>dört rengi.</em></h2>
+          <p className="yaz-specials-lede">
+            Yaz okulunda her gün özel, ama her hafta dört özel an: havuz, kamp, atölye ve festival.
           </p>
         </div>
-        <div className="yaz-main-grid">
-          {MAIN_ACTIVITIES.map((a, i) => (
-            <article key={i} className={`yaz-main-card yaz-${a.color}`}>
-              <div className="yaz-main-photo">
-                <div className={`ph ${a.color}`} style={{ aspectRatio: '4/3', borderRadius: 20 }}>[{a.title.toLowerCase()}]</div>
-                <div className="yaz-main-emoji">{a.emoji}</div>
-              </div>
-              <div className="yaz-main-text">
-                <div className="yaz-main-handwritten handwritten">{a.handwritten}</div>
-                <h3>{a.title}</h3>
-                <p>{a.body}</p>
-                <div className="yaz-main-tags">
-                  <div className="yaz-main-tag">{a.tag}</div>
-                  <div className="yaz-main-proof">✓ {a.proof}</div>
-                </div>
+        <div className="yaz-specials-list">
+          {SPECIALS.map((s, i) => (
+            <article key={i} className={`yaz-special yaz-${s.color} ${i % 2 === 0 ? 'yaz-special-left' : 'yaz-special-right'}`}>
+              <div className={`yaz-special-photo ph ${s.color}`}>{s.photoLabel}</div>
+              <div className="yaz-special-text">
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
               </div>
             </article>
           ))}
@@ -350,7 +309,7 @@ function App() {
       <YazHero />
       <ThreeQuestions />
       <YazNarrative />
-      <YazMain />
+      <YazSpecials />
       <YazSide />
       <YazDayFlow />
       <YazCTA />

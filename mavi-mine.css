@@ -2151,6 +2151,95 @@ a.cr-help-value:hover {
   white-space: nowrap;
 }
 
+/* SPECIALS — Yazın dört rengi (zikzak) */
+.yaz-specials {
+  background: var(--paper);
+  padding: 110px 48px;
+  border-top: 2px dashed var(--line-deep);
+}
+.yaz-specials-inner { max-width: 1200px; margin: 0 auto; }
+.yaz-specials-head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 70px;
+}
+.yaz-specials-head h2 {
+  font-size: clamp(36px, 4.4vw, 56px);
+  line-height: 1.1;
+  margin: 12px 0 18px;
+}
+.yaz-specials-head h2 em {
+  font-style: normal;
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 1.15em;
+  color: var(--orange);
+}
+.yaz-specials-lede {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.yaz-specials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+.yaz-special {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.yaz-special.yaz-special-right {
+  grid-template-columns: 1fr 1.05fr;
+}
+.yaz-special.yaz-special-right .yaz-special-photo {
+  order: 2;
+}
+.yaz-special-photo {
+  aspect-ratio: 4/3;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+.yaz-special-text > * { min-width: 0; }
+.yaz-special-text h3 {
+  font-size: clamp(24px, 2.8vw, 36px);
+  line-height: 1.15;
+  margin: 0 0 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.yaz-special-text p {
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0;
+  font-weight: 500;
+}
+.yaz-special.yaz-sky    .yaz-special-text h3 { color: #2d8eb8; }
+.yaz-special.yaz-grass  .yaz-special-text h3 { color: #4d8a26; }
+.yaz-special.yaz-orange .yaz-special-text h3 { color: var(--orange); }
+.yaz-special.yaz-sun    .yaz-special-text h3 { color: #b58e00; }
+
+@media (max-width: 880px) {
+  .yaz-specials { padding: 70px 24px; }
+  .yaz-specials-head { margin: 0 auto 48px; }
+  .yaz-specials-list { gap: 40px; }
+  .yaz-special,
+  .yaz-special.yaz-special-right { grid-template-columns: 1fr; gap: 22px; }
+  .yaz-special.yaz-special-right .yaz-special-photo { order: 0; }
+  .yaz-special-text h3 { font-size: 24px; }
+  .yaz-special-text p { font-size: 15.5px; }
+}
+
 /* MAIN ACTIVITIES (BÜYÜTÜLDÜ) */
 .yaz-main {
   background: var(--paper);
