@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /Mavi Mine Wireframes.html
+Disallow: /on-kayit-formu.html
+
+Sitemap: https://mavimine.com/sitemap.xml
