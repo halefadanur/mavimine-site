@@ -110,6 +110,7 @@ function App() {
         </div>
       </section>
       <FooterEl />
+      <WhatsAppFloat />
     </div>
   );
 }

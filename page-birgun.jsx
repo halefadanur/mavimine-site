@@ -110,6 +110,7 @@ function App() {
       <Timeline />
       <Schedules />
       <FooterEl />
+      <WhatsAppFloat />
     </div>
   );
 }

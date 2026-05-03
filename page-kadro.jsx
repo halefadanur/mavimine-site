@@ -143,6 +143,7 @@ function App() {
       <Consultants />
       <CTA />
       <FooterEl />
+      <WhatsAppFloat />
     </div>
   );
 }

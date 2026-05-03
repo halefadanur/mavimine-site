@@ -231,6 +231,7 @@ function App() {
       <ProfileSection />
       <ClosingSection />
       <FooterEl />
+      <WhatsAppFloat />
     </div>
   );
 }

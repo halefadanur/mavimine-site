@@ -200,6 +200,7 @@ function App() {
       <ProgramGrid />
       <YearRhythm />
       <FooterEl />
+      <WhatsAppFloat />
     </div>
   );
 }

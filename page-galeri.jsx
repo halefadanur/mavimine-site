@@ -90,6 +90,7 @@ function App() {
       <GaleriHero />
       <Grid />
       <FooterEl />
+      <WhatsAppFloat />
     </div>
   );
 }

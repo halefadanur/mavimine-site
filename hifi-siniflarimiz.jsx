@@ -327,6 +327,7 @@ function App() {
       <GuideSection />
       <ClosingNote />
       <FooterEl />
+      <WhatsAppFloat />
     </div>
   );
 }

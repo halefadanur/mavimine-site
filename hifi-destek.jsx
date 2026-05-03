@@ -259,6 +259,7 @@ function App() {
       <ProcessSection />
       <SupportClosing />
       <FooterEl />
+      <WhatsAppFloat />
     </div>
   );
 }

@@ -284,6 +284,7 @@ function App() {
       <HoursSection />
       <SocialSection />
       <FooterEl />
+      <WhatsAppFloat />
     </div>
   );
 }

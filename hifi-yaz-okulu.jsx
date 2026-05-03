@@ -320,6 +320,7 @@ function App() {
       <YazDayFlow />
       <YazCTA />
       <FooterEl />
+      <WhatsAppFloat />
     </div>
   );
 }

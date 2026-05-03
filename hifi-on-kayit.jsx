@@ -158,6 +158,7 @@ function App() {
       <CrossroadCards />
       <CrossroadHelp />
       <FooterEl />
+      <WhatsAppFloat />
     </div>
   );
 }
