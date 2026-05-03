@@ -52,6 +52,12 @@ const SPECIALS = [
     body: 'Yaz okulunun finalinde tüm aileleri ağırladığımız bahar-yaz festivali var. Çocukların hazırladıkları gösteriler, sanat eserleri, oyunlarla dolu sıcak bir buluşma.',
     photoLabel: '[festival · aileler]',
   },
+  {
+    color: 'rose',
+    title: 'Geziler',
+    body: 'Müze, akvaryum, akua park... Yaz boyunca düzenlediğimiz minik gezilerle çocuklar yeni yerler keşfeder, sınıfın dışında öğrenmenin keyfini yaşar. Her gezi öncesi hazırlık, sonrası paylaşım — sadece bir tur değil, bir öğrenme deneyimi.',
+    photoLabel: '[gezi · keşif]',
+  },
 ];
 
 const SIDE_ACTIVITIES = [
@@ -193,9 +199,9 @@ function YazSpecials() {
       <div className="yaz-specials-inner">
         <div className="yaz-specials-head">
           <div className="section-label center">Bu yazın imzası</div>
-          <h2>Yazın <em>dört rengi.</em></h2>
+          <h2>Yazın <em>beş rengi.</em></h2>
           <p className="yaz-specials-lede">
-            Yaz okulunda her gün özel, ama her hafta dört özel an: havuz, kamp, atölye ve festival.
+            Yaz okulunda her gün özel, ama her hafta beş özel an: havuz, kamp, atölye, festival ve gezi.
           </p>
         </div>
         <div className="yaz-specials-list">

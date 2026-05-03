@@ -2228,6 +2228,7 @@ a.cr-help-value:hover {
 .yaz-special.yaz-grass  .yaz-special-text h3 { color: #4d8a26; }
 .yaz-special.yaz-orange .yaz-special-text h3 { color: var(--orange); }
 .yaz-special.yaz-sun    .yaz-special-text h3 { color: #b58e00; }
+.yaz-special.yaz-rose   .yaz-special-text h3 { color: #b13a64; }
 
 @media (max-width: 880px) {
   .yaz-specials { padding: 70px 24px; }
