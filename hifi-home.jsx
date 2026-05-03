@@ -69,7 +69,7 @@ function Hero() {
       <div className="home-hero-visual">
         <div className="hero-badge">
           <span className="dot" />
-          2026–2027 kayıtları açık
+          2026–27 kayıtları açık
         </div>
         <div className="hero-img-main">
           <img src="images/team/team-04.jpeg" alt="Hatice Adanur Şahin" onError={(e) => { e.target.style.display='none'; }}/>
@@ -80,7 +80,7 @@ function Hero() {
         </div>
         <div className="hero-img-accent ph teal">[bahçede oyun]</div>
         {/* Renk yelpazesi vurgusu */}
-        <svg style={{ position: 'absolute', top: -20, right: -20, width: 90, height: 90, zIndex: 5 }} viewBox="0 0 100 100">
+        <svg className="hero-palette" style={{ position: 'absolute', top: -20, right: -20, width: 90, height: 90, zIndex: 5 }} viewBox="0 0 100 100">
           <g transform="translate(50,50)">
             {['#F39233','#F5C518','#7BBF50','#1AAFA0','#5BB5E0','#9C6BC2','#EC6E9A'].map((c, i) => (
               <path key={i} d="M 0 0 L 35 -8 A 36 36 0 0 1 35 8 Z" fill={c} transform={`rotate(${i*22 - 70})`} opacity="0.85"/>
