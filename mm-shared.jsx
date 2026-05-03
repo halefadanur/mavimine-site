@@ -17,6 +17,7 @@ const NAV_PAGES = [
   ['Bir Gün', 'bir-gun.html'],
   ['Galeri', 'galeri.html'],
   ['SSS', 'sss.html'],
+  ['Yaz Okulu', 'yaz-okulu.html'],
   ['İletişim', 'iletisim.html'],
 ];
 
@@ -123,7 +124,7 @@ function FooterEl() {
             </p>
           </div>
           {[
-            ['KEŞFET', [['Hakkımızda', 'hakkimizda.html'], ['Program', 'program.html'], ['Destek', 'destek.html'], ['Bir Gün', 'bir-gun.html'], ['Kadromuz', 'kadro.html']]],
+            ['KEŞFET', [['Hakkımızda', 'hakkimizda.html'], ['Program', 'program.html'], ['Destek', 'destek.html'], ['Bir Gün', 'bir-gun.html'], ['Yaz Okulu', 'yaz-okulu.html'], ['Kadromuz', 'kadro.html']]],
             ['BAĞLAN', [['Başvuru', 'basvuru.html'], ['Galeri', 'galeri.html'], ['SSS', 'sss.html'], ['İletişim', 'iletisim.html']]],
             ['İLETİŞİM', [
               ['Vanimehmet Mah. Şht. Mustafa Kurt Cd. No:48, Kestel/Bursa', '#'],
