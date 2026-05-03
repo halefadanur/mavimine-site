@@ -105,6 +105,21 @@ function StoryIntro() {
   );
 }
 
+function HakkimizdaVenueSection() {
+  return (
+    <section style={{ padding: '100px 48px', background: 'var(--milk)' }}>
+      <div style={{ maxWidth: 1080, margin: '0 auto' }}>
+        <div style={{ borderRadius: 28, overflow: 'hidden', boxShadow: '0 24px 60px rgba(14,132,120,0.15)', border: '4px solid white', aspectRatio: '16/10' }}>
+          <img src="images/okul_2.jpg" alt="Mavi Mine Anaokulu — bina" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        </div>
+        <p style={{ textAlign: 'center', marginTop: 24, color: 'var(--ink-soft)', fontFamily: "'Caveat', cursive", fontWeight: 700, fontSize: 28 }}>
+          Anaokulu olarak özel inşa edilmiş binamız.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function MaviDeepSection() {
   return (
     <section className="deep-section deep-mavi">
@@ -226,6 +241,7 @@ function App() {
       <Nav active="Hakkımızda" />
       <StoryHero />
       <StoryIntro />
+      <HakkimizdaVenueSection />
       <MaviDeepSection />
       <MineDeepSection />
       <ProfileSection />

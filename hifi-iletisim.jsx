@@ -279,6 +279,11 @@ function App() {
       <Nav active="İletişim" />
       <IletisimHero />
       <IletisimCTA />
+      <div className="iletisim-venue-photo">
+        <div>
+          <img src="images/okul_3.jpg" alt="Mavi Mine Anaokulu — giriş" />
+        </div>
+      </div>
       <ContactCards />
       <MapSection />
       <HoursSection />

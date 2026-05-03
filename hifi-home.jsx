@@ -271,6 +271,34 @@ function HeritageSection() {
   );
 }
 
+function VenueSection() {
+  return (
+    <section className="venue-strip">
+      <div className="venue-inner">
+        <div className="venue-photo">
+          <img src="images/okul_1.jpg" alt="Mavi Mine Anaokulu — dış cephe" />
+        </div>
+        <div className="venue-text">
+          <div className="section-label">Mekânımız</div>
+          <h2>Burada büyür <em>çocuklarımız</em>.</h2>
+          <p>
+            Anaokulu olarak özel inşa edilmiş binamız, Kestel'in merkezinde,
+            sıcak ve güvenli bir ortam sunuyor. Renkli cephesi, geniş bahçesi
+            ve oyun alanlarıyla çocuklarımıza her gün yeni bir keşif kapısı aralıyor.
+          </p>
+          <p>
+            Üç nesil eğitimci ailenin emeğinin ve sevgisinin yansıdığı bu yer,
+            sadece bir okul değil; <strong>ikinci bir yuva</strong>.
+          </p>
+          <div className="bubble" style={{ marginTop: 20 }}>
+            📍 Vanimehmet Mah. Şht. Mustafa Kurt Cd. No:48, Kestel/Bursa
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ReasonsSection() {
   return (
     <section className="reasons">
@@ -488,6 +516,7 @@ function App() {
       <Marquee />
       <MaminoSection />
       <HeritageSection />
+      <VenueSection />
       <ProfilePreview />
       <ReasonsSection />
       <ProgramsSection />

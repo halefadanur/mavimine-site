@@ -3242,3 +3242,72 @@ em > *,
   .whatsapp-float { width: 56px; height: 56px; bottom: 16px; right: 16px; }
   .whatsapp-float svg { width: 28px; height: 28px; }
 }
+
+/* ==== VENUE STRIP — Anasayfa Mekânımız bölümü ==== */
+.venue-strip {
+  background: var(--paper);
+  padding: 130px 48px;
+  position: relative;
+}
+.venue-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+.venue-photo {
+  border-radius: 24px;
+  overflow: hidden;
+  border: 4px solid white;
+  box-shadow: 0 24px 60px rgba(14,132,120,0.15);
+  aspect-ratio: 4/3;
+  background: var(--cream-deep);
+}
+.venue-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.venue-text h2 {
+  font-size: clamp(36px, 4.4vw, 60px);
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+.venue-text h2 em {
+  font-style: normal;
+  color: var(--orange);
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+.venue-text p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+  font-weight: 500;
+}
+.venue-text strong { color: var(--ink); font-weight: 700; }
+
+@media (max-width: 1100px) {
+  .venue-inner { grid-template-columns: 1fr; gap: 40px; }
+  .venue-strip { padding: 70px 24px; }
+}
+
+/* ==== ILETISIM VENUE PHOTO — okul_3.jpg ==== */
+.iletisim-venue-photo {
+  max-width: 1080px;
+  margin: 40px auto 0;
+  padding: 0 24px;
+}
+.iletisim-venue-photo > div {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(14,132,120,0.12);
+  border: 4px solid white;
+  aspect-ratio: 16/10;
+}
+.iletisim-venue-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
