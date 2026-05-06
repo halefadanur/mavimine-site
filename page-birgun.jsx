@@ -53,16 +53,15 @@ function Timeline() {
                 width: 50, height: 50, fontSize: 22, zIndex: 2,
                 boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
               }}>{b.icon}</div>
-              <div style={{
+              <div className="birgun-tl-card" style={{
                 background: 'white', border: `2px solid var(--${b.color}-soft)`,
                 borderRadius: 16, padding: '18px 22px',
-                display: 'flex', gap: 18, alignItems: 'center'
               }}>
-                <div style={{ width: 90, height: 90, flexShrink: 0, borderRadius: 12, overflow: 'hidden' }}>
+                <div className="birgun-tl-card-photo">
                   <Img src={b.src} alt={b.alt} color={b.color} label={`[${b.h.toLowerCase()}]`}
                        style={{ width: '100%', height: '100%' }} />
                 </div>
-                <div style={{ flex: 1 }}>
+                <div className="birgun-tl-card-text">
                   <div className="mono" style={{ color: `var(--${b.color === 'sun' ? 'orange' : b.color})`, marginBottom: 4 }}>
                     {b.t}
                   </div>

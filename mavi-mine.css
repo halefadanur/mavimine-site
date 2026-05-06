@@ -3311,3 +3311,15 @@ em > *,
   aspect-ratio: 16/10;
 }
 .iletisim-venue-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ============================================ */
+/* BİR GÜN — Timeline kart içi flex (mobil column fallback) */
+/* ============================================ */
+.birgun-tl-card { display: flex; gap: 18px; align-items: center; }
+.birgun-tl-card-photo { width: 90px; height: 90px; flex-shrink: 0; border-radius: 12px; overflow: hidden; }
+.birgun-tl-card-text { flex: 1; min-width: 0; }
+
+@media (max-width: 700px) {
+  .birgun-tl-card { flex-direction: column; align-items: stretch; gap: 14px; }
+  .birgun-tl-card-photo { width: 100%; height: 160px; aspect-ratio: auto; }
+}
