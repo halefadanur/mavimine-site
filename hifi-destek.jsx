@@ -250,6 +250,43 @@ function SupportClosing() {
   );
 }
 
+function DestekMoreShots() {
+  const tiles = [
+    { src: 'images/galeri/oyun_bahce1.jpg',        alt: 'Oyun anı',          l: 'oyun' },
+    { src: 'images/galeri/sinif_ici_etkinlik2.jpg', alt: 'Bireysel destek',   l: 'birebir' },
+    { src: 'images/galeri/akil_oyunlari.jpg',      alt: 'Akıl gelişimi',     l: 'gelişim' },
+    { src: 'images/galeri/yeni13.jpg',             alt: 'Öğretmenle birlikte', l: 'birlikte' },
+  ];
+  return (
+    <section style={{ padding: '90px 48px 110px', background: 'var(--milk)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+        <div className="mono" style={{ marginBottom: 14, color: 'var(--teal-deep)' }}>· destek anlarımız ·</div>
+        <h2 style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', lineHeight: 1.1, marginBottom: 36, maxWidth: 800 }}>
+          Her çocuğa <span className="handwritten" style={{ color: 'var(--rose)' }}>özel</span> bir yol.
+        </h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 14, marginBottom: 32 }}>
+          {tiles.map((t, i) => (
+            <div key={i} style={{
+              aspectRatio: '4/5', borderRadius: 16, overflow: 'hidden',
+              cursor: 'pointer', transition: 'transform .3s'
+            }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.02)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
+              <Img src={t.src} alt={t.alt} color="teal" label={`[${t.l}]`}
+                   style={{ width: '100%', height: '100%' }} />
+            </div>
+          ))}
+        </div>
+        <div style={{ textAlign: 'center' }}>
+          <a href="galeri.html" className="btn ghost" style={{ display: 'inline-block', textDecoration: 'none' }}>
+            Tüm galeri →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function App() {
   return (
     <div data-screen-label="Destek">
@@ -258,6 +295,7 @@ function App() {
       <SupportGrid />
       <ProcessSection />
       <SupportClosing />
+      <DestekMoreShots />
       <FooterEl />
       <WhatsAppFloat />
     </div>
