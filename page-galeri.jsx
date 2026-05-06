@@ -15,6 +15,18 @@ const TILES = [
   { c: 'teal',   src: 'images/galeri/gezi_yata.jpg',            alt: 'Doğa yürüyüşü',             l: 'doğa yürüyüşü',    cat: 'gezi',     size: 'span 6', row: 'span 1' },
   { c: 'rose',   src: 'images/galeri/yemekhane.jpg',            alt: 'Yemekhanemiz',              l: 'yemekhanemiz',     cat: 'mekan',    size: 'span 3', row: 'span 1' },
   { c: 'sun',    src: 'images/galeri/bahce_etkinlikk10.jpg',    alt: 'Bahçemizde oyun',           l: 'yeşil tünel',      cat: 'bahçemiz', size: 'span 3', row: 'span 1' },
+  { c: 'orange', src: 'images/galeri/dis_cephe.jpg',              alt: 'Bina dış cephesi',          l: 'bina dışı',        cat: 'mekan',    size: 'span 4', row: 'span 1' },
+  { c: 'teal',   src: 'images/galeri/bahce_etkinlikk16.jpg',      alt: 'Bahçede grup oyunu',        l: 'birlikte',         cat: 'bahçemiz', size: 'span 4', row: 'span 1' },
+  { c: 'grass',  src: 'images/galeri/bahcede_yatan_cocuklar.jpg', alt: 'Çimde dinlenme',            l: 'çimde dinlenme',   cat: 'bahçemiz', size: 'span 4', row: 'span 1' },
+  { c: 'rose',   src: 'images/galeri/sinif_etkinligi.jpg',        alt: 'Sınıf etkinlikleri',        l: 'dört atölye',      cat: 'atölye',   size: 'span 6', row: 'span 1' },
+  { c: 'sun',    src: 'images/galeri/bahce_etkinlikk1.jpg',       alt: 'Cupcake gülüşü',            l: 'cupcake gülüşü',   cat: 'mutfak',   size: 'span 3', row: 'span 1' },
+  { c: 'grape',  src: 'images/galeri/oyun_bahce.jpg',             alt: 'İki kardeş',                l: 'iki kardeş',       cat: 'bahçemiz', size: 'span 3', row: 'span 1' },
+  { c: 'sky',    src: 'images/galeri/hayvanlar.jpg',              alt: 'Hayvanları besleme',        l: 'hayvanlar',        cat: 'gezi',     size: 'span 4', row: 'span 1' },
+  { c: 'orange', src: 'images/galeri/bahce_etkinlikk22.jpg',      alt: 'Mutlu çocuk',               l: 'tatlı an',         cat: 'mutfak',   size: 'span 4', row: 'span 1' },
+  { c: 'teal',   src: 'images/galeri/lavabolar.jpg',              alt: 'Lavabolarımız',             l: 'lavabolar',        cat: 'mekan',    size: 'span 4', row: 'span 1' },
+  { c: 'rose',   src: 'images/galeri/uyku_odasi.jpg',             alt: 'Uyku odası',                l: 'uyku odası',       cat: 'mekan',    size: 'span 6', row: 'span 1' },
+  { c: 'grass',  src: 'images/galeri/yeni13.jpg',                 alt: 'Halıda birlikte',           l: 'halıda birlikte',  cat: 'atölye',   size: 'span 3', row: 'span 1' },
+  { c: 'sun',    src: 'images/galeri/bahce_etkinlikk10.jpg',      alt: 'Yeşil tünel',               l: 'yeşil tünel',      cat: 'bahçemiz', size: 'span 3', row: 'span 1' },
 ];
 
 const FILTERS = ['hepsi', 'bahçemiz', 'atölye', 'mekan', 'gezi', 'mutfak'];

@@ -235,6 +235,43 @@ function ClosingSection() {
   );
 }
 
+function HakkimizdaMoreShots() {
+  const tiles = [
+    { src: 'images/galeri/bahcede_cocuklar.jpg', alt: 'Çimde rahat anlar', l: 'samimi an' },
+    { src: 'images/galeri/ic_mekan.jpg',         alt: 'İç mekanımız',     l: 'evimiz' },
+    { src: 'images/galeri/sinif_etkinligi.jpg',  alt: 'Atölyelerimiz',    l: 'atölye' },
+    { src: 'images/galeri/hayvanlar.jpg',        alt: 'Doğayla buluşma',  l: 'doğa' },
+  ];
+  return (
+    <section style={{ padding: '90px 48px 110px', background: 'var(--milk)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+        <div className="mono" style={{ marginBottom: 14, color: 'var(--teal-deep)' }}>· bizden anlar ·</div>
+        <h2 style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', lineHeight: 1.1, marginBottom: 36, maxWidth: 800 }}>
+          Mavi Mine biraz <span className="handwritten" style={{ color: 'var(--rose)' }}>böyle</span>.
+        </h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 14, marginBottom: 32 }}>
+          {tiles.map((t, i) => (
+            <div key={i} style={{
+              aspectRatio: '4/5', borderRadius: 16, overflow: 'hidden',
+              cursor: 'pointer', transition: 'transform .3s'
+            }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.02)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
+              <Img src={t.src} alt={t.alt} color="teal" label={`[${t.l}]`}
+                   style={{ width: '100%', height: '100%' }} />
+            </div>
+          ))}
+        </div>
+        <div style={{ textAlign: 'center' }}>
+          <a href="galeri.html" className="btn ghost" style={{ display: 'inline-block', textDecoration: 'none' }}>
+            Tüm galeri →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function App() {
   return (
     <div data-screen-label="Hakkımızda">
@@ -246,6 +283,7 @@ function App() {
       <MineDeepSection />
       <ProfileSection />
       <ClosingSection />
+      <HakkimizdaMoreShots />
       <FooterEl />
       <WhatsAppFloat />
     </div>

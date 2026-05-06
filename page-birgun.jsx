@@ -1,15 +1,15 @@
 // Bir Gün — Mavi Mine'de günlük akış
 
 const BLOCKS = [
-  { t: '07:30', h: 'Karşılama', d: 'Sakin müzik, sıcak gülümsemeler. Her çocuk adıyla karşılanır.', color: 'sun', icon: '☀' },
-  { t: '08:30', h: 'Kahvaltı',  d: 'Kendi mutfağımızdan, ev ortamı sıcaklığında bir başlangıç.', color: 'orange', icon: '🍞' },
-  { t: '09:30', h: 'Daire Zamanı', d: 'Günün sorusu, paylaşımlar, hikâye. Birlikte güne yön veririz.', color: 'rose', icon: '○' },
-  { t: '10:30', h: 'Ana Etkinlik', d: 'Drama, STEAM, Montessori atölyesi veya İngilizce — günün dokusuna göre.', color: 'teal', icon: '✿' },
-  { t: '12:00', h: 'Öğle Yemeği', d: 'Birlikte sofra kurar, birlikte toplarız. Beslenme bir paylaşımdır.', color: 'sun', icon: '🍽' },
-  { t: '13:00', h: 'Dinlenme',   d: 'Sessiz hikâye. Küçükler uyur, büyükler kitap karıştırır.', color: 'grape', icon: '☾' },
-  { t: '14:30', h: 'Bahçe & Tarım', d: '900 m² bahçede serbest oyun. Tohum, su, toprak — doğa zamanı.', color: 'grass', icon: '✿' },
-  { t: '16:00', h: 'Atölye 2', d: 'Kum havuzu, sanat ya da yüzme (haftalık programa göre).', color: 'sky', icon: '◇' },
-  { t: '17:00', h: 'Veda',     d: 'Günün notları, bir küçük sarılma. Ailelere kısa bir günlük.', color: 'coral', icon: '♥' },
+  { t: '07:30', h: 'Karşılama', d: 'Sakin müzik, sıcak gülümsemeler. Her çocuk adıyla karşılanır.', color: 'sun', icon: '☀', src: 'images/galeri/dis_cephe.jpg', alt: 'Karşılama anı' },
+  { t: '08:30', h: 'Kahvaltı',  d: 'Kendi mutfağımızdan, ev ortamı sıcaklığında bir başlangıç.', color: 'orange', icon: '🍞', src: 'images/galeri/yemekhane2.jpg', alt: 'Kahvaltı sofrası' },
+  { t: '09:30', h: 'Daire Zamanı', d: 'Günün sorusu, paylaşımlar, hikâye. Birlikte güne yön veririz.', color: 'rose', icon: '○', src: 'images/galeri/bahcede_cocuklar.jpg', alt: 'Daire zamanı' },
+  { t: '10:30', h: 'Ana Etkinlik', d: 'Drama, STEAM, Montessori atölyesi veya İngilizce — günün dokusuna göre.', color: 'teal', icon: '✿', src: 'images/galeri/sinif_etkinligi.jpg', alt: 'Ana etkinlik' },
+  { t: '12:00', h: 'Öğle Yemeği', d: 'Birlikte sofra kurar, birlikte toplarız. Beslenme bir paylaşımdır.', color: 'sun', icon: '🍽', src: 'images/galeri/yemekhane.jpg', alt: 'Öğle yemeği' },
+  { t: '13:00', h: 'Dinlenme',   d: 'Sessiz hikâye. Küçükler uyur, büyükler kitap karıştırır.', color: 'grape', icon: '☾', src: 'images/galeri/uyku_odasi.jpg', alt: 'Dinlenme zamanı' },
+  { t: '14:30', h: 'Bahçe & Tarım', d: '900 m² bahçede serbest oyun. Tohum, su, toprak — doğa zamanı.', color: 'grass', icon: '✿', src: 'images/galeri/bahce_etkinlikk20.jpg', alt: 'Bahçede tarım' },
+  { t: '16:00', h: 'Atölye 2', d: 'Kum havuzu, sanat ya da yüzme (haftalık programa göre).', color: 'sky', icon: '◇', src: 'images/galeri/bahce_etkinlikk13.jpg', alt: 'Kum havuzu atölyesi' },
+  { t: '17:00', h: 'Veda',     d: 'Günün notları, bir küçük sarılma. Ailelere kısa bir günlük.', color: 'coral', icon: '♥', src: 'images/galeri/oyun_bahce.jpg', alt: 'Veda zamanı' },
 ];
 
 function BirGunHero() {
@@ -56,12 +56,19 @@ function Timeline() {
               <div style={{
                 background: 'white', border: `2px solid var(--${b.color}-soft)`,
                 borderRadius: 16, padding: '18px 22px',
+                display: 'flex', gap: 18, alignItems: 'center'
               }}>
-                <div className="mono" style={{ color: `var(--${b.color === 'sun' ? 'orange' : b.color})`, marginBottom: 4 }}>
-                  {b.t}
+                <div style={{ width: 90, height: 90, flexShrink: 0, borderRadius: 12, overflow: 'hidden' }}>
+                  <Img src={b.src} alt={b.alt} color={b.color} label={`[${b.h.toLowerCase()}]`}
+                       style={{ width: '100%', height: '100%' }} />
                 </div>
-                <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 6 }}>{b.h}</h3>
-                <p style={{ fontSize: 14, color: 'var(--ink-soft)', margin: 0, lineHeight: 1.55, fontWeight: 500 }}>{b.d}</p>
+                <div style={{ flex: 1 }}>
+                  <div className="mono" style={{ color: `var(--${b.color === 'sun' ? 'orange' : b.color})`, marginBottom: 4 }}>
+                    {b.t}
+                  </div>
+                  <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 6 }}>{b.h}</h3>
+                  <p style={{ fontSize: 14, color: 'var(--ink-soft)', margin: 0, lineHeight: 1.55, fontWeight: 500 }}>{b.d}</p>
+                </div>
               </div>
             </div>
           ))}
@@ -102,6 +109,43 @@ function Schedules() {
   );
 }
 
+function BirGunMoreShots() {
+  const tiles = [
+    { src: 'images/galeri/bahce_etkinlikk16.jpg', alt: 'Bahçede grup', l: 'birlikte' },
+    { src: 'images/galeri/bahce_etkinlikk22.jpg', alt: 'Tatlı an',     l: 'kahkaha' },
+    { src: 'images/galeri/gezi_yata.jpg',         alt: 'Doğa gezisi',  l: 'dışarıda' },
+    { src: 'images/galeri/yeni7.jpg',             alt: 'Cuma klasiği', l: 'cuma klasiği' },
+  ];
+  return (
+    <section style={{ padding: '90px 48px 110px', background: 'var(--milk)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+        <div className="mono" style={{ marginBottom: 14, color: 'var(--teal-deep)' }}>· günün başka kareleri ·</div>
+        <h2 style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', lineHeight: 1.1, marginBottom: 36, maxWidth: 800 }}>
+          Her gün biraz <span className="handwritten" style={{ color: 'var(--orange)' }}>başka</span>.
+        </h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 14, marginBottom: 32 }}>
+          {tiles.map((t, i) => (
+            <div key={i} style={{
+              aspectRatio: '4/5', borderRadius: 16, overflow: 'hidden',
+              cursor: 'pointer', transition: 'transform .3s'
+            }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.02)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
+              <Img src={t.src} alt={t.alt} color="teal" label={`[${t.l}]`}
+                   style={{ width: '100%', height: '100%' }} />
+            </div>
+          ))}
+        </div>
+        <div style={{ textAlign: 'center' }}>
+          <a href="galeri.html" className="btn ghost" style={{ display: 'inline-block', textDecoration: 'none' }}>
+            Tüm galeri →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function App() {
   return (
     <div data-screen-label="Bir Gün">
@@ -109,6 +153,7 @@ function App() {
       <BirGunHero />
       <Timeline />
       <Schedules />
+      <BirGunMoreShots />
       <FooterEl />
       <WhatsAppFloat />
     </div>

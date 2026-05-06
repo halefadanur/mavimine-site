@@ -33,30 +33,40 @@ const SPECIALS = [
     title: 'Her hafta havuza',
     body: 'Mavi Mine yaz okulunda her hafta kardeş kurumumuzun havuzunda yüzme etkinliği var. Çocuklar suyla tanışır, güvenle yüzmeyi keşfeder, yaz sıcağında en güzel anlarını yaşar.',
     photoLabel: '[havuz · yüzme]',
+    src: 'images/galeri/havuz1.jpg',
+    alt: 'Havuzumuz',
   },
   {
     color: 'grass',
     title: 'Bahçede kamp',
     body: 'Çadır kuruyoruz, hikâye anlatıyoruz, sabaha karşı kuş seslerini dinliyoruz... ama hepsi gündüz! Çocuklar evlerinin sıcaklığını bırakmadan, kamp deneyiminin tüm heyecanını yaşıyor.',
     photoLabel: '[bahçede kamp · çadır]',
+    src: 'images/galeri/gezi_yata.jpg',
+    alt: 'Bahçede doğa etkinliği',
   },
   {
     color: 'orange',
     title: 'Yaratıcı atölyeler',
     body: 'Doğa boyaması, sanat etkinlikleri, küçük el işleri... Yaz boyunca her hafta farklı bir atölye ile çocukların hayal gücü ve yaratıcılığı besleniyor.',
     photoLabel: '[atölye · sanat]',
+    src: 'images/galeri/bahce_etkinlikk.jpg',
+    alt: 'Açık havada atölye',
   },
   {
     color: 'sun',
     title: 'Bahar-Yaz Festivali',
     body: 'Yaz okulunun finalinde tüm aileleri ağırladığımız bahar-yaz festivali var. Çocukların hazırladıkları gösteriler, sanat eserleri, oyunlarla dolu sıcak bir buluşma.',
     photoLabel: '[festival · aileler]',
+    src: 'images/galeri/bahce_etkinlikk21.jpg',
+    alt: 'Yaz şenliği',
   },
   {
     color: 'rose',
     title: 'Geziler',
     body: 'Müze, akvaryum, akua park... Yaz boyunca düzenlediğimiz minik gezilerle çocuklar yeni yerler keşfeder, sınıfın dışında öğrenmenin keyfini yaşar. Her gezi öncesi hazırlık, sonrası paylaşım — sadece bir tur değil, bir öğrenme deneyimi.',
     photoLabel: '[gezi · keşif]',
+    src: 'images/galeri/at_binme.jpg',
+    alt: 'Gezi günü',
   },
 ];
 
@@ -185,7 +195,9 @@ function YazNarrative() {
           </p>
         </div>
         <div className="yaz-narrative-visual">
-          <div className="ph grass" style={{ aspectRatio: '4/5', borderRadius: 28 }}>[bahçede kahkaha]</div>
+          <Img src="images/galeri/bahce_etkinlikk22.jpg" alt="Bahçede kahkaha"
+               color="grass" label="[bahçede kahkaha]"
+               style={{ aspectRatio: '4/5', borderRadius: 28 }} />
           <div className="yaz-narrative-stamp handwritten">unutulmayacak bir yaz</div>
         </div>
       </div>
@@ -207,7 +219,10 @@ function YazSpecials() {
         <div className="yaz-specials-list">
           {SPECIALS.map((s, i) => (
             <article key={i} className={`yaz-special yaz-${s.color} ${i % 2 === 0 ? 'yaz-special-left' : 'yaz-special-right'}`}>
-              <div className={`yaz-special-photo ph ${s.color}`}>{s.photoLabel}</div>
+              <div className="yaz-special-photo">
+                <Img color={s.color} src={s.src} alt={s.alt} label={s.photoLabel}
+                     style={{ width: '100%', height: '100%' }} />
+              </div>
               <div className="yaz-special-text">
                 <h3>{s.title}</h3>
                 <p>{s.body}</p>
@@ -276,6 +291,43 @@ function YazDayFlow() {
   );
 }
 
+function YazGallery() {
+  const tiles = [
+    { src: 'images/galeri/dis_cephe.jpg',     alt: 'Yaz okulu binası', l: 'binamız',      c: 'orange', size: 'span 6', row: 'span 2' },
+    { src: 'images/galeri/at_binme3.jpg',     alt: 'At binme keyfi',   l: 'at binme',     c: 'sun',    size: 'span 3', row: 'span 1' },
+    { src: 'images/galeri/havuz2.jpg',        alt: 'Havuz keyfi',      l: 'havuz keyfi',  c: 'sky',    size: 'span 3', row: 'span 1' },
+    { src: 'images/galeri/gezi_dikey.jpg',    alt: 'Doğa gezisi',      l: 'doğa gezisi',  c: 'grass',  size: 'span 3', row: 'span 1' },
+    { src: 'images/galeri/hayvanlar.jpg',     alt: 'Hayvanları besleme', l: 'hayvanlar',  c: 'rose',   size: 'span 3', row: 'span 1' },
+    { src: 'images/galeri/oyun_bahce1.jpg',   alt: 'Bahçede oyun',     l: 'oyun anı',     c: 'grass',  size: 'span 4', row: 'span 1' },
+    { src: 'images/galeri/havuz5.jpg',        alt: 'Yüzme zamanı',     l: 'yüzme',        c: 'sky',    size: 'span 4', row: 'span 1' },
+    { src: 'images/galeri/havuz6.jpg',        alt: 'Havuz vakti',      l: 'havuz vakti',  c: 'sky',    size: 'span 4', row: 'span 1' },
+  ];
+  return (
+    <section style={{ padding: '80px 48px', background: 'var(--paper)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+        <div className="mono" style={{ marginBottom: 14, color: 'var(--teal-deep)' }}>· yazımızdan kareler ·</div>
+        <h2 style={{ fontSize: 'clamp(40px, 6vw, 72px)', lineHeight: 1.05, marginBottom: 40, maxWidth: 900 }}>
+          Bir <span className="handwritten" style={{ color: 'var(--sky)' }}>yaz</span> böyle geçer.
+        </h2>
+        <div className="galeri-12-grid">
+          {tiles.map((t, i) => (
+            <div key={i} style={{
+              gridColumn: t.size, gridRow: t.row,
+              cursor: 'pointer', transition: 'transform .3s', borderRadius: 18,
+              overflow: 'hidden'
+            }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.015)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
+              <Img src={t.src} alt={t.alt} color={t.c} label={`[${t.l}]`}
+                   style={{ width: '100%', height: '100%' }} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function YazCTA() {
   return (
     <section className="yaz-cta">
@@ -318,6 +370,7 @@ function App() {
       <YazSpecials />
       <YazSide />
       <YazDayFlow />
+      <YazGallery />
       <YazCTA />
       <FooterEl />
       <WhatsAppFloat />

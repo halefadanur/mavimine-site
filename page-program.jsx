@@ -191,6 +191,43 @@ function YearRhythm() {
   );
 }
 
+function ProgramMoreShots() {
+  const tiles = [
+    { src: 'images/galeri/bahce_etkinlikk20.jpg', alt: 'Toprakla etkinlik', l: 'doğa' },
+    { src: 'images/galeri/satranc.jpg',           alt: 'Satranç oyunu',     l: 'satranç' },
+    { src: 'images/galeri/cupcake_etkinlik.jpg',  alt: 'Mutfak atölyesi',   l: 'mutfak' },
+    { src: 'images/galeri/at_binme3.jpg',         alt: 'Gezi günü',         l: 'gezi' },
+  ];
+  return (
+    <section style={{ padding: '90px 48px 110px', background: 'var(--milk)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+        <div className="mono" style={{ marginBottom: 14, color: 'var(--teal-deep)' }}>· programdan örnekler ·</div>
+        <h2 style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', lineHeight: 1.1, marginBottom: 36, maxWidth: 800 }}>
+          Çocuğun <span className="handwritten" style={{ color: 'var(--teal-deep)' }}>her yüzü</span> bizde.
+        </h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 14, marginBottom: 32 }}>
+          {tiles.map((t, i) => (
+            <div key={i} style={{
+              aspectRatio: '4/5', borderRadius: 16, overflow: 'hidden',
+              cursor: 'pointer', transition: 'transform .3s'
+            }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.02)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
+              <Img src={t.src} alt={t.alt} color="teal" label={`[${t.l}]`}
+                   style={{ width: '100%', height: '100%' }} />
+            </div>
+          ))}
+        </div>
+        <div style={{ textAlign: 'center' }}>
+          <a href="galeri.html" className="btn ghost" style={{ display: 'inline-block', textDecoration: 'none' }}>
+            Tüm galeri →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function App() {
   return (
     <div data-screen-label="Program">
@@ -199,6 +236,7 @@ function App() {
       <MEBStrip />
       <ProgramGrid />
       <YearRhythm />
+      <ProgramMoreShots />
       <FooterEl />
       <WhatsAppFloat />
     </div>
