@@ -154,7 +154,7 @@ function MEBStrip() {
             duygusunu besleyen, <strong>21. Yüzyıl Becerileri</strong>ne odaklı bir program.
           </p>
         </div>
-        <div className="ph teal" style={{ aspectRatio: '4/3', borderRadius: 24 }}>[Montessori sınıfı]</div>
+        <Img color="teal" src="images/galeri/bahce_etkinlikk3.jpg" alt="Montessori sınıf atmosferi" label="[Montessori sınıfı]" style={{ aspectRatio: '4/3', borderRadius: 24 }} />
       </div>
     </section>
   );

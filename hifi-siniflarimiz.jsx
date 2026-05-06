@@ -3,6 +3,8 @@
 const CLASSES = [
   {
     key: 'minik-afacanlar',
+    src: 'images/galeri/bahce_etkinlikk18.jpg',
+    alt: 'Minik Afacanlar bahçede oyun',
     color: 'rose',
     align: 'left',
     name: 'Minik Afacanlar',
@@ -41,6 +43,8 @@ const CLASSES = [
   },
   {
     key: 'merakli-minikler',
+    src: 'images/galeri/bahce_etkinlikk22.jpg',
+    alt: 'Meraklı Minikler sınıfı',
     color: 'sun',
     align: 'right',
     name: 'Meraklı Minikler',
@@ -79,6 +83,8 @@ const CLASSES = [
   },
   {
     key: 'gulen-yuzler',
+    src: 'images/galeri/satranc.jpg',
+    alt: 'Gülen Yüzler sınıfı',
     color: 'teal',
     align: 'left',
     name: 'Gülen Yüzler',
@@ -152,7 +158,11 @@ function ClassRow({ cls, index }) {
   return (
     <article className={`cls-row cls-${cls.color} ${isLeft ? 'cls-left' : 'cls-right'}`}>
       <div className="cls-visual">
-        <div className={`cls-photo ph ${cls.color}`}>[{cls.name.toLowerCase()} sınıfı]</div>
+        <div className="cls-photo">
+          <Img color={cls.color} src={cls.src} alt={cls.alt}
+               label={`[${cls.name.toLowerCase()} sınıfı]`}
+               style={{ width: '100%', height: '100%' }} />
+        </div>
         <div className="cls-handwritten handwritten">{cls.handwritten}</div>
         <div className="cls-age-badge">
           <div className="cls-age-num">{cls.age}</div>

@@ -1,12 +1,71 @@
 // Kadro — Mavi Mine ekibi (broşürdeki gerçek yapı)
 
+const { useState } = React;
+
 const TEACHERS = [
-  { name: 'Hatice Adanur Şahin', role: 'Kurucu · Pedagog', tag: 'Montessori uzmanı', color: 'teal',   img: 'images/team/team-04.jpeg' },
-  { name: '—',                   role: 'Sınıf Öğretmeni',  tag: '3 yaş grubu',       color: 'orange', img: 'images/team/team-01.jpeg' },
-  { name: '—',                   role: 'Sınıf Öğretmeni',  tag: '4 yaş grubu',       color: 'rose',   img: 'images/team/team-02.jpeg' },
-  { name: '—',                   role: 'Sınıf Öğretmeni',  tag: '5—6 yaş grubu',     color: 'grass',  img: 'images/team/team-03.jpeg' },
-  { name: '—',                   role: 'Branş Öğretmeni',  tag: 'İngilizce',         color: 'sky',    img: 'images/team/team-05.jpeg' },
-  { name: '—',                   role: 'Branş Öğretmeni',  tag: 'Drama & Müzik',     color: 'sun',    img: null },
+  {
+    name: 'Hatice Adanur Şahin',
+    role: 'Eğitimci · Kurucu Müdür',
+    tag: 'Montessori uzmanı',
+    color: 'teal',
+    img: 'images/team/hatice.jpeg',
+    alt: 'Hatice Adanur Şahin portresi',
+    bio: [
+      'Bir okul müdürü olarak, çocukların güvenli, mutlu ve destekleyici bir ortamda eğitim almasını öncelik olarak görürüm. Okul öncesi eğitim alanında 23 yıllık tecrübeye sahip, aynı zamanda ailede ikinci kuşak eğitimci olarak; mesleğimi birikim ve değerlerle sürdürürüm. Her çocuğun bireysel farklılıklarını gözeten, gelişimini çok yönlü destekleyen bir eğitim anlayışı benimserim.',
+      'Montessori yaklaşımı, özel eğitim bilgisi ve çocukların gelişimini anlamaya yönelik analiz yöntemlerini bir araya getirerek, eğitim süreçlerini daha nitelikli ve etkili hale getirmeyi hedeflerim. Öğretmenlerimle iş birliği içinde, sevgi temelli ve yenilikçi bir eğitim ortamı oluşturmak için çalışırım.',
+      'Velilerle güçlü iletişim kurarak, çocuklarımızın gelişim yolculuğunu birlikte takip etmeye ve her birinin potansiyelini en iyi şekilde ortaya çıkarmaya önem veririm.'
+    ]
+  },
+  {
+    name: 'Reyhan Karaağaç',
+    role: 'Anaokulu Öğretmeni',
+    tag: '2 yaş — Minik Afacanlar',
+    color: 'rose',
+    img: 'images/team/reyhan.jpeg',
+    alt: 'Reyhan Karaağaç portresi',
+    bio: [
+      'Ben Reyhan. Bulunduğum ortama neşe katmayı, arkadaşlarımı güldürmeyi seven biriyim. Sevdiklerimle vakit geçirmek beni en çok mutlu eden şeylerden biri. Çoğu zaman evde, sakin ve huzurlu anlar bana iyi gelir. Doğayı ve dinginliği çok severim. Kalabalıklar bana göre değil; hayatımda az ama öz insanlar olsun isterim. Sevgiye ve sevginin iyileştirici gücüne ise tüm kalbimle inanırım.'
+    ]
+  },
+  {
+    name: 'Gülben Topçuoğlu',
+    role: 'Anaokulu Öğretmeni',
+    tag: '3-4 yaş — Meraklı Minikler',
+    color: 'sun',
+    img: 'images/team/gulben.jpeg',
+    alt: 'Gülben Topçuoğlu portresi',
+    bio: [
+      'Ben Gülben 🌸 küçük şeylerden mutlu olabilen, hayatın keyifli yanlarını görmeyi seven biriyim. Gezmek, alışveriş yapmak ve resim yapmak bana iyi gelir. Arkadaşlarımla oturup içilen samimi bir kahve bile günümü güzelleştirmeye yeter.',
+      'Kıpır kıpır ve duygusal biri olsam da, insan ilişkilerinde uyuma önem veririm. Çocukla çocuk, büyükle büyük olabilmek benim için hayatın güzel yanlarından biridir. Hayvanları severim ama ilginç bir şekilde onlara karşı küçük bir korkum da vardır. Kısacası, duygularıyla yaşayan, samimiyeti seven, hayatın küçük mutluluklarından keyif alan biriyim 😊'
+    ]
+  },
+  {
+    name: 'Şule Kaya',
+    role: 'Anaokulu Öğretmeni',
+    tag: '5-6 yaş — Gülen Yüzler',
+    color: 'orange',
+    img: 'images/team/sule.jpeg',
+    alt: 'Şule Kaya portresi',
+    bio: [
+      'Ben Şule Kaya. Küçük şeylerden mutlu olmayı seven biriyim. At binmek bana hem özgürlük hem de huzur hissettiriyor, o yüzden en sevdiğim aktivitelerden biri. Aynı zamanda alçıyla bir şeyler üretmek, ortaya yeni şeyler çıkarmak bana çok keyif veriyor.',
+      'Daha çok sakin anları severim; güzel bir müzik, kahve ya da gün batımı bana iyi gelir. Ailemle vakit geçirmek benim için çok kıymetli, o anlar bana ayrı bir mutluluk verir. Hayvanlara karşı ayrı bir ilgim var, onları görmek bile modumu yükseltir. Kapalı alanlar ise pek bana göre değil, daha çok açık ve ferah yerlerde kendimi rahat hissediyorum.',
+      'Genel olarak hayatın küçük anlarının tadını çıkarmaya çalışan, samimi ve sade biriyim.'
+    ]
+  },
+  {
+    name: 'Zümra Adanur',
+    role: 'Anaokulu Öğretmeni',
+    tag: 'Akıl Oyunları & Kodlama',
+    color: 'grape',
+    img: 'images/team/zumra.jpeg',
+    alt: 'Zümra Adanur portresi',
+    bio: [
+      'Ben Zümra Adanur. Müzik dinlemek ve resim yapmak hayatımın vazgeçilmez parçaları. Saçlarla uğraşmak ise benim için ayrı bir keyif; öğrencilerim de bunun farkında ve bana saçlarını yaptırmak için bazen çeşitli bahaneler uyduruyorlar 😊',
+      'Kapalı ortamlardansa açık alanlarda vakit geçirmek bana daha iyi geliyor. Temiz hava, özgürlük hissi ve doğayla iç içe olmak beni mutlu ediyor.',
+      'Ailemle vakit geçirmek ise her şeyden daha değerli. Onlarla geçirdiğim zaman bana huzur veriyor. Çay yerine kahveyi tercih ederim ama öyle acı kahveler değil; daha çok tatlı, yumuşak içimli kahveleri severim ☕',
+      'Kısacası; enerjik, yaratıcı ve hayatın keyfini çıkarmayı seven biriyim.'
+    ]
+  }
 ];
 
 const CONSULTANTS = [
@@ -23,7 +82,7 @@ function KadroHero() {
       <div style={{ maxWidth: 1280, margin: '0 auto', position: 'relative', zIndex: 2 }}>
         <div className="mono" style={{ marginBottom: 18, color: 'var(--teal-deep)' }}>03 · kadromuz</div>
         <h1 style={{ fontSize: 'clamp(48px, 7vw, 92px)', lineHeight: 1.0, maxWidth: 1100 }}>
-          Üç nesil, <span className="handwritten" style={{ color: 'var(--orange)', fontSize: '1.05em' }}>altı öğretmen,</span><br/>
+          Üç nesil, <span className="handwritten" style={{ color: 'var(--orange)', fontSize: '1.05em' }}>beş öğretmen,</span><br/>
           <span style={{ color: 'var(--teal-deep)' }}>bir aile.</span>
         </h1>
         <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.6, color: 'var(--ink-soft)', maxWidth: 700, fontWeight: 500 }}>
@@ -37,6 +96,7 @@ function KadroHero() {
 }
 
 function TeacherGrid() {
+  const [expanded, setExpanded] = useState({});
   return (
     <section style={{ padding: '60px 48px 100px', background: 'var(--paper)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
@@ -45,17 +105,22 @@ function TeacherGrid() {
           Aynı çatı altında <span className="handwritten" style={{ color: 'var(--rose)', fontSize: '1.1em' }}>aynı dili</span> konuşanlar.
         </h2>
         <div className="kadro-team-grid">
-          {TEACHERS.map((t, i) => (
-            <div key={i}>
-              {t.img ? (
+          {TEACHERS.map((t, i) => {
+            const isOpen = expanded[i];
+            const toggle = () => setExpanded(prev => ({ ...prev, [i]: !prev[i] }));
+            const hasBio = t.bio.length > 0;
+            const hasMore = t.bio.length > 1;
+            const visibleBio = hasMore && !isOpen ? t.bio.slice(0, 1) : t.bio;
+            return (
+              <div key={i}>
                 <div style={{
                   aspectRatio: '3/4', marginBottom: 16, overflow: 'hidden',
-                  borderRadius: 20, background: 'var(--cream-deep)', position: 'relative',
+                  borderRadius: 20, position: 'relative',
                   border: `4px solid var(--${t.color}-soft)`,
                 }}>
-                  <img src={t.img} alt={t.name} style={{
-                    width: '100%', height: '100%', objectFit: 'cover', display: 'block',
-                  }} />
+                  <Img src={t.img} alt={t.alt} color={t.color}
+                       label={`[${t.name}]`}
+                       style={{ width: '100%', height: '100%' }} />
                   <div style={{
                     position: 'absolute', top: 14, left: 14,
                     background: `var(--${t.color})`, color: 'white',
@@ -63,15 +128,37 @@ function TeacherGrid() {
                     fontSize: 11, fontWeight: 700, letterSpacing: '0.1em',
                   }}>{t.tag}</div>
                 </div>
-              ) : (
-                <div className={`ph ${t.color}`} style={{ aspectRatio: '3/4', marginBottom: 16, borderRadius: 20 }}>
-                  [öğretmen portresi {String(i+1).padStart(2,'0')}]
-                </div>
-              )}
-              <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 4 }}>{t.name}</h3>
-              <div style={{ fontSize: 14, color: 'var(--ink-soft)', fontWeight: 600 }}>{t.role}</div>
-            </div>
-          ))}
+                <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 4 }}>{t.name}</h3>
+                <div style={{ fontSize: 14, color: 'var(--ink-soft)', fontWeight: 600 }}>{t.role}</div>
+                {hasBio && (
+                  <div style={{ marginTop: 12 }}>
+                    {visibleBio.map((p, j) => (
+                      <p key={j} style={{
+                        fontSize: 14, lineHeight: 1.55,
+                        color: 'var(--ink-soft)', fontWeight: 500,
+                        margin: j > 0 ? '12px 0 0' : 0,
+                      }}>{p}</p>
+                    ))}
+                    {hasMore && (
+                      <button onClick={toggle}
+                        onMouseEnter={e => e.currentTarget.style.color = 'var(--orange)'}
+                        onMouseLeave={e => e.currentTarget.style.color = 'var(--teal-deep)'}
+                        style={{
+                          background: 'none', border: 'none',
+                          padding: '12px 0 0', cursor: 'pointer',
+                          fontSize: 13, fontWeight: 600,
+                          color: 'var(--teal-deep)',
+                          fontFamily: 'inherit',
+                          transition: 'color .2s',
+                        }}>
+                        {isOpen ? 'Daha az ↑' : 'Devamını oku ↓'}
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

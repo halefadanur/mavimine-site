@@ -99,13 +99,15 @@ function Hero() {
           <div className="hero-badge-call">Mavi Mine'miz Olun</div>
         </div>
         <div className="hero-img-main">
-          <img src="images/team/team-04.jpeg" alt="Hatice Adanur Şahin" onError={(e) => { e.target.style.display='none'; }}/>
+          <img src="images/team/hatice.jpeg" alt="Hatice Adanur Şahin" onError={(e) => { e.target.style.display='none'; }}/>
           <div className="hero-img-caption">
             <div className="cap-mono">kurucu · pedagog</div>
             <div className="cap-name">Hatice Adanur Şahin</div>
           </div>
         </div>
-        <div className="hero-img-accent ph teal">[bahçede oyun]</div>
+        <div className="hero-img-accent">
+          <Img src="images/galeri/bahce_etkinlikk9.jpg" alt="Bahçemizde sıcak bir an" color="teal" label="[bahçede an]" style={{ width: '100%', height: '100%' }} />
+        </div>
       </div>
     </section>
   );
@@ -473,12 +475,12 @@ function GalleryStrip() {
         <a href="galeri.html" className="btn ghost">Tüm galeri →</a>
       </div>
       <div className="gallery-grid">
-        <div className="ph rose"   style={{ gridColumn: 'span 5', aspectRatio: '4/5' }}>[atölye 01]</div>
-        <div className="ph teal"   style={{ gridColumn: 'span 4', aspectRatio: '1' }}>[bahçe 02]</div>
-        <div className="ph sun"    style={{ gridColumn: 'span 3', aspectRatio: '3/4' }}>[öğle 03]</div>
-        <div className="ph grass"  style={{ gridColumn: 'span 4', aspectRatio: '4/5' }}>[oyun 04]</div>
-        <div className="ph orange" style={{ gridColumn: 'span 5', aspectRatio: '5/4' }}>[sanat 05]</div>
-        <div className="ph grape"  style={{ gridColumn: 'span 3', aspectRatio: '1' }}>[veda 06]</div>
+        <Img color="rose"   src="images/galeri/sinif_ici_etkinlik3.jpg"                       alt="Boyama atölyesi"      label="[atölye 01]" style={{ gridColumn: 'span 5', aspectRatio: '4/5' }} />
+        <Img color="teal"   src="images/galeri/bahce_etkinlikk16.jpg"                         alt="Bahçede grup oyunu"   label="[bahçe 02]"  style={{ gridColumn: 'span 4', aspectRatio: '1' }} />
+        <Img color="sun"    src="images/galeri/sinif_ici_etkinlik4.jpg"                       alt="Hikaye saati"         label="[öğle 03]"   style={{ gridColumn: 'span 3', aspectRatio: '3/4' }} />
+        <Img color="grass"  src="images/galeri/oyun_bahce2.jpg"                               alt="Bahçede oyun"         label="[oyun 04]"   style={{ gridColumn: 'span 4', aspectRatio: '4/5' }} />
+        <Img color="orange" src="images/galeri/bahce_etkinlikk.jpg"                           alt="Büyük grup etkinliği" label="[sanat 05]"  style={{ gridColumn: 'span 5', aspectRatio: '5/4' }} />
+        <Img color="grape"  src="images/galeri/okul_onden_guzel.jpg"                          alt="Mavi Mine binası"     label="[veda 06]"   style={{ gridColumn: 'span 3', aspectRatio: '1' }} />
       </div>
     </section>
   );

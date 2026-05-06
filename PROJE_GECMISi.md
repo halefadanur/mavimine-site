@@ -8,7 +8,7 @@
 
 **Mavi Mine Özel Anaokulu**, 3-6 yaş, Kestel/Bursa.
 
-- **Kurucu:** Hatice Adanur Şahin (pedagog, Montessori eğitimi almış)
+- **Kurucu:** Hatice Adanur Şahin (eğitimci · kurucu müdür · Montessori uzmanı)
 - **Aile mirası:** Üç nesil eğitimci ailesi
 - **Kardeş kurum:** Eğitimci Dil Konuşma Merkezi (ayrı kurum, AYRI veri, bu projeye DAHİL DEĞİL)
 - **Bahçe:** 900 m²
@@ -208,9 +208,9 @@ hifi-iletisim.jsx'te eğitim saatleri 07.30 — 18.30 olarak güncellendi (telef
 **Kavşak yapısı:**
 - Hero: "iyi ki yazdınız — / Önce *tanışalım*."
 - 3 kart (1.25fr · 1fr · 1fr):
-  - 🤝 **Randevu Al** (öne çıkan, turkuaz, "Önerilen ilk adım" turuncu rozet) → Randevu.html
-  - 📝 **Ön Kayıt** (turuncu) → On Kayit Formu.html
-  - 💡 **Özel Seans** (rose) → Ozel Seans.html
+  - 🤝 **Randevu Al** (öne çıkan, turkuaz, "Önerilen ilk adım" turuncu rozet) → randevu.html
+  - 📝 **Ön Kayıt** (turuncu) → on-kayit-formu.html
+  - 💡 **Özel Seans** (rose) → ozel-seans.html
 - Yardım şeridi: "Bizi *arayın*, beraber bakalım." + telefon/e-posta/saat kartı
 
 **Karar gerekçeleri:**
@@ -393,6 +393,37 @@ Tüm sitede "Başvur" / "Randevu" / "Kayıt" linkleri tek bir kavşak sayfasına
 ---
 
 ## 🔄 SON GÜNCELLEMELER
+
+### 6 Mayıs 2026 — Fotoğraf yerleştirme oturumu
+
+**Tamamlanan:**
+- 68 fotoğraf optimize edilip `images/galeri/` klasörüne yerleştirildi (sips ile, 1600px max, %82 kalite, dosya adları küçük harfli + alt çizgili)
+- 5 öğretmen portresi `images/team/` klasörüne eklendi (hatice, reyhan, gulben, sule, zumra)
+- `<Img>` component'i `mm-shared.jsx`'e eklendi — fotoğraf yoksa otomatik `.ph` placeholder'a düşer (graceful fallback)
+- mavi-mine.css'te galeri grid'lerinin mobil kuralı `> div` yerine `> *` yapıldı (Img component'i img tag'i ürettiği için)
+
+**Sayfalardaki fotoğraf yerleşimleri:**
+- index.html (anasayfa): hero accent + 3 garden strip + 6 galeri strip = 10 fotoğraf
+- galeri.html: 12 fotoğraf, 6 kategori (hepsi/bahçemiz/atölye/mekan/gezi/mutfak), filtre butonları çalışır
+- program.html: Montessori bölümü için 1 fotoğraf
+- bir-gun.html: timeline sticky görseli için 1 fotoğraf
+- siniflarimiz.html: 3 sınıf için 3 farklı fotoğraf (Minik Afacanlar/Meraklı Minikler/Gülen Yüzler)
+- kadro.html: 5 öğretmen kartı (Hatice + Reyhan + Gülben + Şule + Zümra), her kartta isim + rol + bio + "Devamını oku ↓" özelliği. Hatice hariç hepsinin rolü "Anaokulu Öğretmeni" olarak standartlaştırıldı.
+- hifi-home.jsx ve hifi-hakkimizda.jsx'teki Hatice Hanım foto referansları team-04.jpeg → hatice.jpeg olarak güncellendi
+
+**Öğretmen bilgileri:**
+- Hatice Adanur Şahin: kurucu/müdür, "Eğitimci · Kurucu Müdür" rolü, "Montessori uzmanı" rozeti. PROJE_GECMISi.md'deki "pedagog" tanımı yanlış — Hatice Hanım pedagog DEĞİL, eğitimci ve müdür. Düzeltilmeli.
+- Reyhan Karaağaç (2 yaş — Minik Afacanlar)
+- Gülben Topçuoğlu (3-4 yaş — Meraklı Minikler)  
+- Şule Kaya (5-6 yaş — Gülen Yüzler)
+- Zümra Adanur (Akıl Oyunları & Kodlama branş öğretmeni)
+- Branş öğretmenleri için 3 boş kart yapılmadı (İngilizce/Halk oyunları/Sevgi dersi) — sadece 5 dolu kart var, branş öğretmenleri ileride eklenecek.
+
+**Bir sonraki oturum için bekleyen işler:**
+1. Yeni fotoğraflar gelecek — Hatice Hanım daha güzel kareler topluyor. Aynı `optimize-fotograflar.sh` script'iyle işlenecek.
+2. Yaz okulu için ayrı bir galeri açılacak — `yaz-okulu.html` sayfasının içine bir galeri bölümü eklenecek. Tema: doğa, etkinlik, kamp ruhu (anaokulu galerisinden farklı bir tonda).
+3. Eski `images/team/team-01.jpeg` ... `team-05.jpeg` dosyaları artık hiçbir yerde kullanılmıyor, silinebilir (kontrol et önce).
+4. `images/galeri/whatsapp_image_2026-05-03_at_23.35.48_(1).jpg` gibi parantezli çirkin dosya adları temizlenebilir (örn. `bina_disi_2.jpg`).
 
 ### 2026-05-03 — Dosya isimleri sadeleştirildi (GitHub Pages hazırlığı)
 

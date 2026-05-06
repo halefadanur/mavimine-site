@@ -38,8 +38,8 @@ function Timeline() {
   return (
     <section style={{ padding: '80px 48px 100px', background: 'var(--paper)' }}>
       <div className="birgun-tl-grid">
-        <div className="ph teal birgun-tl-photo" style={{ aspectRatio: '3/4', borderRadius: 24 }}>
-          [bir gün · video / fotoğraf koleksiyonu]
+        <div className="birgun-tl-photo" style={{ aspectRatio: '3/4', borderRadius: 24, overflow: 'hidden' }}>
+          <Img src="images/galeri/bahce_etkinlikk10.jpg" alt="Bir gün Mavi Mine'de" color="teal" label="[bir gün]" style={{ width: '100%', height: '100%' }} />
         </div>
         <div style={{ position: 'relative' }}>
           <div style={{

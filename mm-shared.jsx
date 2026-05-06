@@ -9,6 +9,26 @@ function LogoMark({ size = 56 }) {
   );
 }
 
+function Img({ src, alt, color = 'teal', label, className = '', style }) {
+  const [ok, setOk] = useState(true);
+  if (!src || !ok) {
+    return (
+      <div className={`ph ${color} ${className}`} style={style}>
+        {label || `[${alt || 'görsel'}]`}
+      </div>
+    );
+  }
+  return (
+    <img
+      src={src}
+      alt={alt || ''}
+      className={className}
+      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', ...style }}
+      onError={() => setOk(false)}
+    />
+  );
+}
+
 const NAV_PAGES = [
   { label: 'Hakkımızda', href: 'hakkimizda.html', color: 'teal' },
   { label: 'Eğitim', color: 'orange', children: [
@@ -219,4 +239,4 @@ function WhatsAppFloat() {
   );
 }
 
-Object.assign(window, { LogoMark, Nav, PageHero, FooterEl, WhatsAppFloat });
+Object.assign(window, { LogoMark, Img, Nav, PageHero, FooterEl, WhatsAppFloat });

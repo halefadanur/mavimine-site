@@ -51,7 +51,7 @@ function StoryHero() {
         </div>
         <div className="story-hero-portrait">
           <div className="portrait-frame">
-            <img src="images/team/team-04.jpeg" alt="Hatice Adanur Şahin" onError={(e) => { e.target.style.display='none'; }}/>
+            <img src="images/team/hatice.jpeg" alt="Hatice Adanur Şahin" onError={(e) => { e.target.style.display='none'; }}/>
             <div className="portrait-caption">
               <div className="cap-mono">kurucu · pedagog</div>
               <div className="cap-name">Hatice Adanur Şahin</div>

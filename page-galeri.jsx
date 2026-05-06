@@ -3,21 +3,21 @@
 const { useState } = React;
 
 const TILES = [
-  { c: 'teal',   l: 'atölyede bir an', cat: 'atölye',  size: 'span 6', row: 'span 2', video: true },
-  { c: 'orange', l: 'kum havuzu',      cat: 'oyun',    size: 'span 3', row: 'span 1' },
-  { c: 'rose',   l: 'portre',          cat: 'portre',  size: 'span 3', row: 'span 1' },
-  { c: 'grass',  l: 'tarım — fide',    cat: 'doğa',    size: 'span 3', row: 'span 1' },
-  { c: 'sky',    l: 'yüzme havuzu',    cat: 'oyun',    size: 'span 3', row: 'span 1' },
-  { c: 'sun',    l: 'bahçe oyunları',  cat: 'doğa',    size: 'span 6', row: 'span 1', video: true },
-  { c: 'grape',  l: 'sevgi dersi',     cat: 'atölye',  size: 'span 3', row: 'span 1' },
-  { c: 'coral',  l: 'STEAM atölyesi',  cat: 'atölye',  size: 'span 3', row: 'span 1' },
-  { c: 'rose',   l: 'mutfak zamanı',   cat: 'oyun',    size: 'span 3', row: 'span 1' },
-  { c: 'teal',   l: 'doğa yürüyüşü',   cat: 'doğa',    size: 'span 6', row: 'span 1' },
-  { c: 'orange', l: 'sergi günü',      cat: 'sergi',   size: 'span 3', row: 'span 1' },
-  { c: 'sun',    l: 'müzik & drama',   cat: 'atölye',  size: 'span 3', row: 'span 1' },
+  { c: 'orange', src: 'images/galeri/okul_onden_guzel.jpg',     alt: 'Mavi Mine binası',          l: 'binamız',          cat: 'mekan',    size: 'span 6', row: 'span 2' },
+  { c: 'teal',   src: 'images/galeri/bahce_etkinlikk13.jpg',    alt: 'Kum havuzunda oyun',        l: 'kum havuzu',       cat: 'bahçemiz', size: 'span 3', row: 'span 1' },
+  { c: 'rose',   src: 'images/galeri/sinif_ici_etkinlik3.jpg',  alt: 'Boyama atölyesi',           l: 'boyama atölyesi',  cat: 'atölye',   size: 'span 3', row: 'span 1' },
+  { c: 'grass',  src: 'images/galeri/bahce_etkinlikk20.jpg',    alt: 'Toprakla oyun',             l: 'toprakla oyun',    cat: 'bahçemiz', size: 'span 3', row: 'span 1' },
+  { c: 'sun',    src: 'images/galeri/at_binme3.jpg',            alt: 'At binme etkinliği',        l: 'at binme',         cat: 'gezi',     size: 'span 3', row: 'span 1' },
+  { c: 'grass',  src: 'images/galeri/bahce_etkinligi.jpg',      alt: 'Bahçemizde grup etkinliği', l: 'çimde halka',      cat: 'bahçemiz', size: 'span 6', row: 'span 1' },
+  { c: 'grape',  src: 'images/galeri/sinif_ici_etkinlik2.jpg',  alt: 'Boyama atölyesi',           l: 'boyama anı',       cat: 'atölye',   size: 'span 3', row: 'span 1' },
+  { c: 'orange', src: 'images/galeri/cupcake_etkinlik.jpg',     alt: 'Cupcake atölyesi',          l: 'cupcake atölyesi', cat: 'mutfak',   size: 'span 3', row: 'span 1' },
+  { c: 'sky',    src: 'images/galeri/mudur_odasi.jpg',          alt: 'Müdür odası',               l: 'müdür odası',      cat: 'mekan',    size: 'span 3', row: 'span 1' },
+  { c: 'teal',   src: 'images/galeri/gezi_yata.jpg',            alt: 'Doğa yürüyüşü',             l: 'doğa yürüyüşü',    cat: 'gezi',     size: 'span 6', row: 'span 1' },
+  { c: 'rose',   src: 'images/galeri/yemekhane.jpg',            alt: 'Yemekhanemiz',              l: 'yemekhanemiz',     cat: 'mekan',    size: 'span 3', row: 'span 1' },
+  { c: 'sun',    src: 'images/galeri/bahce_etkinlikk10.jpg',    alt: 'Bahçemizde oyun',           l: 'yeşil tünel',      cat: 'bahçemiz', size: 'span 3', row: 'span 1' },
 ];
 
-const FILTERS = ['hepsi', 'atölye', 'doğa', 'oyun', 'portre', 'sergi'];
+const FILTERS = ['hepsi', 'bahçemiz', 'atölye', 'mekan', 'gezi', 'mutfak'];
 
 function GaleriHero() {
   return (
@@ -57,21 +57,15 @@ function Grid() {
         </div>
         <div className="galeri-12-grid">
           {visible.map((t, i) => (
-            <div key={i} className={`ph ${t.c}`} style={{
-              gridColumn: t.size, gridRow: t.row,
-              cursor: 'pointer', transition: 'transform .3s', borderRadius: 18,
-            }}
+            <div key={i} style={{
+                gridColumn: t.size, gridRow: t.row,
+                cursor: 'pointer', transition: 'transform .3s', borderRadius: 18,
+                overflow: 'hidden'
+              }}
               onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.015)'}
               onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
-              {t.l}
-              {t.video && (
-                <div style={{
-                  position: 'absolute', top: 14, right: 14,
-                  background: 'rgba(255,255,255,0.95)', padding: '5px 12px',
-                  fontSize: 10, fontFamily: "'Quicksand', sans-serif", fontWeight: 700,
-                  letterSpacing: '0.12em', borderRadius: 999, color: 'var(--ink)',
-                }}>▸ VIDEO</div>
-              )}
+              <Img src={t.src} alt={t.alt} color={t.c} label={`[${t.l}]`}
+                   style={{ width: '100%', height: '100%' }} />
             </div>
           ))}
         </div>

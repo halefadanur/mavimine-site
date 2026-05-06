@@ -44,3 +44,9 @@ PATCH-*.html
 PATCH-*.css
 *-EKLEME-*.css
 *-EKLEME-*.jsx
+
+# Geçici / debug dosyaları (canlıya gerek yok)
+foto-envanter.html
+
+# Ham/orijinal fotoğraflar (optimize edilmemiş, canlıya gerek yok)
+mavimine_foto/
