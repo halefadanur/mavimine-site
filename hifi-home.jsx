@@ -381,7 +381,8 @@ function GardenStrip() {
   return (
     <section className="garden-strip">
       <div className="garden-grid">
-        <div className="ph teal" style={{ aspectRatio: '4/5' }}>[bahçede oyun]</div>
+        <Img src="images/galeri/bahce_etkinligi.jpg" alt="Bahçemizde grup etkinliği" color="teal" label="[bahçede oyun]"
+             style={{ aspectRatio: '4/5', borderRadius: 8, width: '100%', height: '100%' }} />
         <div className="garden-text">
           <div className="section-label">Bahçemiz</div>
           <h2>Dokuz yüz metrekare <em>açık hava sınıfı.</em></h2>
@@ -391,8 +392,10 @@ function GardenStrip() {
           </p>
           <p className="bubble">Çünkü en iyi sınıf, gökyüzünün altındadır 🌿</p>
         </div>
-        <div className="ph grass" style={{ aspectRatio: '1' }}>[tarım atölyesi]</div>
-        <div className="ph sun" style={{ aspectRatio: '3/4' }}>[kum havuzu]</div>
+        <Img src="images/galeri/bahce_etkinlikk20.jpg" alt="Toprakla etkinlik" color="grass" label="[tarım atölyesi]"
+             style={{ aspectRatio: '1', borderRadius: 8, width: '100%', height: '100%' }} />
+        <Img src="images/galeri/bahce_etkinlikk13.jpg" alt="Kum havuzunda oyun" color="sun" label="[kum havuzu]"
+             style={{ aspectRatio: '3/4', borderRadius: 8, width: '100%', height: '100%' }} />
       </div>
     </section>
   );
