@@ -4,20 +4,6 @@ const { useState } = React;
 
 const TEACHERS = [
   {
-    name: 'Halef Adanur',
-    role: 'Eğitimci · Kurucu',
-    tag: 'Türk Dili ve Edebiyatı · 25 yıl',
-    color: 'sky',
-    img: 'images/team/halef.jpeg',
-    alt: 'Halef Adanur — Mavi Mine kurucusu',
-    bio: [
-      'Ben Halef Adanur. Uludağ Üniversitesi Türk Dili ve Edebiyatı Bölümü mezunuyum. Mesleğe Milli Eğitim Bakanlığı\'nda öğretmen olarak başladım; beş yıllık devlet hizmetinin ardından özel sektöre geçtim.',
-      'Yirmi yıl boyunca öğretmenlik, zümre başkanlığı ve yöneticilik yaptım. Bu yolda ortaokul Türkçe müfredat çalışmalarına katkı sağladım, ders kitaplarının yayın süreçlerinde yer aldım. Eğitim, benim için sadece bir meslek değil; aile mirası bir sorumluluk oldu.',
-      '2020\'de Eğitimci Dil Konuşma Özel Eğitim ve Rehabilitasyon Merkezi\'ni kurdum. Kısa sürede 350\'yi aşkın çocuğa ulaşan bu yapı, çocuğa dokunmanın değerini bana her gün hatırlattı.',
-      'Mavi Mine, kardeşim Hatice ile birlikte hayata geçirdiğimiz bir hayalin adı. Üç nesil eğitimci bir ailenin emeğini, küçük yaşta çocuğun yanında durmanın gücüyle buluşturmak istedik. Buradaki her çocuk, bizim için emanet edilen bir minedir.'
-    ]
-  },
-  {
     name: 'Hatice Adanur Şahin',
     role: 'Eğitimci · Kurucu Müdür',
     tag: 'Montessori uzmanı',
@@ -87,6 +73,21 @@ const CONSULTANTS = [
   { color: 'coral', title: 'İki Dil-Konuşma Terapisti', note: 'Erken dil gelişimi takibi, gerektiğinde bireyselleştirilmiş destek.' },
 ];
 
+const FOUNDER = {
+  name: 'Halef Adanur',
+  role: 'Eğitimci · Kurucu',
+  tag: 'Türk Dili ve Edebiyatı · 25 yıl',
+  color: 'sky',
+  img: 'images/team/halef.jpeg',
+  alt: 'Halef Adanur — Mavi Mine kurucusu',
+  bio: [
+    'Ben Halef Adanur. Uludağ Üniversitesi Türk Dili ve Edebiyatı Bölümü mezunuyum. Mesleğe Milli Eğitim Bakanlığı\'nda öğretmen olarak başladım; beş yıllık devlet hizmetinin ardından özel sektöre geçtim.',
+    'Yirmi yıl boyunca öğretmenlik, zümre başkanlığı ve yöneticilik yaptım. Bu yolda ortaokul Türkçe müfredat çalışmalarına katkı sağladım, ders kitaplarının yayın süreçlerinde yer aldım. Eğitim, benim için sadece bir meslek değil; aile mirası bir sorumluluk oldu.',
+    '2020\'de Eğitimci Dil Konuşma Özel Eğitim ve Rehabilitasyon Merkezi\'ni kurdum. Kısa sürede 350\'yi aşkın çocuğa ulaşan bu yapı, çocuğa dokunmanın değerini bana her gün hatırlattı.',
+    'Mavi Mine, kardeşim Hatice ile birlikte hayata geçirdiğimiz bir hayalin adı. Üç nesil eğitimci bir ailenin emeğini, küçük yaşta çocuğun yanında durmanın gücüyle buluşturmak istedik. Buradaki her çocuk, bizim için emanet edilen bir minedir.'
+  ]
+};
+
 function KadroHero() {
   return (
     <section style={{ padding: '80px 48px 60px', background: 'var(--milk)', position: 'relative' }}>
@@ -96,7 +97,7 @@ function KadroHero() {
       <div style={{ maxWidth: 1280, margin: '0 auto', position: 'relative', zIndex: 2 }}>
         <div className="mono" style={{ marginBottom: 18, color: 'var(--teal-deep)' }}>03 · kadromuz</div>
         <h1 style={{ fontSize: 'clamp(48px, 7vw, 92px)', lineHeight: 1.0, maxWidth: 1100 }}>
-          Üç nesil, <span className="handwritten" style={{ color: 'var(--orange)', fontSize: '1.05em' }}>altı öğretmen,</span><br/>
+          Üç nesil, <span className="handwritten" style={{ color: 'var(--orange)', fontSize: '1.05em' }}>beş öğretmen,</span><br/>
           <span style={{ color: 'var(--teal-deep)' }}>bir aile.</span>
         </h1>
         <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.6, color: 'var(--ink-soft)', maxWidth: 700, fontWeight: 500 }}>
@@ -180,35 +181,92 @@ function TeacherGrid() {
 }
 
 function Consultants() {
+  const [founderOpen, setFounderOpen] = useState(false);
+  const f = FOUNDER;
+  const visibleBio = founderOpen ? f.bio : f.bio.slice(0, 1);
+  const subLabel = {
+    textAlign: 'center', fontSize: 13, fontWeight: 700,
+    letterSpacing: '0.18em', textTransform: 'uppercase',
+    color: 'var(--teal-deep)', marginBottom: 28,
+  };
   return (
     <section style={{ padding: '110px 48px', background: 'var(--sand)' }}>
       <div style={{ maxWidth: 1080, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', maxWidth: 720, margin: '0 auto 40px' }}>
-          <div className="section-label center">Danışmanlarımız</div>
+          <div className="section-label center">Kurucumuz ve Danışmanlarımız</div>
           <h2 style={{ fontSize: 'clamp(36px, 4vw, 52px)', lineHeight: 1.1 }}>
-            Her çocuk ayrı ayrı <span className="handwritten" style={{ color: 'var(--grape)', fontSize: '1.1em' }}>izlenir.</span>
+            Çocuğun arkasında, <span className="handwritten" style={{ color: 'var(--grape)', fontSize: '1.1em' }}>bir ekip</span> var.
           </h2>
           <p style={{ marginTop: 14, fontSize: 16, color: 'var(--ink-soft)', fontWeight: 500 }}>
             Çocuklarımız sadece öğretmenlerine değil, alanında uzman bir danışman ekibine de emanet.
           </p>
         </div>
-        <div className="kadro-consult-grid">
-          {CONSULTANTS.map((c, i) => (
-            <div key={i} style={{
-              background: 'white', borderRadius: 24, padding: 40,
-              border: `2px solid var(--${c.color}-soft)`, textAlign: 'center',
-            }}>
-              <div className={`smile-circle ${c.color}`} style={{ width: 80, height: 80, margin: '0 auto 20px' }}>
-                <svg width="36" height="36" viewBox="0 0 32 32" fill="none">
-                  <circle cx="11" cy="13" r="1.6" fill="currentColor"/>
-                  <circle cx="21" cy="13" r="1.6" fill="currentColor"/>
-                  <path d="M 9 19 Q 16 25 23 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none"/>
-                </svg>
-              </div>
-              <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 10 }}>{c.title}</h3>
-              <p style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>{c.note}</p>
+
+        {/* === Kurucu — Halef === */}
+        <div style={{ marginBottom: 70 }}>
+          <div style={subLabel}>Kurumumuzun Kurucusu</div>
+          <div className="kadro-founder-card">
+            <div className="kadro-founder-photo" style={{ border: `4px solid var(--${f.color}-soft)` }}>
+              <Img src={f.img} alt={f.alt} color={f.color}
+                   label={`[${f.name}]`}
+                   style={{ width: '100%', height: '100%' }} />
+              <div style={{
+                position: 'absolute', top: 14, left: 14,
+                background: `var(--${f.color})`, color: 'white',
+                padding: '6px 12px', borderRadius: 999,
+                fontSize: 11, fontWeight: 700, letterSpacing: '0.1em',
+              }}>{f.tag}</div>
             </div>
-          ))}
+            <div className="kadro-founder-info">
+              <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 4 }}>{f.name}</h3>
+              <div style={{ fontSize: 15, color: 'var(--ink-soft)', fontWeight: 600 }}>{f.role}</div>
+              <div style={{ marginTop: 14 }}>
+                {visibleBio.map((p, j) => (
+                  <p key={j} style={{
+                    fontSize: 15, lineHeight: 1.6,
+                    color: 'var(--ink-soft)', fontWeight: 500,
+                    margin: j > 0 ? '14px 0 0' : 0,
+                  }}>{p}</p>
+                ))}
+                <button onClick={() => setFounderOpen(o => !o)}
+                  onMouseEnter={e => e.currentTarget.style.color = 'var(--orange)'}
+                  onMouseLeave={e => e.currentTarget.style.color = 'var(--teal-deep)'}
+                  style={{
+                    background: 'none', border: 'none',
+                    padding: '14px 0 0', cursor: 'pointer',
+                    fontSize: 13, fontWeight: 600,
+                    color: 'var(--teal-deep)',
+                    fontFamily: 'inherit',
+                    transition: 'color .2s',
+                  }}>
+                  {founderOpen ? 'Daha az ↑' : 'Devamını oku ↓'}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* === Danışman ekibi === */}
+        <div>
+          <div style={subLabel}>Danışman Ekibimiz</div>
+          <div className="kadro-consult-grid">
+            {CONSULTANTS.map((c, i) => (
+              <div key={i} style={{
+                background: 'white', borderRadius: 24, padding: 40,
+                border: `2px solid var(--${c.color}-soft)`, textAlign: 'center',
+              }}>
+                <div className={`smile-circle ${c.color}`} style={{ width: 80, height: 80, margin: '0 auto 20px' }}>
+                  <svg width="36" height="36" viewBox="0 0 32 32" fill="none">
+                    <circle cx="11" cy="13" r="1.6" fill="currentColor"/>
+                    <circle cx="21" cy="13" r="1.6" fill="currentColor"/>
+                    <path d="M 9 19 Q 16 25 23 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none"/>
+                  </svg>
+                </div>
+                <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 10 }}>{c.title}</h3>
+                <p style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>{c.note}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
