@@ -4,6 +4,20 @@ const { useState } = React;
 
 const TEACHERS = [
   {
+    name: 'Halef Adanur',
+    role: 'Eğitimci · Kurucu',
+    tag: 'Türk Dili ve Edebiyatı · 25 yıl',
+    color: 'sky',
+    img: 'images/team/halef.jpeg',
+    alt: 'Halef Adanur — Mavi Mine kurucusu',
+    bio: [
+      'Ben Halef Adanur. Uludağ Üniversitesi Türk Dili ve Edebiyatı Bölümü mezunuyum. Mesleğe Milli Eğitim Bakanlığı\'nda öğretmen olarak başladım; beş yıllık devlet hizmetinin ardından özel sektöre geçtim.',
+      'Yirmi yıl boyunca öğretmenlik, zümre başkanlığı ve yöneticilik yaptım. Bu yolda ortaokul Türkçe müfredat çalışmalarına katkı sağladım, ders kitaplarının yayın süreçlerinde yer aldım. Eğitim, benim için sadece bir meslek değil; aile mirası bir sorumluluk oldu.',
+      '2020\'de Eğitimci Dil Konuşma Özel Eğitim ve Rehabilitasyon Merkezi\'ni kurdum. Kısa sürede 350\'yi aşkın çocuğa ulaşan bu yapı, çocuğa dokunmanın değerini bana her gün hatırlattı.',
+      'Mavi Mine, kardeşim Hatice ile birlikte hayata geçirdiğimiz bir hayalin adı. Üç nesil eğitimci bir ailenin emeğini, küçük yaşta çocuğun yanında durmanın gücüyle buluşturmak istedik. Buradaki her çocuk, bizim için emanet edilen bir minedir.'
+    ]
+  },
+  {
     name: 'Hatice Adanur Şahin',
     role: 'Eğitimci · Kurucu Müdür',
     tag: 'Montessori uzmanı',
@@ -82,7 +96,7 @@ function KadroHero() {
       <div style={{ maxWidth: 1280, margin: '0 auto', position: 'relative', zIndex: 2 }}>
         <div className="mono" style={{ marginBottom: 18, color: 'var(--teal-deep)' }}>03 · kadromuz</div>
         <h1 style={{ fontSize: 'clamp(48px, 7vw, 92px)', lineHeight: 1.0, maxWidth: 1100 }}>
-          Üç nesil, <span className="handwritten" style={{ color: 'var(--orange)', fontSize: '1.05em' }}>beş öğretmen,</span><br/>
+          Üç nesil, <span className="handwritten" style={{ color: 'var(--orange)', fontSize: '1.05em' }}>altı öğretmen,</span><br/>
           <span style={{ color: 'var(--teal-deep)' }}>bir aile.</span>
         </h1>
         <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.6, color: 'var(--ink-soft)', maxWidth: 700, fontWeight: 500 }}>
