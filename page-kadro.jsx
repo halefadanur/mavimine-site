@@ -75,16 +75,16 @@ const CONSULTANTS = [
 
 const FOUNDER = {
   name: 'Halef Adanur',
-  role: 'Eğitimci · Kurucu',
+  role: 'Eğitimci · Danışman',
   tag: 'Türk Dili ve Edebiyatı · 25 yıl',
   color: 'sky',
   img: 'images/team/halef.jpeg',
-  alt: 'Halef Adanur — Mavi Mine kurucusu',
+  alt: 'Halef Adanur — Mavi Mine danışmanı',
   bio: [
     'Ben Halef Adanur. Uludağ Üniversitesi Türk Dili ve Edebiyatı Bölümü mezunuyum. Mesleğe Milli Eğitim Bakanlığı\'nda öğretmen olarak başladım; beş yıllık devlet hizmetinin ardından özel sektöre geçtim.',
     'Yirmi yıl boyunca öğretmenlik, zümre başkanlığı ve yöneticilik yaptım. Bu yolda ortaokul Türkçe müfredat çalışmalarına katkı sağladım, ders kitaplarının yayın süreçlerinde yer aldım. Eğitim, benim için sadece bir meslek değil; aile mirası bir sorumluluk oldu.',
     '2020\'de Eğitimci Dil Konuşma Özel Eğitim ve Rehabilitasyon Merkezi\'ni kurdum. Kısa sürede 350\'yi aşkın çocuğa ulaşan bu yapı, çocuğa dokunmanın değerini bana her gün hatırlattı.',
-    'Mavi Mine, kardeşim Hatice ile birlikte hayata geçirdiğimiz bir hayalin adı. Üç nesil eğitimci bir ailenin emeğini, küçük yaşta çocuğun yanında durmanın gücüyle buluşturmak istedik. Buradaki her çocuk, bizim için emanet edilen bir minedir.'
+    'Mavi Mine, kardeşim Hatice\'nin yıllardır biriktirdiği bir hayalin adı; bu yolculukta ona danışman olarak eşlik ediyorum. Üç nesil eğitimci bir ailenin emeğini, küçük yaşta çocuğun yanında durmanın gücüyle buluşturmak istedik. Buradaki her çocuk, bizim için emanet edilen bir minedir.'
   ]
 };
 
@@ -184,16 +184,11 @@ function Consultants() {
   const [founderOpen, setFounderOpen] = useState(false);
   const f = FOUNDER;
   const visibleBio = founderOpen ? f.bio : f.bio.slice(0, 1);
-  const subLabel = {
-    textAlign: 'center', fontSize: 13, fontWeight: 700,
-    letterSpacing: '0.18em', textTransform: 'uppercase',
-    color: 'var(--teal-deep)', marginBottom: 28,
-  };
   return (
     <section style={{ padding: '110px 48px', background: 'var(--sand)' }}>
       <div style={{ maxWidth: 1080, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', maxWidth: 720, margin: '0 auto 40px' }}>
-          <div className="section-label center">Kurucumuz ve Danışmanlarımız</div>
+          <div className="section-label center">Danışmanlarımız</div>
           <h2 style={{ fontSize: 'clamp(36px, 4vw, 52px)', lineHeight: 1.1 }}>
             Çocuğun arkasında, <span className="handwritten" style={{ color: 'var(--grape)', fontSize: '1.1em' }}>bir ekip</span> var.
           </h2>
@@ -202,24 +197,22 @@ function Consultants() {
           </p>
         </div>
 
-        {/* === Kurucu — Halef === */}
+        {/* === Halef — Eğitimci · Danışman === */}
         <div style={{ marginBottom: 70 }}>
-          <div style={subLabel}>Kurumumuzun Kurucusu</div>
           <div className="kadro-founder-card">
             <div className="kadro-founder-photo" style={{ border: `4px solid var(--${f.color}-soft)` }}>
               <Img src={f.img} alt={f.alt} color={f.color}
                    label={`[${f.name}]`}
                    style={{ width: '100%', height: '100%' }} />
-              <div style={{
-                position: 'absolute', top: 14, left: 14,
-                background: `var(--${f.color})`, color: 'white',
-                padding: '6px 12px', borderRadius: 999,
-                fontSize: 11, fontWeight: 700, letterSpacing: '0.1em',
-              }}>{f.tag}</div>
             </div>
             <div className="kadro-founder-info">
               <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 4 }}>{f.name}</h3>
               <div style={{ fontSize: 15, color: 'var(--ink-soft)', fontWeight: 600 }}>{f.role}</div>
+              <div style={{
+                fontSize: 12, fontWeight: 600, marginTop: 6,
+                letterSpacing: '0.12em', textTransform: 'uppercase',
+                color: 'var(--ink-soft)', opacity: 0.7,
+              }}>{f.tag}</div>
               <div style={{ marginTop: 14 }}>
                 {visibleBio.map((p, j) => (
                   <p key={j} style={{
@@ -246,9 +239,8 @@ function Consultants() {
           </div>
         </div>
 
-        {/* === Danışman ekibi === */}
+        {/* === Danışman ekibi (psikolog + dil-konuşma) === */}
         <div>
-          <div style={subLabel}>Danışman Ekibimiz</div>
           <div className="kadro-consult-grid">
             {CONSULTANTS.map((c, i) => (
               <div key={i} style={{
