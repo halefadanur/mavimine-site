@@ -95,20 +95,26 @@
 
 ### NAV_PAGES (mm-shared.jsx içinde)
 
-```js
-const NAV_PAGES = [
-  ['Hakkımızda', 'hakkimizda.html'],
-  ['Program',    'program.html'],
-  ['Destek',     'destek.html'],
-  ['Kadro',      'kadro.html'],
-  ['Bir Gün',    'bir-gun.html'],
-  ['Galeri',     'galeri.html'],
-  ['SSS',        'sss.html'],
-  ['İletişim',   'iletisim.html'],
-];
-```
+Üst seviye nav (kebab-case, Türkçe karaktersiz dosya adları):
 
-Ayrıca: Anasayfa, Kayıt (basvuru.html), Randevu (randevu.html), Özel Seans (ozel-seans.html)
+- Hakkımızda → `hakkimizda.html`
+- **Eğitim ▾** (dropdown grubu, 2026-05-03'te eklendi)
+  - Program → `program.html`
+  - Sınıflarımız → `siniflarimiz.html`
+  - Yaz Okulu → `yaz-okulu.html`
+- Destek → `destek.html`
+- Kadro → `kadro.html`
+- Bir Gün → `bir-gun.html`
+- Galeri → `galeri.html`
+- SSS → `sss.html`
+- İletişim → `iletisim.html`
+
+Nav'da olmayan ama link verilen URL'ler:
+- Anasayfa → `index.html`
+- Başvuru kavşağı → `basvuru.html` (3 kartlı seçim sayfası: Randevu / Ön Kayıt / Özel Seans)
+- Ön Kayıt formu → `on-kayit-formu.html` (vanilla HTML wizard)
+- Randevu → `randevu.html`
+- Özel Seans → `ozel-seans.html`
 
 ---
 
@@ -140,6 +146,7 @@ Sitede 3 ayrı form sayfası var, her biri vanilla HTML wizard:
 2. Claude Code oturumu: `cd ~/Desktop/web_code_mavimine && claude`
 3. CLAUDE.md otomatik okunur (proje bağlamı)
 4. Değişiklikler tarayıcıda http://localhost:8000/... ile test edilir
+5. Git push doğrudan çalışıyor — 2026-05-09'da `gh auth login` ile GitHub kimliği kuruldu, `git push` artık prompt sormuyor
 
 ### Karar verme tarzı
 - Tek seçenek/öneri ile gidilir, çoklu menü yapılmaz
@@ -158,14 +165,17 @@ Sitede 3 ayrı form sayfası var, her biri vanilla HTML wizard:
 ### Sayfalar (canlı/JSX hazır)
 - Anasayfa (hifi-home.jsx)
 - Hakkımızda (hifi-hakkimizda.jsx) — MAVİ + MİNE harf açılımı + 6 öğrenci profili (🌱-🌷)
+- Sınıflarımız (hifi-siniflarimiz.jsx) — 3 sınıf alternatif hizalı (zikzak)
+- Yaz Okulu (hifi-yaz-okulu.jsx) — KISMEN HAZIR, yeniden ele alınacak (Bilge Çocuk afiş kavramlarından kaçınarak)
 - Destek (hifi-destek.jsx) — 8 alan + "Bir Seans Nasıl İşler?" 5 adımlı timeline
 - İletişim (hifi-iletisim.jsx) — adres, telefon, e-posta, sosyal medya, harita, saatler
-- Kadro (page-kadro.jsx)
+- Kadro (page-kadro.jsx) — 5 öğretmen + Halef (danışman) + 2 anonim danışman grubu (psikolog × 2, dil-konuşma terapisti × 2)
 - Program (page-program.jsx)
 - Bir Gün (page-birgun.jsx)
-- Galeri (page-galeri.jsx)
-- SSS (page-sss.jsx)
-- Form sayfaları: On Kayit, Randevu, Ozel Seans
+- Galeri (page-galeri.jsx) — 12 fotoğraf, 6 kategori filtresi
+- SSS (page-sss.jsx) — 11 soru-cevap
+- Başvuru kavşağı (hifi-on-kayit.jsx → basvuru.html) — 3 kartlı seçim
+- Form sayfaları (vanilla HTML): on-kayit-formu.html, randevu.html, ozel-seans.html
 
 ### Son sohbette yapılan iş (2026-05-03)
 
@@ -370,13 +380,80 @@ Tüm sitede "Başvur" / "Randevu" / "Kayıt" linkleri tek bir kavşak sayfasına
 9. Anasayfa MaminoSection refactor (teknik borç, düşük öncelik)
 10. Kadro sayfasına bakılmadı, yarın incelenebilir
 11. Instagram entegrasyonu (6 ay sonra yeniden değerlendir, şimdi yapma kararı verildi)
-12. ⭐⭐⭐ **Fotoğraf optimizasyonu (öncelik YÜKSEK)**
+12. **2026-05-10 (yarın):** GSC'de 7 sayfa için "Dizine eklenmesini iste" tıkla — kalan 4 + tekrar gönderilecek 3
+13. ⭐⭐⭐ **Fotoğraf optimizasyonu (öncelik YÜKSEK)**
     - Sorun: `images/okul_*.jpg` dosyaları 8-10 MB civarı; tek anasayfa açılışında 30+ MB yüklenebilir → mobilde yavaş, GitHub Pages bandwidth aşılabilir, Lighthouse düşer
     - Hedef: 1920×1080 (yatay) / 1200×1600 (dikey) max, JPG quality 80-85, **200-500 KB** her dosya
     - Kural: Yeni gelen tüm fotolar (yaz okulu, etkinlikler, sınıflar, kadro) optimize edilmeden repo'ya eklenmez
     - Sonraki rafine adımlar: WebP geçişi, `<img loading="lazy">`, `<img srcset>` (responsive)
     - Öncelik sırası: ⭐⭐⭐ mevcut 4 okul_*.jpg yarın → ⭐⭐ yaz okulu fotoları → ⭐ WebP/lazy/srcset
     - Araçlar: ImageOptim (macOS, drag-drop ücretsiz), squoosh.app (Google online aracı)
+
+---
+
+## 🔍 SEO ALTYAPISI
+
+> Bu bölüm, sonraki Claude sohbetlerinde SEO bağlamı için kanonik kaynaktır. SEO ile ilgili kararlar/iş paketleri burada toplanır.
+
+### Sayfa-bazlı meta etiketleri
+
+15 public sayfada tam set: `title`, `description`, `keywords`, `canonical` (her sayfaya özel), `robots`, Open Graph (5 etiket), Twitter Card (4 etiket). 17 HTML'den 2'si dışarıda: `Mavi Mine Wireframes.html` ve `foto-envanter.html` (her ikisi de noindex işaretli, aşağıya bakın).
+
+**Eksik (yapılacak):** Favicon ekosistemi — `favicon.ico`, `apple-touch-icon.png`, `manifest.webmanifest` kökte yok, hiçbir HTML link de etmiyor.
+
+### JSON-LD Schema (Schema.org)
+
+4 sayfada yapılandırılmış veri. Hepsi `@id: https://mavimine.com/#school` ile aynı entity'yi işaret eder — Google için tek kurum sinyali:
+
+| Sayfa | Schema | İçerik |
+|---|---|---|
+| `index.html` | Preschool | Ad, adres, telefon, saatler, alanlar (`@id` 2026-05-09'da eklendi) |
+| `iletisim.html` | Preschool | + geo (40.1956333, 29.213412) + contactPoint + areaServed (Bursa/Kestel/Gürsu/Cumalıkızık) + audience |
+| `sss.html` | FAQPage | 11 soru-cevap (mainEntity dizisi) |
+| `kadro.html` | Preschool + employee | 6 isimli Person (Hatice, Reyhan, Gülben, Şule, Zümra, Halef), hepsi `worksFor: #school` |
+
+### İndekslemeden çıkarılan sayfalar (2026-05-09)
+
+- **`Mavi Mine Wireframes.html`** — `<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">` + `robots.txt` Disallow
+- **`foto-envanter.html`** — aynı meta + `robots.txt` Disallow (dosya `.gitignore`'da, repo'ya gitmez ama defansif sigorta)
+- **`on-kayit-formu.html`** — sadece `robots.txt` Disallow (form sayfası, kavşaktan gelinmesi tercih edilir)
+
+### Robots / Sitemap
+
+- `robots.txt` — User-agent `*`, Allow `/`, Disallow 3 sayfa, Sitemap referansı
+- `sitemap.xml` — 14 URL, priority/changefreq belirlenmiş (Wireframes ve foto-envanter dahil değil)
+
+### Google Search Console
+
+- Sahiplik doğrulandı (mavimine.com, 2026-05-03)
+- Sitemap gönderildi, 14 sayfa keşfedildi
+- 2026-05-09'da JSON-LD genişletmesi sonrası 9 sayfa "Dizine eklenmesini iste" tıklandı
+- **2026-05-10'da yapılacak:** 7 sayfa GSC re-submit (kalan 4 sayfa + retry 3)
+
+### Rich Results Test (2026-05-09)
+
+| URL | Sonuç |
+|---|---|
+| `iletisim.html` | ✅ 2 geçerli rich result (LocalBusiness + Organization) |
+| `sss.html` | ✅ FAQ rich result geçerli |
+| `kadro.html` | ℹ️ Person için rich result UI yok ama Validator 0 hata |
+| `index.html` | (henüz test edilmedi, koşulabilir) |
+
+### Google Business Profile
+
+- Profil aktif: 5.0 yıldız, 18 yorum (2026-05-03 itibarıyla)
+- Kategori: Anaokulu (ek: Kreş, Eğitim Kurumu)
+- 11 özel hizmet listelenmiş (Anaokulu, Yaz okulu, Oyun grubu, Oyun terapisi, Aile danışmanlığı, Eğitim koçluğu, vb.)
+- Açıklama metni Mavi Mine kimliğiyle güncel
+- Aylık post (sezonluk) opsiyonel
+
+### Bekleyen SEO işleri
+
+- **2026-05-10:** GSC'de 7 sayfa "Dizine eklenmesini iste"
+- Favicon ekosistemi (favicon.ico + apple-touch-icon + manifest.webmanifest)
+- Sayfa-bazlı `og:image` (şu an hepsi logo; yaz-okulu/sınıflar/galeri için ayrı görsel)
+- Anasayfa Rich Results Test
+- 1-2 hafta sonra GSC verileri gelince anahtar kelime stratejisi rafine edilir
 
 ---
 
@@ -393,6 +470,26 @@ Tüm sitede "Başvur" / "Randevu" / "Kayıt" linkleri tek bir kavşak sayfasına
 ---
 
 ## 🔄 SON GÜNCELLEMELER
+
+### 2026-05-09 — SEO denetimi ve JSON-LD schema genişletmesi
+
+**Bağlam:** Anthropic Projects sohbetinde Halef ile SEO oturumu. Site canlıydı, temel meta'lar 2026-05-03'te kurulmuştu; bu oturumda yapılandırılmış veri (JSON-LD) 4 sayfaya yayıldı ve indekslemeden çıkarılması gereken sayfalar işaretlendi.
+
+**Yapılanlar:**
+- 17 HTML dosyasında SEO denetimi (title/desc/keywords/canonical/robots/OG/Twitter/JSON-LD/favicon)
+- JSON-LD genişletmesi: `index.html` Preschool bloğuna `@id` eklendi; `iletisim.html` (Preschool + geo + contactPoint + areaServed), `sss.html` (FAQPage, 11 soru), `kadro.html` (Preschool + employee, 6 Person) sayfalarına tam blok eklendi (toplam +208 satır)
+- Üç schema da `@id: https://mavimine.com/#school` ile bağlandı — Google için tek entity sinyali
+- `foto-envanter.html`'e noindex meta + `robots.txt` Disallow
+- `Mavi Mine Wireframes.html`'e noindex meta (zaten Disallow listesindeydi)
+- Rich Results Test: iletisim ✅, sss ✅, kadro ℹ️ (Person rich UI yok ama 0 hata)
+- GSC'de 9 sayfa "Dizine eklenmesini iste" tıklandı
+
+**Git ve altyapı:**
+- 2026-05-09'da `gh auth login` ile GitHub CLI kimliği kuruldu — `git push` artık kimlik prompt'u sormadan çalışıyor
+- 2 ayrı commit + push yapıldı: `044d658` (Wireframes/robots), `a84576c` (JSON-LD 4 sayfa)
+
+**2026-05-10 (yarın) yapılacak:**
+- GSC'de 7 sayfa için "Dizine eklenmesini iste" (kalan 4 + retry 3)
 
 ### 6 Mayıs 2026 — Fotoğraf yerleştirme oturumu
 

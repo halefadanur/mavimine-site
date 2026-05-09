@@ -69,7 +69,27 @@ Bu dosya, Claude Code'un her oturum başında okuduğu proje bağlamıdır. Sayf
 
 ## NAV_PAGES (mm-shared.jsx içinde)
 
-Bunlara ek: Anasayfa (index.html), Kayıt (Mavi Mine Kayit.html), Ön Kayıt, Randevu, Özel Seans formları.
+Üst seviye nav (kebab-case URL'ler):
+- Hakkımızda → `hakkimizda.html`
+- **Eğitim ▾** (dropdown grubu)
+  - Program → `program.html`
+  - Sınıflarımız → `siniflarimiz.html`
+  - Yaz Okulu → `yaz-okulu.html`
+- Destek → `destek.html`
+- Kadro → `kadro.html`
+- Bir Gün → `bir-gun.html`
+- Galeri → `galeri.html`
+- SSS → `sss.html`
+- İletişim → `iletisim.html`
+
+Nav'da olmayan ama link verilen URL'ler:
+- Anasayfa → `index.html`
+- Başvuru kavşağı → `basvuru.html` (3 kartlı seçim: Randevu / Ön Kayıt / Özel Seans)
+- Ön Kayıt formu → `on-kayit-formu.html` (vanilla HTML wizard)
+- Randevu → `randevu.html`
+- Özel Seans → `ozel-seans.html`
+
+> **Eski isimler artık YOK:** "Mavi Mine Hakkimizda.html", "Mavi Mine Kayit.html" gibi boşluklu/Türkçe isimler 2026-05-03'te kebab-case'e taşındı (GitHub Pages URL temizliği için).
 
 ## Kritik Kurallar
 
@@ -83,12 +103,36 @@ Bunlara ek: Anasayfa (index.html), Kayıt (Mavi Mine Kayit.html), Ön Kayıt, Ra
 
 ## Çalışma Yöntemi
 
-- Site şu an statik tanıtım sitesi — backend yok, form yok (sadece görsel form sayfaları var)
-- `mavimine.com` domain'i alındı, GitHub Pages'e yüklenecek
+- Site canlı: mavimine.com (GitHub Pages + Cloudflare DNS, HTTPS aktif)
+- Statik tanıtım sitesi — backend yok, form gönderim yok (sadece görsel form sayfaları)
 - Kullanıcı (Halef) Mac kullanıcısı, Türkçe konuşur, Bursa'da
 - Tasarım kararlarında çoklu seçenek yerine **doğrudan en iyi tahminle** gidilir
 - Yeni sayfa eklenirken: HTML çatı + JSX + (gerekirse) `mavi-mine.css` eklemesi olarak üç parça halinde verilir
 - Yeni sayfa NAV_PAGES'e eklenir (`mm-shared.jsx`)
+- **Git push:** `gh auth login` ile kimlik kuruldu (2026-05-09), `git push` doğrudan çalışıyor — prompt yok
+
+## SEO Altyapısı
+
+15 public sayfada tam meta seti (title, description, keywords, canonical, robots, Open Graph, Twitter Card).
+
+JSON-LD Schema 4 sayfada — hepsi `@id: https://mavimine.com/#school` ile aynı entity'yi işaret eder:
+- `index.html` — Preschool (temel ad/adres/saatler)
+- `iletisim.html` — Preschool + geo (40.1956333, 29.213412) + contactPoint + areaServed (Bursa/Kestel/Gürsu/Cumalıkızık)
+- `sss.html` — FAQPage (11 soru-cevap)
+- `kadro.html` — Preschool + employee (6 isimli Person, hepsi `worksFor: #school`)
+
+İndekslenmiyor (robots.txt Disallow):
+- `Mavi Mine Wireframes.html` (+ noindex meta)
+- `foto-envanter.html` (+ noindex meta, ayrıca `.gitignore`'da)
+- `on-kayit-formu.html` (sadece Disallow — kavşak `basvuru.html` üzerinden gelinmesi tercih edilir)
+
+**Bağlam dosyaları:**
+- `robots.txt` (Disallow listesi + Sitemap referansı)
+- `sitemap.xml` (14 URL)
+
+**Eksik (bekliyor):** Favicon ekosistemi (favicon.ico + apple-touch-icon + manifest.webmanifest), sayfa-bazlı `og:image`, GSC re-submit (2026-05-10, 7 sayfa).
+
+**Detaylı SEO bağlamı:** `PROJE_GECMISi.md` → `## 🔍 SEO ALTYAPISI` bölümü.
 
 ## Bu Sohbette Hazırlananlar (Geçmiş Bağlam)
 
@@ -276,6 +320,23 @@ Halef "8 sebep, bir okul" formuna geçilmesini ve başa "Eğitimci Gelenek" kart
 ---
 
 ## 🔄 SON GÜNCELLEMELER
+
+### 2026-05-09 — SEO genişletme oturumu (Anthropic Projects)
+
+**Yapılan:**
+- 17 HTML denetimi → 15 public sayfada meta seti tam
+- JSON-LD genişletildi: `index.html`'e `@id` eklendi; `iletisim.html`/`sss.html`/`kadro.html`'e tam schema bloğu (toplam +208 satır)
+- Üç sayfa da `@id: https://mavimine.com/#school` ile bağlandı (Google'ın "aynı entity" pattern'i)
+- `foto-envanter.html` + `Mavi Mine Wireframes.html` indekslemeden çıkarıldı (noindex meta + robots.txt Disallow)
+- Rich Results Test: iletisim ✅, sss ✅ (FAQ), kadro ℹ️ (Validator 0 hata)
+- GSC'de 9 sayfa "Dizine eklenmesini iste" tıklandı
+
+**Altyapı:**
+- `gh auth login` ile GitHub CLI kimliği kuruldu — `git push` doğrudan çalışıyor (prompt yok)
+- 2 commit + push: `044d658` (Wireframes/robots) ve `a84576c` (JSON-LD 4 sayfa)
+
+**2026-05-10 (yarın) yapılacak:**
+- GSC'de 7 sayfa "Dizine eklenmesini iste" (kalan 4 + retry 3)
 
 ### 2026-05-03 — Dosya isimleri sadeleştirildi (GitHub Pages hazırlığı)
 
