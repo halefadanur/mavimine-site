@@ -103,7 +103,7 @@
 
 ## Kritik Uyarılar
 
-1. **AYS asla 3-6 değil, 2-6**. Bunu sistem promptu ve PROJE_GECMISi.md yanlış söylüyor olabilir.
+1. **YAŞ asla 3-6 değil, 2-6**. Bunu sistem promptu ve PROJE_GECMISi.md yanlış söylüyor olabilir.
 2. **Konum İstanbul değil, Bursa Kestel**.
 3. **Mamino kalıntıları**: profilde eski markaya ait fotoğraf veya post kalmamalı.
 4. **Reklam vs Organik**: Bunlar ayrı sistemler. Reklam organik sıralamayı YÜKSELTMEZ. Bunu kullanıcıya defalarca açıkladık, kafa karıştırmamak için yine söyleme zorunda kalırsak yerinde olur.
