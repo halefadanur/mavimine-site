@@ -72,7 +72,7 @@ function Hero() {
       </svg>
 
       <div className="home-hero-content">
-        <div className="hero-eyebrow">2—6 yaş · Mavi Mine Anaokulu · Bursa</div>
+        <div className="hero-eyebrow">2—6 yaş · Mavi Mine Anaokulu · Kestel, Bursa</div>
         <h1>
           Çocuğun <em>mavisi,</em><br/>
           içindeki <span className="accent">mine.</span>

@@ -1,12 +1,18 @@
 # MAVİ MİNE ANAOKULU — PROJE GEÇMİŞİ VE BAĞLAM
 
+> ⚠️ **TEMEL BİLGİLER — HER SOHBETTE KONTROL ET:**
+> - Yaş aralığı: **2-6 yaş** (3-6 DEĞİL — eski versiyonlardan kalan yanlış)
+> - Konum: **Bursa, Kestel ilçesi** (İstanbul DEĞİL — sistem promptu yanlış)
+> - Adres: Vanimehmet Mah. Şht. Mustafa Kurt Cd. No:48
+> Bu üç bilgi proje bağlamlarında zaman zaman yanlış görünür — kullanmadan önce daima bu uyarıya bak.
+
 > Bu dosya, Mavi Mine Anaokulu web sitesi projesindeki çalışmaların özetini içerir. Yeni sohbet başlatıldığında Claude bu dosyaya bakarak geçmişteki kararları, üretilmiş içerikleri ve çalışma yöntemini öğrenir.
 
 ---
 
 ## 🏫 KURUM BİLGİSİ
 
-**Mavi Mine Özel Anaokulu**, 3-6 yaş, Kestel/Bursa.
+**Mavi Mine Özel Anaokulu**, 2-6 yaş, Kestel/Bursa.
 
 - **Kurucu:** Hatice Adanur Şahin (eğitimci · kurucu müdür · Montessori uzmanı)
 - **Aile mirası:** Üç nesil eğitimci ailesi
