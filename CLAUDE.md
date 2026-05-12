@@ -321,6 +321,147 @@ Halef "8 sebep, bir okul" formuna geçilmesini ve başa "Eğitimci Gelenek" kart
 
 ## 🔄 SON GÜNCELLEMELER
 
+### Blog projesi tamamlandı + Google Business Profile FAZ 3 (2026-05-12)
+
+**Genel tablo:**
+9 SEO-odaklı blog yazısı yazıldı, blog index sayfası oluşturuldu,
+nav'a Blog sekmesi eklendi, kademeli yayın altyapısı kuruldu.
+
+**1. Google Business Profile FAZ 3 (kısmi):**
+- 3 eski Mamino postu silindi
+- Yaz okulu postu reddedildi (Google spam filtresi), silindi
+- Foto silme atlandı (modal scroll), Q&A atlandı (politika), ürün ekleme bloke (foto)
+- Net sonuç: FAZ 1 + FAZ 2 + kısmi FAZ 3 → profil Kestel'in en eksiksizlerinden
+
+**2. Tanıtım videosu brief üretildi:**
+- MaviMine_Tanitim_Videosu_Brief.docx + .pdf
+- 16:9, 90 sn, 6 sahne, kadro: Hatice + öğretmen + terapist + mutfak + toplu
+- KVKK: çocuk yüzü yok
+
+**3. Kebab-case dosya adı standardı uygulandı:**
+- Yeni blog dosyaları "blog-konu-adi.html" (boşluksuz)
+- URL'lerde %20 yok, sosyal medya paylaşımı temiz
+- CLAUDE.md kuralına uyumlu
+
+**4. 9 blog yazısı (toplam ~16.000 kelime, hepsi Hatice Adanur Şahin imzalı):**
+
+| Yazı | Dosya | Konu Tipi |
+|---|---|---|
+| Kestel'de Anaokulu Seçerken 7 Şey | blog-kestel-anaokulu-secimi.html | Ana SEO yazısı (7 bölüm) |
+| Tuvalet Eğitimi | blog-tuvalet-egitimi.html | Hassas, pedagojik |
+| Anaokulunda STEAM | blog-anaokulunda-steam.html | Programatik |
+| Çocuğum Saldırgan | blog-saldirgan-cocuk.html | Hassas, davranış |
+| 21. Yüzyıl Becerileri | blog-21-yuzyil-becerileri.html | Pedagojik felsefe |
+| Yaz Okulu 2026 | blog-yaz-okulu-2026.html | Sezonsal satış |
+| Sevgi Eğitimi | blog-sevgi-egitimi.html | Değerler |
+| Kayıt Yaşı | blog-kayit-yasi.html | Karar destek |
+| Anaokulu Binası | blog-anaokulu-binasi.html | Rakip yıkma (7 bölüm) |
+
+**Her yazının yapısı:**
+- Hero (eyebrow + başlık + Caveat fontunda em + lede + yazar meta)
+- Intro (3 paragraf)
+- 4-7 bölüm (her biri: title + intro + detail + bullet sorular + "Bizden örnek")
+- Closing (2 paragraf)
+- CTA (iletisim.html + hakkimizda.html linkleri)
+- FAQ (4 soru)
+- Related Posts (3 ilgili yazı)
+- Author Card (Hatice Hanım imzası, images/team/team-04.jpeg)
+
+**SEO altyapısı her yazıda:**
+- Schema.org JSON-LD Article structured data
+- Open Graph (og:type, og:title, og:description, og:url, og:image)
+- meta description + keywords
+- canonical URL (https://mavimine.com/blog-...)
+
+**5. Blog iskeleti dosyaları:**
+- blog.html (kartlı index sayfası)
+- hifi-blog-index.jsx (POSTS dizisi)
+- mavi-mine-blog.css (ortak stiller, ~700 satır, .blog-*, .q-*, .faq-*, .related-*, .index-*, .author-* prefix'leri)
+- hifi-blog-*.jsx × 9 (her yazı için ayrı)
+
+**6. mm-shared.jsx NAV güncellemesi:**
+NAV_PAGES'e 'Blog' eklendi (Galeri ile SSS arasına), renk: grape.
+
+**7. "Pedagog" → "Eğitimci" toptan değişiklik:**
+Hatice Hanım kendini "pedagog" yerine "eğitimci" tanımlamayı tercih etti
+(üç nesil eğitimci aile mirası ile uyumlu).
+- Korunan: "Montessori Eğitmeni" (mesleki etiket)
+- Korunan: "pedagoji", "pedagojik" (bilim adı)
+- Değişen: Author kartları, hero meta, Schema.org jobTitle, HTML title,
+  meta description, içerik metinleri
+
+**8. Hatice Hanım için kontrol formu:**
+MaviMine_Blog_Kontrol_Formu.docx — 36 madde, 3 öncelik:
+- YÜKSEK (15): Somut sayılar (öğretmen, kamera, bahçe m², tavan, yangın)
+- ORTA (12): Sınıf rutinleri (bez köşesi, duygu kartları, Neden Saati)
+- DÜŞÜK (9): Akademik atıflar (Minnesota, NASA, Chapman)
+
+Her madde için 3 seçenek: DOĞRU / ÇIKARILSIN / DÜZELTİLSİN.
+
+**9. Kademeli yayın altyapısı (NOINDEX sistemi):**
+- Sadece blog-kestel-anaokulu-secimi.html yayında (index, follow)
+- Diğer 8 yazı: `<meta name="robots" content="noindex, nofollow">`
+- blog.html POSTS dizisinde sadece Kestel görünür (8 yazı yorum içinde)
+- sitemap.xml: 14 mevcut + blog.html + Kestel = 16 URL
+- Kestel yazısının `<RelatedPosts />` JSX yorumunda (3 referans yazı gizli)
+
+**10. Yayın takvimi:**
+
+| Tarih | Yazı |
+|---|---|
+| 12 May (bugün) ✅ | Kestel'de Anaokulu Seçimi |
+| 14 May | Tuvalet Eğitimi |
+| 16 May | STEAM |
+| 19 May | Saldırgan Çocuk |
+| 22 May | 21. Yüzyıl Becerileri |
+| 25 May | Yaz Okulu 2026 |
+| 28 May | Sevgi Eğitimi |
+| 31 May | Kayıt Yaşı |
+| 3 Haz | Anaokulu Binası |
+
+**Her yayın gününde 4 adımlı süreç:**
+1. HTML noindex,nofollow → index,follow
+2. blog.html POSTS yorumundan yazıyı geri aç
+3. sitemap.xml'e URL ekle (lastmod o günkü tarih)
+4. Gerekiyorsa diğer yazıların RelatedPosts'larını güncelle
+
+**11. Search Console:**
+- Sitemap re-submit edildi (https://mavimine.com/sitemap.xml)
+- Durum: ✅ Başarılı, 16 URL keşfedildi
+- Kestel yazısı için manuel "Dizine eklenmesini iste" → Hatice onayı bekleniyor
+
+**Commit'ler:**
+- "Feat: 9 SEO-odaklı blog yazısı eklendi (Hatice Adanur Şahin imzalı)"
+- "Feat: Blog index sayfası + Nav'a Blog sekmesi"
+- "Chore: sitemap.xml 10 yeni URL kademeli lastmod tarihleri"
+- "Refactor: Pedagog → Eğitimci toptan değişiklik (Montessori Eğitmeni korundu)"
+- "Feat: 8 yazı gizlendi (noindex), kademeli yayın altyapısı"
+
+**Push hash:** 2a97e9b (son commit)
+
+---
+
+### ⚠️ Bu sohbette eklenen kritik uyarılar:
+
+7. **"Eğitimci" tercihi** — yeni içeriklerde Hatice Hanım için "pedagog"
+   yerine "eğitimci" kullan. "Montessori Eğitmeni" ifadesi korunur.
+   "Pedagoji" bilimi yine kullanılır.
+
+8. **Kebab-case standardı** — yeni dosya isimleri boşluksuz, kebab-case.
+   URL'lerde %20 yok.
+
+9. **Blog yayın altyapısı** — bir yazıyı yayına alırken 4 yer değişir:
+   HTML robots meta, blog.html POSTS, sitemap.xml, gerekiyorsa diğer
+   yazıların RelatedPosts'ları. Hiçbiri unutulmamalı.
+
+10. **Kademeli yayın zorunlu** — 9 yazıyı bir günde Search Console'a
+    submit etmek "AI içerik şüphesi" doğurur. 2-3 gün arayla submit.
+
+11. **Hatice onayı olmadan submit yok** — Yayın takvimi (14 May - 3 Haz)
+    Hatice Hanım'ın 9 yazıyı okuyup onaylamasına bağlı.
+
+---
+
 ### 2026-05-09 — SEO genişletme oturumu (Anthropic Projects)
 
 **Yapılan:**
