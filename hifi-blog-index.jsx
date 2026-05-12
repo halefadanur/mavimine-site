@@ -4,10 +4,10 @@ const POSTS = [
   {
     color: 'orange',
     href: 'blog-kestel-anaokulu-secimi.html',
-    eyebrow: 'Velilere notlar · Pedagog gözüyle',
+    eyebrow: 'Velilere notlar · Eğitimci gözüyle',
     titleMain: "Kestel'de Anaokulu Seçerken",
     titleEm: 'dikkat edilecek 7 şey',
-    excerpt: "Bir pedagog ve veliden, Kestel'de anaokulu arayan velilere — sormaya cesaret edemediğiniz ama mutlaka düşünmeniz gereken 7 soru.",
+    excerpt: "Bir eğitimci ve veliden, Kestel'de anaokulu arayan velilere — sormaya cesaret edemediğiniz ama mutlaka düşünmeniz gereken 7 soru.",
     date: '12 Mayıs 2026',
     readMin: 8,
   },
@@ -17,14 +17,14 @@ const POSTS = [
     eyebrow: 'Gelişim · Velilere notlar',
     titleMain: 'Çocuğum Tuvaletini Tutamıyor',
     titleEm: 'anaokulda alışır mı?',
-    excerpt: 'Bezini bırakmamış çocuk için panik yapmadan ne yapmalı? "3 günde tuvalet eğitimi" yöntemi neden riskli? Pedagogtan ihtiyatlı rehber.',
+    excerpt: 'Bezini bırakmamış çocuk için panik yapmadan ne yapmalı? "3 günde tuvalet eğitimi" yöntemi neden riskli? Eğitimciden ihtiyatlı rehber.',
     date: '14 Mayıs 2026',
     readMin: 8,
   },
   {
     color: 'teal',
     href: 'blog-anaokulunda-steam.html',
-    eyebrow: 'Velilere notlar · Pedagog gözüyle',
+    eyebrow: 'Velilere notlar · Eğitimci gözüyle',
     titleMain: 'Anaokulunda STEAM',
     titleEm: 'ne işe yarar?',
     excerpt: "Bilim, teknoloji, mühendislik, sanat, matematik... Peki 3 yaşındaki çocuğa mühendislik nasıl öğretilir? Reklam STEAM'i ile gerçek STEAM arasındaki fark.",
@@ -114,7 +114,7 @@ function BlogIndexHero() {
           <em>notlar</em>
         </h1>
         <p>
-          Bir pedagog, üç nesil eğitimci aileden bir kurucu, iki çocuk annesi olarak
+          Üç nesil eğitimci bir aileden bir kurucu, iki çocuk annesi olarak
           velilere açtığım not defteri. Anaokulu seçimi, çocuk gelişimi, davranış desteği,
           21. yüzyıl becerileri, sevgi eğitimi... <strong>Soruları yanıtlamak değil; doğru
           soruları kazandırmak</strong> niyetiyle yazıyorum.

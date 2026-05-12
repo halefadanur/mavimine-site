@@ -98,7 +98,7 @@ function BlogHero() {
         <div className="blog-hero-meta">
           <span className="blog-author">Hatice Adanur Şahin</span>
           <span className="blog-dot">·</span>
-          <span>Pedagog, Mavi Mine Anaokulu Kurucusu</span>
+          <span>Eğitimci, Mavi Mine Anaokulu Kurucusu</span>
           <span className="blog-dot">·</span>
           <span>7 dakika okuma</span>
         </div>
@@ -112,7 +112,7 @@ function BlogIntro() {
     <section className="blog-intro">
       <div className="blog-intro-inner">
         <p>
-          Önce pedagog olarak <strong>net bir cevap vereyim: "doğru yaş" diye bir şey yok</strong>. Çocukların gelişimi takvimle değil, kendi içsel ritmiyle ilerler. Komşunun çocuğunun 2 yaşında başarılı olduğu okula sizin çocuğunuz 3 yaşında bile hazır olmayabilir. Tersi de doğru.
+          Önce eğitimci olarak <strong>net bir cevap vereyim: "doğru yaş" diye bir şey yok</strong>. Çocukların gelişimi takvimle değil, kendi içsel ritmiyle ilerler. Komşunun çocuğunun 2 yaşında başarılı olduğu okula sizin çocuğunuz 3 yaşında bile hazır olmayabilir. Tersi de doğru.
         </p>
         <p>
           Bu yazıda <strong>çocuğunuzun anaokuluna hazır olup olmadığını nasıl anlayacağınızı</strong> ve <strong>2 yaş ile 3 yaş kayıt arasındaki farkların</strong> ne olduğunu anlatacağım. Karar verirken bakacağınız 5 işareti vereceğim. Sonunda da kendinize bu kararı vermek için bir çerçeve oluşturacaksınız.
@@ -258,9 +258,9 @@ function AuthorCard() {
         <div className="author-text">
           <div className="section-label">Yazar</div>
           <h3>Hatice Adanur Şahin</h3>
-          <p className="author-role">Pedagog · Montessori Eğitmeni · Mavi Mine Anaokulu Kurucusu</p>
+          <p className="author-role">Eğitimci · Montessori Eğitmeni · Mavi Mine Anaokulu Kurucusu</p>
           <p>
-            Üç nesil eğitimci bir ailenin kurucusu, iki çocuk annesi. Kestel'de eğitime hayatını adamış bir pedagog.
+            Üç nesil eğitimci bir ailenin kurucusu, iki çocuk annesi. Kestel'de eğitime hayatını adamış bir eğitimci.
           </p>
         </div>
       </div>

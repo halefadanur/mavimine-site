@@ -38,7 +38,7 @@ const SEVEN_QUESTIONS = [
       'Kadronuz ne kadar süredir burada çalışıyor?',
       'Montessori, Reggio Emilia gibi yaklaşımlar uygulanıyor mu?'
     ],
-    bizden: "Mavi Mine'de altı öğretmenimiz ve yardımcı öğretmenlerimiz var. Kurucumuz Hatice Adanur Şahin Montessori eğitimi almış bir pedagog. Kadromuz üç nesil eğitimci bir aileden geliyor."
+    bizden: "Mavi Mine'de altı öğretmenimiz ve yardımcı öğretmenlerimiz var. Kurucumuz Hatice Adanur Şahin Montessori eğitimi almış bir eğitimci. Kadromuz üç nesil eğitimci bir aileden geliyor."
   },
   {
     color: 'rose',
@@ -122,21 +122,21 @@ function BlogHero() {
       </svg>
 
       <div className="blog-hero-inner">
-        <div className="section-label center">Velilere notlar · Pedagog gözüyle</div>
+        <div className="section-label center">Velilere notlar · Eğitimci gözüyle</div>
         <h1>
           Kestel'de Anaokulu Seçerken<br/>
           Dikkat Edilecek <em style={{ color: 'var(--orange)', fontStyle: 'normal', fontFamily: "'Caveat', cursive", fontSize: '1.15em' }}>7 Şey</em>
         </h1>
         <p className="blog-hero-sub handwritten" style={{ fontSize: 28, color: 'var(--teal-deep)', marginTop: 8 }}>
-          iki çocuk annesi, üç kuşak eğitimci bir pedagog
+          iki çocuk annesi, üç kuşak eğitimci bir aileden
         </p>
         <p className="blog-hero-lede">
-          Çocuğunuzu sabah uğurladığınızda kalbinizde küçük bir sızı oluyor mu? <em>"Acaba doğru yerde mi, mutlu mu, güvende mi?"</em> — bu sorular hepimizin sorularıdır. Ben de iki çocuk annesiyim; aynı zamanda üç nesil eğitimci bir ailenin kurucusu bir pedagog. Bu yazıyı, <strong>bir velinin sormaya cesaret edemediği ama mutlaka düşünmesi gereken</strong> 7 soru için yazdım.
+          Çocuğunuzu sabah uğurladığınızda kalbinizde küçük bir sızı oluyor mu? <em>"Acaba doğru yerde mi, mutlu mu, güvende mi?"</em> — bu sorular hepimizin sorularıdır. Ben de iki çocuk annesiyim; aynı zamanda üç nesil eğitimci bir ailenin kurucusu bir eğitimci. Bu yazıyı, <strong>bir velinin sormaya cesaret edemediği ama mutlaka düşünmesi gereken</strong> 7 soru için yazdım.
         </p>
         <div className="blog-hero-meta">
           <span className="blog-author">Hatice Adanur Şahin</span>
           <span className="blog-dot">·</span>
-          <span>Pedagog, Mavi Mine Anaokulu Kurucusu</span>
+          <span>Eğitimci, Mavi Mine Anaokulu Kurucusu</span>
           <span className="blog-dot">·</span>
           <span>8 dakika okuma</span>
         </div>
@@ -296,9 +296,9 @@ function AuthorCard() {
         <div className="author-text">
           <div className="section-label">Yazar</div>
           <h3>Hatice Adanur Şahin</h3>
-          <p className="author-role">Pedagog · Montessori Eğitmeni · Mavi Mine Anaokulu Kurucusu</p>
+          <p className="author-role">Eğitimci · Montessori Eğitmeni · Mavi Mine Anaokulu Kurucusu</p>
           <p>
-            Üç nesil eğitimci bir ailenin kurucusu, iki çocuk annesi. Kestel'de eğitime hayatını adamış bir pedagog.
+            Üç nesil eğitimci bir ailenin kurucusu, iki çocuk annesi. Kestel'de eğitime hayatını adamış bir eğitimci.
           </p>
         </div>
       </div>

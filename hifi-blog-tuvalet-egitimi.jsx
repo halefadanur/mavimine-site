@@ -30,7 +30,7 @@ const SECTIONS = [
   {
     color: 'orange',
     title: '"3 Günde Tuvalet Eğitimi" yöntemi: ne yazık ki çok riskli',
-    intro: 'Sosyal medyada "3 günde tuvalet eğitimi" yöntemi yıllardır dolaşıyor. <strong>Pedagog olarak söylüyorum: çocukların büyük bölümü için bu yöntem zarar verir.</strong>',
+    intro: 'Sosyal medyada "3 günde tuvalet eğitimi" yöntemi yıllardır dolaşıyor. <strong>Eğitimci olarak söylüyorum: çocukların büyük bölümü için bu yöntem zarar verir.</strong>',
     detail: 'Yöntemin özü şöyle: "3 gün boyunca çocuğun bezini çıkar, evden çıkmayın, sürekli yanında olun, her 15 dakikada tuvalete götürün." Bu, bir kısım hazır çocukta işe yarar gibi görünür — çünkü çocuk zaten hazırdı, sadece <em>fırsat verildi</em>. Ama hazır olmayan çocukta yarattığı baskı, ileride <strong>tuvalete gitme korkusu, kabızlık, idrar kaçırma sorunu</strong> olarak döner.',
     bullets: [
       'Hızlı bir başarı için çocuğunuzu yorucu bir 3 gün yaşatmaya değer mi?',
@@ -98,7 +98,7 @@ function BlogHero() {
         <div className="blog-hero-meta">
           <span className="blog-author">Hatice Adanur Şahin</span>
           <span className="blog-dot">·</span>
-          <span>Pedagog, Mavi Mine Anaokulu Kurucusu</span>
+          <span>Eğitimci, Mavi Mine Anaokulu Kurucusu</span>
           <span className="blog-dot">·</span>
           <span>8 dakika okuma</span>
         </div>
@@ -115,7 +115,7 @@ function BlogIntro() {
           Önce rahat bir nefes alın: <strong>3-4 yaş arası bezini bırakmamış olmak normaldir</strong>. Tıbbi bir sorun yoksa, her çocuğun kendi gelişim takvimi vardır. "Komşunun çocuğu 2 yaşında bıraktı" söylemleri kıyas üretir, kıyas baskı üretir, baskı geri adım atırır.
         </p>
         <p>
-          Bu yazıda <strong>tuvalet eğitiminde gerçek olanı</strong> anlatacağım. Sosyal medyada "3 günde tuvalet eğitimi" diye gezen yöntemler hakkında da konuşacağım — çünkü çoğu, çocuğa zarar veriyor. 25 yıllık pedagog tecrübemden, hem de iki çocuk annesi olarak bildiğim kadarıyla.
+          Bu yazıda <strong>tuvalet eğitiminde gerçek olanı</strong> anlatacağım. Sosyal medyada "3 günde tuvalet eğitimi" diye gezen yöntemler hakkında da konuşacağım — çünkü çoğu, çocuğa zarar veriyor. 25 yıllık eğitimci tecrübemden, hem de iki çocuk annesi olarak bildiğim kadarıyla.
         </p>
         <p>
           <em>Bir uyarı:</em> Bu yazı genel pedagojik bilgi içerir; çocuğunuzun durumu özelse mutlaka pediatrik bir uzmanla görüşün. Burada size <strong>doğru soruları sormak</strong> ve gereksiz kaygıdan kurtulmak için bir çerçeve sunuyorum, kişisel tıbbi tavsiye değil.
@@ -258,9 +258,9 @@ function AuthorCard() {
         <div className="author-text">
           <div className="section-label">Yazar</div>
           <h3>Hatice Adanur Şahin</h3>
-          <p className="author-role">Pedagog · Montessori Eğitmeni · Mavi Mine Anaokulu Kurucusu</p>
+          <p className="author-role">Eğitimci · Montessori Eğitmeni · Mavi Mine Anaokulu Kurucusu</p>
           <p>
-            Üç nesil eğitimci bir ailenin kurucusu, iki çocuk annesi. Kestel'de eğitime hayatını adamış bir pedagog.
+            Üç nesil eğitimci bir ailenin kurucusu, iki çocuk annesi. Kestel'de eğitime hayatını adamış bir eğitimci.
           </p>
         </div>
       </div>

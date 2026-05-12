@@ -97,7 +97,7 @@ function BlogHero() {
         <div className="blog-hero-meta">
           <span className="blog-author">Hatice Adanur Şahin</span>
           <span className="blog-dot">·</span>
-          <span>Pedagog, Mavi Mine Anaokulu Kurucusu</span>
+          <span>Eğitimci, Mavi Mine Anaokulu Kurucusu</span>
           <span className="blog-dot">·</span>
           <span>7 dakika okuma</span>
         </div>
@@ -114,7 +114,7 @@ function BlogIntro() {
           Anaokulu broşürlerinde "değerler eğitimi" diye bir başlık görmüşsünüzdür. Çoğu okul bu bölümün altına "saygı, sevgi, paylaşım" gibi kelimeleri sıralar. Peki bu kelimeler, gerçekte ne anlama geliyor? Sınıfta nasıl uygulanıyor?
         </p>
         <p>
-          Bu yazıda <strong>sevgi eğitimi denen şeyin gerçek ne olduğunu</strong> ve çocuğunuza ne kazandırdığını anlatacağım. Aşırı duygusal bir yazı bekleme — ben bir pedagogum, somut konuşurum. Ama sevgi öyle bir konu ki, somut konuşmak için biraz da kalbi kullanmak gerekiyor.
+          Bu yazıda <strong>sevgi eğitimi denen şeyin gerçek ne olduğunu</strong> ve çocuğunuza ne kazandırdığını anlatacağım. Aşırı duygusal bir yazı bekleme — ben bir eğitimciyim, somut konuşurum. Ama sevgi öyle bir konu ki, somut konuşmak için biraz da kalbi kullanmak gerekiyor.
         </p>
         <p>
           Hatice Adanur Şahin olarak benim için sevgi eğitimi, <em>MAVİ MİNE</em>'nin <strong>İ</strong> harfidir: İncelik. Söz incelir, dokunuş incelir, bakış incelir. Bu yazıyı okuduktan sonra okul gezisinde dikkat edeceğiniz şeyler değişecek — bunu vaat ederim.
@@ -257,9 +257,9 @@ function AuthorCard() {
         <div className="author-text">
           <div className="section-label">Yazar</div>
           <h3>Hatice Adanur Şahin</h3>
-          <p className="author-role">Pedagog · Montessori Eğitmeni · Mavi Mine Anaokulu Kurucusu</p>
+          <p className="author-role">Eğitimci · Montessori Eğitmeni · Mavi Mine Anaokulu Kurucusu</p>
           <p>
-            Üç nesil eğitimci bir ailenin kurucusu, iki çocuk annesi. Kestel'de eğitime hayatını adamış bir pedagog.
+            Üç nesil eğitimci bir ailenin kurucusu, iki çocuk annesi. Kestel'de eğitime hayatını adamış bir eğitimci.
           </p>
         </div>
       </div>

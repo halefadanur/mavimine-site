@@ -136,7 +136,7 @@ function BlogHero() {
         <div className="blog-hero-meta">
           <span className="blog-author">Hatice Adanur Şahin</span>
           <span className="blog-dot">·</span>
-          <span>Pedagog, Mavi Mine Anaokulu Kurucusu</span>
+          <span>Eğitimci, Mavi Mine Anaokulu Kurucusu</span>
           <span className="blog-dot">·</span>
           <span>9 dakika okuma</span>
         </div>
@@ -296,9 +296,9 @@ function AuthorCard() {
         <div className="author-text">
           <div className="section-label">Yazar</div>
           <h3>Hatice Adanur Şahin</h3>
-          <p className="author-role">Pedagog · Montessori Eğitmeni · Mavi Mine Anaokulu Kurucusu</p>
+          <p className="author-role">Eğitimci · Montessori Eğitmeni · Mavi Mine Anaokulu Kurucusu</p>
           <p>
-            Üç nesil eğitimci bir ailenin kurucusu, iki çocuk annesi. Kestel'de eğitime hayatını adamış bir pedagog.
+            Üç nesil eğitimci bir ailenin kurucusu, iki çocuk annesi. Kestel'de eğitime hayatını adamış bir eğitimci.
           </p>
         </div>
       </div>
