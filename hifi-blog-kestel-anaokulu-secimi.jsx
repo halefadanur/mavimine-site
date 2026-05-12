@@ -316,7 +316,7 @@ function App() {
       <BlogClosing />
       <BlogCTA />
       <FAQSection />
-      <RelatedPosts />
+      {/* <RelatedPosts /> -- diğer yazılar yayına alındıkça açılacak */}
       <AuthorCard />
       <FooterEl />
     </div>
