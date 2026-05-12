@@ -40,6 +40,7 @@ const NAV_PAGES = [
   { label: 'Kadro',    href: 'kadro.html',    color: 'grape' },
   { label: 'Bir Gün',  href: 'bir-gun.html',  color: 'sky'   },
   { label: 'Galeri',   href: 'galeri.html',   color: 'grass' },
+  { label: 'Blog',     href: 'blog.html',     color: 'grape' },
   { label: 'SSS',      href: 'sss.html',      color: 'sun'   },
   { label: 'İletişim', href: 'iletisim.html', color: 'coral' },
 ];
