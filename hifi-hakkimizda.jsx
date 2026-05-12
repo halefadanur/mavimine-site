@@ -189,6 +189,7 @@ function ProfileSection() {
             kimi sessizdir, gözlemler; kimi koşar, keşfeder; kimi şarkı söyler, kimi kitabıyla bir köşeye çekilir.
             Biz hiçbir çocuğu "olması gereken" bir şablona sığdırmaya çalışmayız.
             Tam tersine; her çocuğu <em>kendi haliyle</em> karşılar, <em>kendi hızıyla</em> büyütürüz.
+            Kestel'in tam göbeğinde, çocuğunuza ikinci bir yuva oluyoruz.
           </p>
         </div>
         <div className="profile-grid">

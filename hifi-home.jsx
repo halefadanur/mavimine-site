@@ -78,8 +78,8 @@ function Hero() {
           içindeki <span className="accent">mine.</span>
         </h1>
         <p className="hero-sub">
-          Mavi Mine; çocuğun sınırsız hayalini ve içindeki değeri merkeze alan,
-          sevgi verip sevgi alabilen,
+          Kestel'in göbeğinde, 900 m² bahçeli binamızda; çocuğun sınırsız hayalini
+          ve içindeki değeri merkeze alan, sevgi verip sevgi alabilen,
           <span className="scribble" style={{ color: 'var(--orange)', fontSize: '1.5em', marginLeft: 8 }}>
             mutlu çocuklar
           </span> yetiştiren bir anaokuludur.
@@ -387,7 +387,7 @@ function GardenStrip() {
           <div className="section-label">Bahçemiz</div>
           <h2>Dokuz yüz metrekare <em>açık hava sınıfı.</em></h2>
           <p>
-            Anaokulu olarak inşa edilmiş binamızın etrafında 900 m²'lik bir bahçe var.
+            Kestel'de anaokulu olarak inşa edilmiş binamızın etrafında 900 m²'lik bir bahçe var.
             Çocuklar her hava şartında dışarıda — koşar, tırmanır, toprağı eker, kelebek izler.
           </p>
           <p className="bubble">Çünkü en iyi sınıf, gökyüzünün altındadır 🌿</p>

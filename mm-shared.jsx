@@ -201,7 +201,7 @@ function FooterEl() {
             ['KEŞFET', [['Hakkımızda', 'hakkimizda.html'], ['Sınıflarımız', 'siniflarimiz.html'], ['Program', 'program.html'], ['Yaz Okulu', 'yaz-okulu.html'], ['Destek', 'destek.html'], ['Bir Gün', 'bir-gun.html'], ['Kadromuz', 'kadro.html']]],
             ['BAĞLAN', [['Başvuru', 'basvuru.html'], ['Galeri', 'galeri.html'], ['SSS', 'sss.html'], ['İletişim', 'iletisim.html']]],
             ['İLETİŞİM', [
-              ['Vanimehmet Mah. Şht. Mustafa Kurt Cd. No:48, Kestel/Bursa', '#'],
+              ['Vanimehmet Mah. Şht. Mustafa Kurt Cd. No:48, Kestel/Bursa', 'iletisim.html'],
               ['0505 323 41 35', 'tel:+905053234135'],
               ['merhaba@mavimine.com', 'mailto:merhaba@mavimine.com'],
               ['bilgi@mavimine.com', 'mailto:bilgi@mavimine.com'],
@@ -219,7 +219,7 @@ function FooterEl() {
         </div>
         <div style={{ paddingTop: 24, display: 'flex', justifyContent: 'space-between', fontSize: 12, color: 'rgba(255,251,242,0.55)' }}>
           <span>© 2026 Özel Mavi Mine Anaokulu</span>
-          <span className="mono">mavi · mine · Bursa</span>
+          <span className="mono">mavi · mine · Kestel / Bursa</span>
         </div>
       </div>
     </footer>
