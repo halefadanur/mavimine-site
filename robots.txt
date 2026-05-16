@@ -4,4 +4,4 @@ Disallow: /foto-envanter.html
 Disallow: /Mavi Mine Wireframes.html
 Disallow: /on-kayit-formu.html
 
-Sitemap: https://mavimine.com/sitemap.xml
+Sitemap: https://mavimine.com/sitemap-index.xml
