@@ -50,3 +50,6 @@ foto-envanter.html
 
 # Ham/orijinal fotoğraflar (optimize edilmemiş, canlıya gerek yok)
 mavimine_foto/
+
+# Lokal planlama/çalışma notları (deploy klasöründe MD olmaz)
+mavimine_reklam_durum_instagram_plan.md
