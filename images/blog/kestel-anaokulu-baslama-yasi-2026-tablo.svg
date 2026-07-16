@@ -1,0 +1,112 @@
+<svg viewBox="0 0 1000 860" xmlns="http://www.w3.org/2000/svg" font-family="Quicksand, 'Segoe UI', sans-serif">
+  <rect width="1000" height="860" rx="28" fill="#FFFBF2"/>
+
+  <!-- title -->
+  <text x="50" y="66" font-size="34" font-weight="700" fill="#0E8478">Çocuğunuz hangi grupta?</text>
+  <text x="50" y="102" font-size="20" fill="#6b7a80">Doğum ayına göre 2026-2027 yaş grupları</text>
+  <g transform="translate(760,40)">
+    <rect x="0" y="0" width="190" height="46" rx="14" fill="#0E8478"/>
+    <text x="95" y="29" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">Esas: 30 Eylül 2026</text>
+  </g>
+
+  <!-- header -->
+  <g transform="translate(0,130)">
+    <rect x="40" y="0" width="920" height="50" rx="12" fill="#243B45"/>
+    <text x="70" y="32" font-size="19" font-weight="700" fill="#fff">Doğum tarihi</text>
+    <text x="410" y="32" font-size="19" font-weight="700" fill="#fff">30 Eylül'de yaş</text>
+    <text x="620" y="32" font-size="19" font-weight="700" fill="#fff">Mavi Mine'de yeri</text>
+  </g>
+
+  <!-- rows -->
+  <g transform="translate(0,192)" font-size="18" fill="#243B45">
+    <!-- Row template: bg, color chip, three cols -->
+
+    <!-- 1 Minik Afacanlar / rose -->
+    <g transform="translate(0,0)">
+      <rect x="40" y="0" width="920" height="66" rx="10" fill="#FFF7E8"/>
+      <rect x="40" y="0" width="10" height="66" rx="5" fill="#EE7DA0"/>
+      <text x="70" y="40" font-weight="700">Ekim 2023 ve sonrası</text>
+      <text x="410" y="34">2 yaş</text>
+      <text x="410" y="55" font-size="14" fill="#6b7a80">24-36 ay</text>
+      <text x="620" y="30" font-weight="700" fill="#C24C77">Minik Afacanlar</text>
+      <text x="620" y="52" font-size="14" fill="#6b7a80">özel anaokulu olarak kabul edebiliyoruz</text>
+    </g>
+
+    <!-- 2 Meraklı Minikler / sun -->
+    <g transform="translate(0,74)">
+      <rect x="40" y="0" width="920" height="66" rx="10" fill="#FFFBF2"/>
+      <rect x="40" y="0" width="10" height="66" rx="5" fill="#F7C244"/>
+      <text x="70" y="40" font-weight="700">Ekim 2022 – Eylül 2023</text>
+      <text x="410" y="34">3 yaş</text>
+      <text x="410" y="55" font-size="14" fill="#6b7a80">36-47 ay</text>
+      <text x="620" y="40" font-weight="700" fill="#C98A17">Meraklı Minikler</text>
+    </g>
+
+    <!-- 3 Meraklı Minikler / sun -->
+    <g transform="translate(0,148)">
+      <rect x="40" y="0" width="920" height="66" rx="10" fill="#FFF7E8"/>
+      <rect x="40" y="0" width="10" height="66" rx="5" fill="#F7C244"/>
+      <text x="70" y="40" font-weight="700">Ekim 2021 – Eylül 2022</text>
+      <text x="410" y="34">4 yaş</text>
+      <text x="410" y="55" font-size="14" fill="#6b7a80">48-59 ay</text>
+      <text x="620" y="40" font-weight="700" fill="#C98A17">Meraklı Minikler</text>
+    </g>
+
+    <!-- 4 Gülen Yüzler / teal -->
+    <g transform="translate(0,222)">
+      <rect x="40" y="0" width="920" height="66" rx="10" fill="#FFFBF2"/>
+      <rect x="40" y="0" width="10" height="66" rx="5" fill="#0E8478"/>
+      <text x="70" y="40" font-weight="700">Nisan – Eylül 2021</text>
+      <text x="410" y="34">5 yaş</text>
+      <text x="410" y="55" font-size="14" fill="#6b7a80">60-65 ay</text>
+      <text x="620" y="30" font-weight="700" fill="#0E8478">Gülen Yüzler</text>
+      <text x="620" y="52" font-size="14" fill="#6b7a80">anasınıfı yaşı</text>
+    </g>
+
+    <!-- 5 Gülen Yüzler / teal + ilkokul opsiyon -->
+    <g transform="translate(0,296)">
+      <rect x="40" y="0" width="920" height="66" rx="10" fill="#FFF7E8"/>
+      <rect x="40" y="0" width="10" height="66" rx="5" fill="#0E8478"/>
+      <text x="70" y="40" font-weight="700">Ocak – Mart 2021</text>
+      <text x="410" y="34">5-6 yaş</text>
+      <text x="410" y="55" font-size="14" fill="#6b7a80">66-68 ay</text>
+      <text x="620" y="30" font-weight="700" fill="#0E8478">Gülen Yüzler</text>
+      <text x="620" y="52" font-size="14" fill="#6b7a80">isterseniz ilkokula da geçebilir</text>
+    </g>
+
+    <!-- 6 Gülen Yüzler / teal + dilekçe -->
+    <g transform="translate(0,370)">
+      <rect x="40" y="0" width="920" height="66" rx="10" fill="#FFFBF2"/>
+      <rect x="40" y="0" width="10" height="66" rx="5" fill="#0E8478"/>
+      <text x="70" y="40" font-weight="700">Ekim – Aralık 2020</text>
+      <text x="410" y="34">5-6 yaş</text>
+      <text x="410" y="55" font-size="14" fill="#6b7a80">69-71 ay</text>
+      <text x="620" y="30" font-weight="700" fill="#0E8478">Gülen Yüzler</text>
+      <text x="620" y="52" font-size="14" fill="#6b7a80">dilekçeyle bir yıl daha anaokulu</text>
+    </g>
+
+    <!-- 7 ilkokul / gray -->
+    <g transform="translate(0,444)">
+      <rect x="40" y="0" width="920" height="66" rx="10" fill="#F4EEE2"/>
+      <rect x="40" y="0" width="10" height="66" rx="5" fill="#B9A98C"/>
+      <text x="70" y="40" font-weight="700" fill="#5b5344">Nisan – Eylül 2020</text>
+      <text x="410" y="34" fill="#5b5344">6 yaş</text>
+      <text x="410" y="55" font-size="14" fill="#8a8071">72-77 ay</text>
+      <text x="620" y="30" font-weight="700" fill="#5b5344">Genelde ilkokul</text>
+      <text x="620" y="52" font-size="14" fill="#8a8071">rapora bağlı anaokulu olabilir</text>
+    </g>
+
+    <!-- 8 ilkokul / gray -->
+    <g transform="translate(0,518)">
+      <rect x="40" y="0" width="920" height="66" rx="10" fill="#EFE8DA"/>
+      <rect x="40" y="0" width="10" height="66" rx="5" fill="#B9A98C"/>
+      <text x="70" y="40" font-weight="700" fill="#5b5344">Ocak – Mart 2020</text>
+      <text x="410" y="34" fill="#5b5344">6 yaş</text>
+      <text x="410" y="55" font-size="14" fill="#8a8071">78-80 ay</text>
+      <text x="620" y="40" font-weight="700" fill="#5b5344">Bu yıl ilkokul zamanı</text>
+    </g>
+  </g>
+
+  <!-- footnote -->
+  <text x="50" y="838" font-size="15" fill="#6b7a80">Sınır aylarda mısınız? WhatsApp'tan doğum tarihini yazın: 0505 323 41 35</text>
+</svg>
