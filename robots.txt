@@ -1,7 +1,13 @@
 User-agent: *
 Allow: /
+
+# Site .html -> uzantisiz 308 yonlendiriyor; kanonik adres uzantisiz olan.
+# robots.txt yol eslesmesi birebir oldugu icin HER IKI bicim de listelenir.
 Disallow: /foto-envanter.html
+Disallow: /foto-envanter
 Disallow: /Mavi Mine Wireframes.html
+Disallow: /Mavi Mine Wireframes
 Disallow: /on-kayit-formu.html
+Disallow: /on-kayit-formu
 
 Sitemap: https://mavimine.com/sitemap-index.xml
